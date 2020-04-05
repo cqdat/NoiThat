@@ -10,7 +10,6 @@ namespace NoiThat.Controllers
     {
         public ActionResult Index()
         { 
-            
             return View();
         }
 

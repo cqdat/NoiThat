@@ -1,4 +1,4 @@
-namespace NoiThat.Models
+namespace NoiThat.Models.DataModels
 {
     using System;
     using System.Data.Entity;

@@ -132,26 +132,26 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Advertise.cs" />
-    <Compile Include="Models\Blog.cs" />
-    <Compile Include="Models\BlogComment.cs" />
-    <Compile Include="Models\Category.cs" />
-    <Compile Include="Models\Customer.cs" />
-    <Compile Include="Models\CustomerContact.cs" />
-    <Compile Include="Models\Information.cs" />
-    <Compile Include="Models\MenuImage.cs" />
-    <Compile Include="Models\Permission.cs" />
-    <Compile Include="Models\PermissionRole.cs" />
-    <Compile Include="Models\Product.cs" />
-    <Compile Include="Models\ProductGroup.cs" />
-    <Compile Include="Models\ProductImage.cs" />
-    <Compile Include="Models\ProductRating.cs" />
-    <Compile Include="Models\ProductTab.cs" />
-    <Compile Include="Models\Role.cs" />
-    <Compile Include="Models\RolesUser.cs" />
-    <Compile Include="Models\Slide.cs" />
-    <Compile Include="Models\TanThoiEntities.cs" />
-    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\DataModels\Advertise.cs" />
+    <Compile Include="Models\DataModels\Blog.cs" />
+    <Compile Include="Models\DataModels\BlogComment.cs" />
+    <Compile Include="Models\DataModels\Category.cs" />
+    <Compile Include="Models\DataModels\Customer.cs" />
+    <Compile Include="Models\DataModels\CustomerContact.cs" />
+    <Compile Include="Models\DataModels\Information.cs" />
+    <Compile Include="Models\DataModels\MenuImage.cs" />
+    <Compile Include="Models\DataModels\Permission.cs" />
+    <Compile Include="Models\DataModels\PermissionRole.cs" />
+    <Compile Include="Models\DataModels\Product.cs" />
+    <Compile Include="Models\DataModels\ProductGroup.cs" />
+    <Compile Include="Models\DataModels\ProductImage.cs" />
+    <Compile Include="Models\DataModels\ProductRating.cs" />
+    <Compile Include="Models\DataModels\ProductTab.cs" />
+    <Compile Include="Models\DataModels\Role.cs" />
+    <Compile Include="Models\DataModels\RolesUser.cs" />
+    <Compile Include="Models\DataModels\Slide.cs" />
+    <Compile Include="Models\DataModels\TanThoiEntities.cs" />
+    <Compile Include="Models\DataModels\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

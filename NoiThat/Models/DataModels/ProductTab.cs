@@ -1,4 +1,4 @@
-namespace NoiThat.Models
+namespace NoiThat.Models.DataModels
 {
     using System;
     using System.Collections.Generic;
@@ -6,22 +6,20 @@ namespace NoiThat.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("ProductImage")]
-    public partial class ProductImage
+    [Table("ProductTab")]
+    public partial class ProductTab
     {
         [Key]
-        public int ImageID { get; set; }
+        public int TabID { get; set; }
 
         public int? ProductID { get; set; }
 
         [StringLength(100)]
-        public string Title { get; set; }
+        public string TabTitle { get; set; }
 
-        [StringLength(100)]
-        public string URLImage { get; set; }
+        public string TabContent { get; set; }
 
-        [StringLength(100)]
-        public string ImagesThumb { get; set; }
+        public bool? IsActive { get; set; }
 
         public DateTime? Created { get; set; }
 
