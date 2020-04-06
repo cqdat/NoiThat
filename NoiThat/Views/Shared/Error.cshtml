@@ -1,13 +1,29 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Error</title>
-</head>
-<body>
-    <hgroup>
-        <h1>Error.</h1>
-        <h2>An error occurred while processing your request.</h2>
-    </hgroup>
-</body>
-</html>
+﻿@*<!DOCTYPE html>
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Error</title>
+    </head>
+    <body>
+        <hgroup>
+            <h1>Error.</h1>
+            <h2>An error occurred while processing your request.</h2>
+        </hgroup>
+    </body>
+    </html>*@
+
+
+@{
+    ViewBag.Title = "Not Found";
+}
+<section class="content-wrapper">
+    <div class="container">
+        <div class="std">
+            <div class="page-not-found">
+                <h2>404</h2>
+                <h3><img src="~/images/signal.png">Sorry! Không tìm thấy trang mong muốn!</h3>
+                <div><a href="/" type="button" class="btn-home"><span>Trở lại trang chủ</span></a></div>
+            </div>
+        </div>
+    </div>
+</section>

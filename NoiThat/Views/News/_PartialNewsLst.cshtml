@@ -1,0 +1,76 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@using NoiThat.Models.DataModels
+@using NoiThat.Utilities;
+@model IPagedList<NoiThat.Models.DataModels.Blog>
+@{
+    Helpers h = new Helpers();
+}
+<div class="posts-isotope row">
+    <!-- Blog post -->
+    <div class="col-sm-6 col-md-6">
+        @foreach (var i in Model)
+        {
+            <article class="container-paper-table">
+                <div class="title">
+                    <h2 class="entry-title"><a href="blog_single_post.html">@i.BlogName</a></h2>
+                </div>
+                <div class="post-container">
+                    <a href="blog_single_post.html"><img class="img-responsive" src="~/images/blog-img3.jpg" alt=""></a>
+                    <div class="text">
+                        <ul class="list-info">
+                            <li><span class="icon-user">&nbsp;</span>By @i.User.UserName</li>
+                            <li><span class="icon-time">&nbsp;</span>Lúc @Convert.ToDateTime(i.LastModify).ToString(WebConstants.DateFormatVI)</li>
+                        </ul>
+                        <p class="post-excerpt">
+                            @i.Descript
+                        </p>
+                        <a href="#" class="btn btn-mega">Read more &nbsp; <span class="icon icon-arrow-right-5"></span></a>
+                        <ul class="list-info">
+                            <li><span class="icon-eye-open">&nbsp;</span>@i.CountView Views</li>
+                            <li><span class="icon-comments">&nbsp;</span><a href="#">3 Comments</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+        }
+        <div class="dataTables_paginate paging_bootstrap_full_number pull-right" id="sample_1_paginate">
+            @Html.PagedListPager(Model, pageNumber => Url.Action("_PartialNewsLst",
+               new
+               {
+                   pageNumber,
+                   pageSize = ViewBag.pageSize,
+                   SanPham = ViewBag.SanPham,
+                   DanhMucCha = ViewBag.DanhMucCha,
+                   SEOKeywords = ViewBag.SEOKeywords
+               }),
+                PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(
+                new PagedListRenderOptions()
+                {
+                    Display = PagedListDisplayMode.IfNeeded,
+                    DisplayItemSliceAndTotal = true
+                }, new AjaxOptions()
+                {
+                    HttpMethod = "GET",
+                    InsertionMode = InsertionMode.Replace,
+                    UpdateTargetId = "season-list"
+                }))
+        </div>
+
+        <div class="dataTables_info" id="sample_1_info" role="status" aria-live="polite"></div>
+    </div>
+    <!-- //end Blog post -->
+    
+    <!-- //end Blog post -->
+    <!-- Pagination -->
+    
+    @*<ul class="pagination">
+        <li><a href="#">«</a></li>
+        <li class="active"><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">»</a></li>
+    </ul>*@
+    <!-- //end Pagination -->
+</div>

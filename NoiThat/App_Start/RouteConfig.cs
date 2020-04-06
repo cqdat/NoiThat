@@ -14,10 +14,19 @@ namespace NoiThat
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             //create new route About Us
             routes.MapRoute(
+                name: "News",
+                url: "tin-tuc/{url}-{id}",
+                defaults: new { controller = "Index", action = "News", id = UrlParameter.Optional }
+            );
+            //create new route About Us
+            routes.MapRoute(
                 name: "AboutUs",
                 url: "{url}-{id}",
                 defaults: new { controller = "Home", action = "About", id = UrlParameter.Optional }
             );
+
+            
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

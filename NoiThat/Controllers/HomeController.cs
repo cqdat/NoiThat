@@ -66,7 +66,7 @@ namespace NoiThat.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View("NotFound","Home");
             }
             AboutUsViewModel model = new AboutUsViewModel();
             model.aboutus = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogAboutUs && b.BlogID == id && b.IsActive == true).FirstOrDefault();
@@ -78,6 +78,12 @@ namespace NoiThat.Controllers
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+        public ActionResult NotFound()
+        {
+            ViewBag.Message = "Không tìm thấy trang như ý muốn của bạn!";
 
             return View();
         }

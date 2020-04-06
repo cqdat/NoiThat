@@ -22,10 +22,10 @@
                             <option value="0">Tất cả sản phẩm</option>
                             @foreach (var i in Model.lstCategories)
                             {
-                                foreach (var j in h.lstGetChildMenu(i.CategoryID))
-                                {
-                                    <option value="@i.CategoryID">@j.CategoryName</option>
-                                }
+                                //foreach (var j in h.lstGetChildMenu(i.CategoryID))
+                                //{
+                                    <option value="@i.CategoryID">@i.CategoryName</option>
+                                //}
 
                             }
 

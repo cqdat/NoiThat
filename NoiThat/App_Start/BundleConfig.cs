@@ -20,6 +20,7 @@ namespace NoiThat
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+                      //"~/Scripts/jquery.unobtrusive-ajax.min.js",
                       "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
@@ -28,6 +29,7 @@ namespace NoiThat
                       "~/css/revslider.css",
                       "~/css/owl.carousel.css",
                       "~/css/owl.theme.css",
+                      "~/css/blogmate.css",
                       "~/css/font-awesome.css"));
         }
     }
