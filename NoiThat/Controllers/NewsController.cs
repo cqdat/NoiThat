@@ -43,5 +43,19 @@ namespace NoiThat.Controllers
             }
             return View(lstnews.ToList().ToPagedList(pageNumber ?? 1, pageSize ?? 2));
         }
+
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return View("NotFound", "Home");
+            }
+
+            NewsViewModel model = new NewsViewModel();
+            model.blogdetail = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogNews && b.BlogID == id && b.IsActive == true).FirstOrDefault();
+            model.lstBlogs = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogNews).OrderBy(c => c.Sort).ToList();
+            ViewBag.Title = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogAboutUs && b.BlogID == 3 && b.IsActive == true).FirstOrDefault().BlogName;
+            return View(model);
+        }
     }
 }

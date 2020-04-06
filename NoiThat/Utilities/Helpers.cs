@@ -143,5 +143,21 @@ namespace NoiThat.Utilities
             return data.Substring(0, data.Length - 2);
         }
 
+        public static string ReplaceString (string source, string oldsrt, string newsrt)
+        {
+            string rst = "";
+            int pos = source.IndexOf(oldsrt);
+            if (pos >= 0)
+            {
+                // String after founder
+                rst = source.Replace(oldsrt, newsrt);
+            }
+            else
+            {
+                rst = source;
+            }
+            return rst;
+        }
+
     }
 }

@@ -1,9 +1,11 @@
-﻿@using System.Configuration;
+﻿@using System.Configuration
 @using NoiThat.Models
+@using NoiThat.Utilities
 @model AboutUsViewModel
+
 @{
     ViewBag.Title = Model.aboutus.BlogName;
-
+    Helpers h = new Helpers();
 }
 @section metatags
 {
@@ -28,7 +30,7 @@
                     <h2>@Model.aboutus.BlogName</h2>
                 </div>
                 <div class="static-contain">
-                    @{
+                    @*@{
                         string founder = Model.aboutus.Content;
                         string afterFounder = "";
                         int pos = founder.IndexOf(ConfigurationManager.AppSettings["CKImgFinderLocal"]);
@@ -41,8 +43,9 @@
                         {
                             afterFounder = founder;
                         }
-                    }
-                    @Html.Raw(afterFounder)
+                    }*@
+                    @*@Helpers.ReplaceString(ConfigurationManager.AppSettings["CKImgFinderLocal"], ConfigurationManager.AppSettings["CKImgFinderHost"])*@
+                    @Html.Raw(@Helpers.ReplaceString(Model.aboutus.Content, ConfigurationManager.AppSettings["CKImgFinderLocal"], ConfigurationManager.AppSettings["CKImgFinderHost"]))
                 </div>
             </section>
             <aside class="col-right sidebar col-sm-3 wow">

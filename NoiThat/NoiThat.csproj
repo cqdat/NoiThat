@@ -164,6 +164,7 @@
     <Compile Include="Models\HeaderViewModel.cs" />
     <Compile Include="Models\IndexViewModel.cs" />
     <Compile Include="Models\MenuViewModel.cs" />
+    <Compile Include="Models\NewsViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\Helpers.cs" />
     <Compile Include="Utilities\WebConstants.cs" />
@@ -355,6 +356,7 @@
     <Content Include="Views\Home\NotFound.cshtml" />
     <Content Include="Views\News\Index.cshtml" />
     <Content Include="Views\News\_PartialNewsLst.cshtml" />
+    <Content Include="Views\News\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
