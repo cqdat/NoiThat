@@ -1,7 +1,7 @@
 ﻿@using NoiThat.Models
 @model IndexViewModel
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Nội thất Tân Thời";
 }
 <!-- Slider -->
 @Html.Partial("_slideHomePage", Model.lstSlideHomePage)
@@ -1403,3 +1403,17 @@
     </div>
 </section>
 <!-- End Featured Slider -->
+
+
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+
+            $(".level0 a").removeClass("active");
+            $(".level0:first-child a").addClass("active");
+
+        });
+    </script>
+}
