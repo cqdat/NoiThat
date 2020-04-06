@@ -1,7 +1,68 @@
-﻿@{
-    ViewBag.Title = "About";
-}
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+﻿@using System.Configuration;
+@using NoiThat.Models
+@model AboutUsViewModel
+@{
+    ViewBag.Title = Model.aboutus.BlogName;
 
-<p>Use this area to provide additional information.</p>
+}
+@section metatags
+{
+    <meta name="keywords" content="@Model.aboutus.SEOKeywords" />
+    <meta name="description" content="@Model.aboutus.SEOMetadescription" />
+}
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <ul>
+                <li class="home"> <a title="Go to Home Page" href="/">Trang chủ</a><span>—›</span></li>
+                <li class="category13"><strong>@Model.aboutus.BlogName</strong></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="main-container col2-right-layout">
+    <div class="main container">
+        <div class="row">
+            <section class="col-main col-sm-9 wow">
+                <div class="page-title">
+                    <h2>@Model.aboutus.BlogName</h2>
+                </div>
+                <div class="static-contain">
+                    @{
+                        string founder = Model.aboutus.Content;
+                        string afterFounder = "";
+                        int pos = founder.IndexOf(ConfigurationManager.AppSettings["CKImgFinderLocal"]);
+                        if (pos >= 0)
+                        {
+                            // String after founder
+                            afterFounder = founder.Replace(ConfigurationManager.AppSettings["CKImgFinderLocal"], ConfigurationManager.AppSettings["CKImgFinderHost"]);
+                        }
+                        else
+                        {
+                            afterFounder = founder;
+                        }
+                    }
+                    @Html.Raw(afterFounder)
+                </div>
+            </section>
+            <aside class="col-right sidebar col-sm-3 wow">
+                <div class="block block-company">
+                    <div class="block-title">Về chúng tôi </div>
+                    <div class="block-content">
+                        <ol id="recently-viewed-items">
+                            @foreach (var i in Model.lstLeftMenu)
+                            {
+                                <li class="item even"><a href="/@i.SEOUrlRewrite-@i.BlogID">@i.BlogName</a></li>
+                            }
+                            @*<li class="item odd"><strong>About Us</strong></li>
+
+                                <li class="item  odd"><a href="#">Terms of Service</a></li>
+                                <li class="item even"><a href="#">Search Terms</a></li>
+                                <li class="item last"><a href="#">Contact Us</a></li>*@
+                        </ol>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+</div>

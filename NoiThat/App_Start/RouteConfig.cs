@@ -12,12 +12,19 @@ namespace NoiThat
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-
+            //create new route About Us
+            routes.MapRoute(
+                name: "AboutUs",
+                url: "{url}-{id}",
+                defaults: new { controller = "Home", action = "About", id = UrlParameter.Optional }
+            );
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+            
         }
     }
 }

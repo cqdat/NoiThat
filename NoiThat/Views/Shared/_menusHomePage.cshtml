@@ -1,0 +1,256 @@
+﻿@using NoiThat.Models
+@using NoiThat.Models.DataModels
+@using NoiThat.Utilities
+@model MenuViewModel
+@{
+    Helpers h = new Helpers();
+}
+
+<nav>
+    <div class="container">
+        <div class="nav-inner">
+
+            <!-- mobile-menu -->
+            <div class="hidden-desktop" id="mobile-menu">
+                <ul class="navmenu">
+                    <li>
+                        <div class="menutop">
+                            <div class="toggle"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></div>
+                            <h2>Menu</h2>
+                        </div>
+                        <ul style="display:none;" class="submenu">
+                            <li>
+                                <ul class="topnav">
+                                    <li class="level0 nav-6 level-top first parent">
+                                        <a class="level-top" href="/"> <span>Trang chủ</span> </a>
+                                    </li>
+                                    <li class="level0 nav-6 level-top first parent">
+                                        <a class="level-top" href="/@ViewBag.URLGioiThieu"> <span>Giới Thiệu</span> </a>
+                                    </li>
+                                    <li class="level0 nav-6 level-top">
+                                        <a class="level-top" href="#"> <span>Sản Phẩm</span> </a>
+                                        <ul class="level0">
+                                            @{ foreach (var q in Model.menu_lstProducts)
+                                                {
+                                                    <li class="level1 first parent">
+                                                        <a href="checkout.html"><span>@q.CategoryName</span></a>
+                                                        <ul class="level2">
+                                                            @foreach (var j in h.lstGetChildMenu(q.CategoryID))
+                                                            {
+                                                                <li class="level2 nav-2-1-1 first"><a href="#"><span>@j.CategoryName</span></a></li>
+                                                            }
+                                                        </ul>
+                                                    </li>
+                                                }
+                                            }
+
+
+                                        </ul>
+                                    </li>
+                                    @*Bộ sưu tập*@
+                                    <li class="level0 nav-6 level-top">
+                                        <a class="level-top" href="#"> <span>Bộ Sưu tập</span> </a>
+                                        <ul class="level0">
+                                            @foreach (var k in Model.menu_lstCollections)
+                                            {
+                                                <li class="level1 first parent">
+                                                    <a href="checkout.html"><span>@k.CategoryName</span></a>
+                                                    <ul class="level2">
+                                                        @foreach (var i in h.lstGetChildMenu(k.CategoryID))
+                                                        {
+                                                            <li class="level2 nav-2-1-1 first">
+                                                                <a href="checkout_method.html">
+                                                                    <span>@i.CategoryName</span>
+                                                                </a>
+                                                            </li>
+                                                        }
+
+                                                    </ul>
+                                                </li>
+                                            }
+
+
+                                        </ul>
+                                    </li>
+
+                                    <li class="level0 parent drop-menu">
+                                        <a href="blog.html"><span>Dịch Vụ</span> </a>
+                                        <ul class="level1">
+                                            <li class="level1 first"><a href="blog_posts_table_view.html"><span>Table View</span></a></li>
+                                            <li class="level1 nav-10-2"> <a href="blog_single_post.html"> <span>Single Post</span> </a> </li>
+                                        </ul>
+                                    </li>
+                                    <li class="level0 parent drop-menu">
+                                        <a href="blog.html"><span>Tư vấn - Thiết kế</span> </a>
+                                        <ul class="level1">
+                                            @foreach (var l in Model.menu_lstTuVanDichVu)
+                                            {
+                                                <li class="level1 first"><a href="blog_posts_table_view.html"><span>@l.CategoryName</span></a></li>
+                                            }
+
+                                        </ul>
+                                    </li>
+                                    <li class="level0 nav-9 level-top last parent "> <a class="level-top" href="contact.html"> <span>Liên hệ</span> </a> </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <!--navmenu-->
+            </div>
+            <!--End mobile-menu -->
+
+            <a class="logo-small" title="Magento Commerce" href="index.html"><img alt="Magento Commerce" src="~/images/LogoTT-small.png"></a>
+            <ul id="nav" class="hidden-xs">
+                <li class="level0 parent drop-menu">
+                    <a href="/" class="active"><span>Trang chủ</span> </a>
+
+                </li>
+                <li class="level0 parent drop-menu">
+                    <a href="/@ViewBag.URLGioiThieu"><span>Giới thiệu</span> </a>
+
+                </li>
+                @*Sản phẩm*@
+                <li class="level0 nav-5 level-top first">
+                    <a href="grid.html" class="level-top"> <span>Sản phẩm</span> </a>
+                    <div class="level0-wrapper dropdown-6col" style="display:none;">
+                        <div class="level0-wrapper2">
+                            <div class="nav-block nav-block-center grid12-8 itemgrid itemgrid-4col">
+                                <ul class="level0">
+                                    @foreach (var m in Model.menu_lstProducts)
+                                    {
+                                        <li class="level1 nav-6-1 parent item">
+                                            <a href="grid.html"><span>@m.CategoryName</span></a>
+                                            <!--sub sub category-->
+                                            <ul class="level1">
+                                                @foreach (var j in h.lstGetChildMenu(m.CategoryID))
+                                                {
+                                                    <li class="level2 nav-6-1-1"> <a href="#"><span>@j.CategoryName</span></a> </li>
+                                                }
+
+                                            </ul>
+                                            <!--sub sub category-->
+                                        </li>
+                                    }
+
+                                </ul>
+                                <div class="nav-add">
+                                    <div class="push_item1">
+                                        <div class="push_img"> <a href="#"> <img alt="women jwellery" src="~/images/women-cate-banner.jpg"> </a> </div>
+                                    </div>
+                                    <div class="push_item1">
+                                        <div class="push_img"> <a href="#"> <img alt="women_jwellery" src="~/images/women-cate-banner1.jpg"> </a> </div>
+                                    </div>
+                                    <div class="push_item1 push_item1_last">
+                                        <div class="push_img"> <a href="#"> <img alt="women_bag" src="~/images/women-cate-banner2.jpg"> </a> </div>
+                                    </div>
+                                    <br class="clear">
+                                </div>
+                            </div>
+                            <!--nav-block nav-block-center-->
+                            <div class="nav-block nav-block-right std grid12-4">
+                                <p><a href="#"><img class="fade-on-hover" src="~/images/nav-women-banner.jpg" alt="nav img"></a></p>
+                            </div>
+                            <!--nav-block nav-block-right std grid12-4-->
+                        </div>
+                    </div>
+                </li>
+
+                @*Bộ Sưu Tập*@
+                <li class="level0 nav-7 level-top parent">
+                    <a href="grid.html" class="level-top"> <span>Bộ Sưu Tập</span> </a>
+                    <div class="level0-wrapper dropdown-6col" style="display: none;">
+                        <div class="level0-wrapper2">
+                            <!--nav-block nav-block-center-->
+                            <div class="nav-block nav-block-left std grid12-6">
+                                <p><a href="#"><img class="fade-on-hover" src="~/images/nav-men-banner.jpg" alt="nav img"></a></p>
+                            </div>
+                            <!--nav-block nav-block-right std grid12-4-->
+
+                            <div class="nav-block nav-block-center grid12-8 itemgrid itemgrid-4col">
+                                <ul class="level0">
+
+                                    @foreach (var k in Model.menu_lstCollections)
+                                    {
+                                        <li class="level1 nav-6-1 parent item">
+                                            <a href="grid.html"><span>@k.CategoryName</span></a>
+                                            <!--sub sub category-->
+                                            <ul class="level1">
+                                                @foreach (var j in h.lstGetChildMenu(k.CategoryID))
+                                                {
+                                                    <li class="level2 nav-6-1-1"> <a href="grid.html"><span>@j.CategoryName</span></a> </li>
+                                                }
+                                            </ul>
+                                            <!--sub sub category-->
+                                        </li>
+                                    }
+
+                                </ul>
+                                <div class="nav-add">
+                                    <div class="push_item">
+                                        <div class="push_img"> <a href="#"> <img alt="women_jwellery" src="~/images/men-banner-img.jpg"> </a> </div>
+                                    </div>
+                                    <div class="push_item last">
+                                        <div class="push_img"> <a href="#"> <img alt="women_jwellery" src="~/images/men-banner-img1.jpg"> </a> </div>
+                                    </div>
+                                    <br class="clear">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="level0 parent drop-menu">
+                    <a href="/Home/Contact/"><span>Dịch Vụ</span> </a>
+                    <ul style="display: none;" class="level1">
+                        <li class="level1 first"><a href="blog_posts_table_view.html"><span>Thiết kế nội thất</span></a> </li>
+                        <li class="level1 parent"><a href="blog_single_post.html"><span>Thi Công Nội thất</span></a> </li>
+
+                    </ul>
+                </li>
+
+                @*Dịch vụ - Tư vấn*@
+                <li class="level0 parent drop-menu">
+                    <a href="/Home/Contact/"><span>Tin Tức - Tư vấn</span> </a>
+                    <ul style="display: none;" class="level1">
+                        @foreach (var f in Model.menu_lstTuVanDichVu)
+                        {
+                            <li class="level1 first"><a href="blog_posts_table_view.html"><span>@f.CategoryName</span></a> </li>
+                        }
+
+                    </ul>
+                </li>
+                <li class="level0 parent drop-menu">
+                    <a href="/Home/Contact/"><span>Liên hệ</span> </a>
+
+                </li>
+                <li class="nav-custom-link level0 level-top parent">
+                    <a class="level-top" href="#"><span>Custom</span></a>
+                    <div class="level0-wrapper custom-menu" style="left: 0px; display: none;">
+                        <div class="header-nav-dropdown-wrapper clearer">
+                            <div class="grid12-5">
+                                <div class="custom_img"><a href="#"><img src="~/images/custom-img1.jpg" alt="custom img1"></a></div>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue.</p>
+                                <button class="learn_more_btn" title="Add to Cart" type="button"><span>Learn More</span></button>
+                            </div>
+                            <div class="grid12-5">
+                                <div class="custom_img"><a href="#"><img src="~/images/custom-img2.jpg" alt="custom img2"></a></div>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue.</p>
+                                <button class="learn_more_btn" title="Add to Cart" type="button"><span>Learn More</span></button>
+                            </div>
+                            <div class="grid12-5">
+                                <div class="custom_img"><a href="#"><img src="~/images/custom-img3.jpg" alt="custom img3"></a></div>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue.</p>
+                                <button class="learn_more_btn" title="Add to Cart" type="button"><span>Learn More</span></button>
+                            </div>
+                            <div class="grid12-5">
+                                <div class="custom_img"><a href="#"><img src="~/images/custom-img4.jpg" alt="custom img4"></a></div>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue.</p>
+                                <button class="learn_more_btn" title="Add to Cart" type="button"><span>Learn More</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
