@@ -25,7 +25,19 @@ namespace NoiThat
                 defaults: new { controller = "Home", action = "About", id = UrlParameter.Optional }
             );
 
-            
+            routes.MapRoute(
+               name: "product",
+               url: "san-pham/tat-ca",
+               defaults: new { controller = "category", action = "index", id = UrlParameter.Optional }
+           );
+
+            routes.MapRoute(
+               name: "product2",
+               url: "san-pham/{url}-{id}",
+               defaults: new { controller = "category", action = "list", id = UrlParameter.Optional }
+           );
+
+
 
             routes.MapRoute(
                 name: "Default",

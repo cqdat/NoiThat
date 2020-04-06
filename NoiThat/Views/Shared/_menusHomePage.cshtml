@@ -28,16 +28,16 @@
                                         <a class="level-top" href="/@ViewBag.URLGioiThieu"> <span>Giới Thiệu</span> </a>
                                     </li>
                                     <li class="level0 nav-6 level-top">
-                                        <a class="level-top" href="#"> <span>Sản Phẩm</span> </a>
+                                        <a class="level-top" href="/san-pham/tat-ca"> <span>Sản Phẩm</span> </a>
                                         <ul class="level0">
                                             @{ foreach (var q in Model.menu_lstProducts)
                                                 {
                                                     <li class="level1 first parent">
-                                                        <a href="checkout.html"><span>@q.CategoryName</span></a>
+                                                        <a href="/san-pham/@q.SEOUrlRewrite-@q.CategoryID"><span>@q.CategoryName</span></a>
                                                         <ul class="level2">
                                                             @foreach (var j in h.lstGetChildMenu(q.CategoryID))
                                                             {
-                                                                <li class="level2 nav-2-1-1 first"><a href="#"><span>@j.CategoryName</span></a></li>
+                                                                <li class="level2 nav-2-1-1 first"><a href="/san-pham/@j.SEOUrlRewrite-@j.CategoryID"><span>@j.CategoryName</span></a></li>
                                                             }
                                                         </ul>
                                                     </li>
@@ -103,16 +103,16 @@
             <a class="logo-small" title="Magento Commerce" href="index.html"><img alt="Magento Commerce" src="~/images/LogoTT-small.png"></a>
             <ul id="nav" class="hidden-xs">
                 <li class="level0 parent drop-menu">
-                    <a href="/" class="active"><span>Trang chủ</span> </a>
+                    <a href="/" class=""><span>Trang chủ</span> </a>
 
                 </li>
                 <li class="level0 parent drop-menu">
-                    <a href="/@ViewBag.URLGioiThieu"><span>Giới thiệu</span> </a>
+                    <a href="/@ViewBag.URLGioiThieu"  id="menugt"><span>Giới thiệu</span> </a>
 
                 </li>
                 @*Sản phẩm*@
                 <li class="level0 nav-5 level-top first">
-                    <a href="grid.html" class="level-top"> <span>Sản phẩm</span> </a>
+                    <a href="/san-pham/tat-ca" class="level-top" id="menusp"> <span>Sản phẩm</span> </a>
                     <div class="level0-wrapper dropdown-6col" style="display:none;">
                         <div class="level0-wrapper2">
                             <div class="nav-block nav-block-center grid12-8 itemgrid itemgrid-4col">
@@ -120,12 +120,12 @@
                                     @foreach (var m in Model.menu_lstProducts)
                                     {
                                         <li class="level1 nav-6-1 parent item">
-                                            <a href="grid.html"><span>@m.CategoryName</span></a>
+                                            <a href="/san-pham/@m.SEOUrlRewrite-@m.CategoryID"><span>@m.CategoryName</span></a>
                                             <!--sub sub category-->
                                             <ul class="level1">
                                                 @foreach (var j in h.lstGetChildMenu(m.CategoryID))
                                                 {
-                                                    <li class="level2 nav-6-1-1"> <a href="#"><span>@j.CategoryName</span></a> </li>
+                                                    <li class="level2 nav-6-1-1"> <a href="/san-pham/@j.SEOUrlRewrite-@j.CategoryID"><span>@j.CategoryName</span></a> </li>
                                                 }
 
                                             </ul>
