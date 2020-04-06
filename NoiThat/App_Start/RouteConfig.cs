@@ -28,14 +28,20 @@ namespace NoiThat
             routes.MapRoute(
                name: "product",
                url: "san-pham/tat-ca",
-               defaults: new { controller = "category", action = "index", id = UrlParameter.Optional }
+               defaults: new { controller = "product", action = "index", id = UrlParameter.Optional }
            );
 
             routes.MapRoute(
                name: "product2",
                url: "san-pham/{url}-{id}",
-               defaults: new { controller = "category", action = "list", id = UrlParameter.Optional }
+               defaults: new { controller = "product", action = "list", id = UrlParameter.Optional }
            );
+
+            routes.MapRoute(
+              name: "product3",
+              url: "chi-tiet/{url}-{id}",
+              defaults: new { controller = "product", action = "detail", id = UrlParameter.Optional }
+          );
 
 
 
