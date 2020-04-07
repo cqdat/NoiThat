@@ -31,19 +31,19 @@
                 </div>
                 <div class="static-contain">
                     @*@{
-                        string founder = Model.aboutus.Content;
-                        string afterFounder = "";
-                        int pos = founder.IndexOf(ConfigurationManager.AppSettings["CKImgFinderLocal"]);
-                        if (pos >= 0)
-                        {
-                            // String after founder
-                            afterFounder = founder.Replace(ConfigurationManager.AppSettings["CKImgFinderLocal"], ConfigurationManager.AppSettings["CKImgFinderHost"]);
-                        }
-                        else
-                        {
-                            afterFounder = founder;
-                        }
-                    }*@
+                            string founder = Model.aboutus.Content;
+                            string afterFounder = "";
+                            int pos = founder.IndexOf(ConfigurationManager.AppSettings["CKImgFinderLocal"]);
+                            if (pos >= 0)
+                            {
+                                // String after founder
+                                afterFounder = founder.Replace(ConfigurationManager.AppSettings["CKImgFinderLocal"], ConfigurationManager.AppSettings["CKImgFinderHost"]);
+                            }
+                            else
+                            {
+                                afterFounder = founder;
+                            }
+                        }*@
                     @*@Helpers.ReplaceString(ConfigurationManager.AppSettings["CKImgFinderLocal"], ConfigurationManager.AppSettings["CKImgFinderHost"])*@
                     @Html.Raw(@Helpers.ReplaceString(Model.aboutus.Content, ConfigurationManager.AppSettings["CKImgFinderLocal"], ConfigurationManager.AppSettings["CKImgFinderHost"]))
                 </div>
@@ -57,11 +57,7 @@
                             {
                                 <li class="item even"><a href="/@i.SEOUrlRewrite-@i.BlogID">@i.BlogName</a></li>
                             }
-                            @*<li class="item odd"><strong>About Us</strong></li>
-
-                                <li class="item  odd"><a href="#">Terms of Service</a></li>
-                                <li class="item even"><a href="#">Search Terms</a></li>
-                                <li class="item last"><a href="#">Contact Us</a></li>*@
+                            <li class="item last"><a href="/lien-he">Liên hệ</a></li>
                         </ol>
                     </div>
                 </div>

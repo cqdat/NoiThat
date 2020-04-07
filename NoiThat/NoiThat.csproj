@@ -143,6 +143,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AboutUsViewModel.cs" />
+    <Compile Include="Models\CollectionsViewModel.cs" />
     <Compile Include="Models\DataModels\Advertise.cs" />
     <Compile Include="Models\DataModels\Blog.cs" />
     <Compile Include="Models\DataModels\BlogComment.cs" />
@@ -163,6 +164,7 @@
     <Compile Include="Models\DataModels\Slide.cs" />
     <Compile Include="Models\DataModels\TanThoiEntities.cs" />
     <Compile Include="Models\DataModels\User.cs" />
+    <Compile Include="Models\FooterViewModel.cs" />
     <Compile Include="Models\HeaderViewModel.cs" />
     <Compile Include="Models\IndexViewModel.cs" />
     <Compile Include="Models\MenuViewModel.cs" />
@@ -358,6 +360,16 @@
     <Content Include="Views\Home\NotFound.cshtml" />
     <Content Include="Views\News\Index.cshtml" />
     <Content Include="Views\News\_PartialNewsLst.cshtml" />
+    <Content Include="Views\Home\_newestProducts.cshtml" />
+    <Content Include="Views\News\Details.cshtml" />
+    <Content Include="Views\Category\Index.cshtml" />
+    <Content Include="Views\Category\List.cshtml" />
+    <Content Include="Views\Product\Detail.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Product\List.cshtml" />
+    <Content Include="Views\Shared\_logosCustomers.cshtml" />
+    <Content Include="Views\Shared\_footer.cshtml" />
+    <Content Include="Views\Home\_lstCollection.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

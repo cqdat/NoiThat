@@ -12,15 +12,13 @@
     <meta name="keywords" content="@Model.blogdetail.SEOKeywords" />
     <meta name="description" content="@Model.blogdetail.SEOMetadescription" />
 }
-@{
-    ViewBag.Title = "Details";
-}
+
 <div class="main-container col2-right-layout">
     <div class="main container">
         <div class="row">
             <div class="col-main col-sm-9 wow">
                 <div class="page-title">
-                    <h2>Blog</h2>
+                    <h2>@Model.blogdetail.BlogName</h2>
                 </div>
                 <div class="blog-wrapper" id="main">
                     <div class="site-content" id="primary">
@@ -28,7 +26,7 @@
                             <article class="blog_entry clearfix" id="post-29">
                                 <header class="blog_entry-header clearfix">
                                     <div class="blog_entry-header-inner">
-                                        <h2 class="blog_entry-title">@Model.blogdetail.BlogName</h2>
+                                        <h2 class="blog_entry-title"></h2>
                                     </div>
                                     <!--blog_entry-header-inner-->
                                 </header>
