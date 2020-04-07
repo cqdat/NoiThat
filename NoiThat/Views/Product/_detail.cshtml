@@ -1,0 +1,59 @@
+﻿@model NoiThat.Models.DataModels.Product
+
+<div class="product-shop col-lg-6 col-sm-6 col-xs-12">
+    <div class="product-next-prev"> <a class="product-next" href="#"><span></span></a> <a class="product-prev" href="#"><span></span></a> </div>
+    <div class="product-name">
+        <h1>@Model.ProductName</h1>
+    </div>
+    <div class="ratings">
+        <div class="rating-box">
+            <div style="width:80%" class="rating"></div>
+        </div>
+        <p class="rating-links"> <a href="#">1 Đánh giá</a> <span class="separator">|</span> <a href="#">Thêm đánh giá</a> </p>
+    </div>
+    <p class="availability in-stock">
+        @if (Model.InStock == true)
+        {
+            <span>Có Hàng</span>
+        }
+        else
+        {
+            <span>Hết Hàng</span>
+        }
+    </p>
+    <div class="price-block">
+        <div class="price-box">
+            <p class="old-price"> <span class="price-label">Regular Price:</span> <span class="price"> @Model.Price </span> </p>
+            <p class="special-price"> <span class="price-label">Special Price</span> <span class="price"> @Model.PriceSale </span> </p>
+        </div>
+    </div>
+    <div class="short-description">
+        <h2>Tổng Quan</h2>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu.<br>
+            Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada tincidunt...
+        </p>
+    </div>
+    <div class="add-to-box">
+        <div class="add-to-cart">
+            @*<label for="qty">Quantity:</label>
+            <div class="pull-left">
+                <div class="custom pull-left">
+                    <button onClick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;" class="increase items-count" type="button"><i class="icon-plus">&nbsp;</i></button>
+                    <input type="text" class="input-text qty" title="Qty" value="1" maxlength="12" id="qty" name="qty">
+                    <button onClick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 0 ) result.value--;return false;" class="reduced items-count" type="button"><i class="icon-minus">&nbsp;</i></button>
+                </div>
+            </div>*@
+            <button onClick="productAddToCartForm.submit(this)" class="button btn-cart" title="Add to Cart" type="button"><span><i class="icon-basket"></i> Liên Hệ</span></button>
+        </div>
+        <br />
+        <div class="email-addto-box" style="clear:both; padding:8px 0px;">
+            <ul class="add-to-links">
+                <li> <a class="link-wishlist" href="#"><span>Yêu Thích</span></a></li>
+                <li><span class="separator">|</span> <a class="email-friend" href="#"><span>Gởi Email</span></a></li>
+            </ul>
+            @*<p class="email-friend"><a href="#" class=""><span>Gởi Email</span></a></p>*@
+        </div>
+    </div>
+    <div class="custom-box"><img alt="banner" src="../images/cus-img.png"></div>
+</div>

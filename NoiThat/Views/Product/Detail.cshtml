@@ -1,6 +1,6 @@
-﻿
+﻿@model NoiThat.Models.ProductDetailViewModel
 @{
-    ViewBag.Title = "Detail";
+    ViewBag.Title = Model.product.ProductName;
 }
 
 
@@ -8,9 +8,9 @@
     <div class="container">
         <div class="row">
             <ul>
-                <li class="home"> <a href="index.html" title="Go to Home Page">Home</a><span>&mdash;›</span></li>
-                <li class=""> <a href="grid.html" title="Go to Home Page">Women</a><span>&mdash;›</span></li>
-                <li class="category13"><strong>Tops &amp; Tees</strong></li>
+                <li class="home"> <a href="/" title="trang chủ nội thất tân thời">Home</a><i class="icon-long-arrow-right stepby" aria-hidden="true"></i></li>
+                <li class=""> <a href="@Model.CategoryLink" title="@Model.CategoryName">@Model.CategoryName</a><i class="icon-long-arrow-right stepby" aria-hidden="true"></i></li>
+                <li class="category13"><strong>@Model.product.ProductName</strong></li>
             </ul>
         </div>
     </div>
@@ -18,8 +18,62 @@
 
 
 
+
+
+<section class="main-container col1-layout">
+    <div class="main container">
+        <div class="col-main">
+            <div class="row">
+                <div class="product-view wow">
+                    <div class="product-essential">
+                        <form action="#" method="post" id="product_addtocart_form">
+
+
+                            @Html.Partial("_listimage")
+
+
+                            @Html.Partial("_detail", Model.product)
+
+                        </form>
+                    </div>
+                    <div class="product-collateral">
+
+
+                        @Html.Partial("_content")
+
+                        <div class="col-sm-12">
+                            <div class="box-additional">
+
+                                @Html.Partial("_relate")
+
+                                @Html.Partial("_upsell")
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @section scripts
 {
+
+   
     <script>
         $(document).ready(function () {
 

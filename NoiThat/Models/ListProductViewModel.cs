@@ -24,4 +24,11 @@ namespace NoiThat.Models
         public string LinkParent { get; set; }
     }
 
+    public class ProductDetailViewModel
+    {
+        public string CategoryName { get; set; }
+        public string CategoryLink { get; set; }
+        public Product product { get; set; }
+    }
+
 }

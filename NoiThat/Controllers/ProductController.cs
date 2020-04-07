@@ -37,7 +37,7 @@ namespace NoiThat.Controllers
             else
             {
                 model.TitleParent = "Tất cả sản phẩm";
-                model.LinkParent = "/san-pham/tat-ca";
+                model.LinkParent = "/san-pham";
             }
 
 
@@ -60,7 +60,12 @@ namespace NoiThat.Controllers
 
         public ActionResult Detail(int? id)
         {
-            return View();
+            ProductDetailViewModel model = new ProductDetailViewModel();
+            model.product = db.Products.Find(id);
+            var cate = db.Categories.Find(model.product.CategoryID);
+            model.CategoryName = cate.CategoryName;
+            model.CategoryLink = "/san-pham/" + cate.SEOUrlRewrite + "-" + cate.CategoryID;
+            return View(model);
         }
     }
 }

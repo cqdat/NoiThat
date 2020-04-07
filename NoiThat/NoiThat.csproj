@@ -143,6 +143,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AboutUsViewModel.cs" />
+    <Compile Include="Models\CollectionsViewModel.cs" />
     <Compile Include="Models\DataModels\Advertise.cs" />
     <Compile Include="Models\DataModels\Blog.cs" />
     <Compile Include="Models\DataModels\BlogComment.cs" />
@@ -163,6 +164,7 @@
     <Compile Include="Models\DataModels\Slide.cs" />
     <Compile Include="Models\DataModels\TanThoiEntities.cs" />
     <Compile Include="Models\DataModels\User.cs" />
+    <Compile Include="Models\FooterViewModel.cs" />
     <Compile Include="Models\HeaderViewModel.cs" />
     <Compile Include="Models\IndexViewModel.cs" />
     <Compile Include="Models\ListProductViewModel.cs" />
@@ -371,6 +373,13 @@
     <Content Include="Views\Product\_list.cshtml" />
     <Content Include="Views\Home\_lstCollection.cshtml" />
     <Content Include="Views\Home\_newestProducts.cshtml" />
+    <Content Include="Views\Shared\_logosCustomers.cshtml" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\Product\_listimage.cshtml" />
+    <Content Include="Views\Product\_detail.cshtml" />
+    <Content Include="Views\Product\_content.cshtml" />
+    <Content Include="Views\Product\_relate.cshtml" />
+    <Content Include="Views\Product\_upsell.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
