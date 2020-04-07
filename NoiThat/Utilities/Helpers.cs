@@ -22,6 +22,7 @@ namespace NoiThat.Utilities
             if(ParentId == 0)
             {
                 return "Danh Mục Cha";
+
             }
             else
             {

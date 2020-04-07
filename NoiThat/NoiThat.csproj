@@ -369,6 +369,8 @@
     <Content Include="Views\Product\_slide.cshtml" />
     <Content Include="Views\Product\_grid.cshtml" />
     <Content Include="Views\Product\_list.cshtml" />
+    <Content Include="Views\Home\_lstCollection.cshtml" />
+    <Content Include="Views\Home\_newestProducts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
