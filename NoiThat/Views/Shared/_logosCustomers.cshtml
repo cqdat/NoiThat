@@ -1,0 +1,14 @@
+﻿@using NoiThat.Models
+@using NoiThat.Models.DataModels
+@using NoiThat.Utilities
+@model IEnumerable<Customer>
+@{
+    Helpers h = new Helpers();
+}
+@foreach (var i in Model)
+{
+    <div class="item">
+        <a href="/"><img src="@WebConstants.ImgLogosCustomersHost/@i.CustomerImage" alt="@i.CustomerName"></a>
+    </div>
+}
+

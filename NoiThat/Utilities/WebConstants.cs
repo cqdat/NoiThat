@@ -9,6 +9,10 @@ namespace NoiThat.Utilities
     public static class WebConstants
     {
         public static string ImgSlideHomePage = ConfigurationManager.AppSettings["ImgSlideHomePage"];
+        public static string ImgProductHost = ConfigurationManager.AppSettings["ImgProductHost"];
+        public static string ImgCollectionHost = ConfigurationManager.AppSettings["ImgCollectionHost"];
+        public static string ImgNewsHost = ConfigurationManager.AppSettings["ImgNewsHost"];
+        public static string ImgLogosCustomersHost = ConfigurationManager.AppSettings["ImgLogosCustomersHost"];
 
         public static string ImgProductImage = ConfigurationManager.AppSettings["ImgProductImage"];
         public static string ImgProductImageThumb = ConfigurationManager.AppSettings["ImgProductImageThumb"];
@@ -24,5 +28,6 @@ namespace NoiThat.Utilities
         public static int BlogNews = 1;
         public static int BlogCollection = 2;
         public static int BlogAboutUs = 4;
+        public static int BlogAboutUs_more = 5;
     }
 }
