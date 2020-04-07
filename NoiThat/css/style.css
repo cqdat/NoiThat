@@ -10909,3 +10909,11 @@ ol#compare-items li a.product-name {
 	height: 300px;
 }
 }
+
+.breadcrumbs .stepby {
+	font-size: 9px;
+	font-weight: bold;
+	color: #5bb060;
+	padding: 2px 8px 2px 8px;
+	display: inline-block;
+}

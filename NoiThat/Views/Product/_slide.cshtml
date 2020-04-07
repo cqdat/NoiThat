@@ -1,0 +1,24 @@
+﻿@using NoiThat.Utilities
+@model List<NoiThat.Models.DataModels.Slide>
+
+<div class="category-description std">
+                    <div class="slider-items-products">
+                        <div id="category-desc-slider" class="product-flexslider hidden-buttons">
+                            <div class="slider-items slider-width-col1">
+                                @foreach (var q in Model)
+                                {
+                                    <div class="item">
+                                        <a href="@q.LinkBanner" target="@q.LinkTarget"><img alt="category-banner" src="@WebConstants.ImgSlideHomePage/@q.ImageURL"></a>
+                                        <div class="cat-img-title cat-bg cat-box">
+                                            <h2 class="cat-heading">@q.Slogun1</h2>
+                                            <p>@q.Slogun2</p>
+                                        </div>
+                                    </div>
+                                }
+
+                                <div class="item"> <a href="#"><img alt="category-banner" src="../images/category-banner-img1.jpg"></a> </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>

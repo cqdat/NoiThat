@@ -10,6 +10,9 @@ namespace NoiThat.Utilities
     {
         public static string ImgSlideHomePage = ConfigurationManager.AppSettings["ImgSlideHomePage"];
 
+        public static string ImgProductImage = ConfigurationManager.AppSettings["ImgProductImage"];
+        public static string ImgProductImageThumb = ConfigurationManager.AppSettings["ImgProductImageThumb"];
+
         public static string DateFormatVI = "dd/MM/yyyy";
         public static string DatetimeFormatVI = "dd/MM/yyyy HH:mm";
 

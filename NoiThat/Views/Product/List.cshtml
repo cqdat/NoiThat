@@ -1,9 +1,110 @@
-﻿
+﻿@model NoiThat.Models.ListProductViewModel2
 @{
-    ViewBag.Title = "List";
+    ViewBag.Title = Model.Title;
 }
 
-<h2>List</h2>
+
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <ul>
+                <li class="home"> <a title="Go to Home Page" href="/">Trang chủ</a><i class="icon-long-arrow-right stepby" aria-hidden="true"></i></li>
+                <li class=""><a href="@Model.LinkParent" title="@Model.TitleParent">@Model.TitleParent</a><i class="icon-long-arrow-right stepby" aria-hidden="true"></i></li>
+                <li class="category13"><strong>@Model.Title</strong></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<section class="main-container col2-left-layout">
+    <div class="main container">
+        <div class="row">
+
+            <section class="col-main col-sm-9 col-sm-push-3 wow">
+                <div class="category-title">
+                    <h1>@Model.Title</h1>
+                </div>
+
+
+                @Html.Partial("_slide", Model.slides)
+
+
+                <div class="category-products">
+
+                    <div class="toolbar">
+                        <div class="sorter">
+                            <div class="view-mode"> <span title="Grid" class="button button-active button-grid">Grid</span><a href="list.html" title="List" class="button button-list">List</a> </div>
+                        </div>
+                        <div id="sort-by">
+                            <label class="left">Sort By: </label>
+                            <ul>
+                                <li>
+                                    <a href="#">Position<span class="right-arrow"></span></a>
+                                    <ul>
+                                        <li><a href="#">Name</a></li>
+                                        <li><a href="#">Price</a></li>
+                                        <li><a href="#">Position</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <a class="button-asc left" href="#" title="Set Descending Direction"><span style="color:#999;font-size:11px;" class="glyphicon glyphicon-arrow-up"></span></a>
+                        </div>
+                        <div class="pager">
+                            <div id="limiter">
+                                <label>View: </label>
+                                <ul>
+                                    <li>
+                                        <a href="#">15<span class="right-arrow"></span></a>
+                                        <ul>
+                                            <li><a href="#">20</a></li>
+                                            <li><a href="#">30</a></li>
+                                            <li><a href="#">35</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="pages">
+                                <label>Page:</label>
+                                <ul class="pagination">
+                                    <li><a href="#">&laquo;</a></li>
+                                    <li class="active"><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">4</a></li>
+                                    <li><a href="#">5</a></li>
+                                    <li><a href="#">&raquo;</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    @if (Session["viewlist"] == null)
+                    {
+                        @Html.Partial("_grid", Model.products)
+                    }
+                    else
+                    {
+                        @Html.Partial("_list", Model.products)
+                    }
+
+
+
+                </div>
+
+
+
+
+            </section>
+
+
+            @Html.Partial("_leftmenu", Model.categories)
+
+        </div>
+    </div>
+</section>
+
+
 
 @section scripts
 {

@@ -30,7 +30,7 @@ namespace NoiThat.Utilities
             
         }
 
-        public List<Category> lstGetChildMenu(int?ParentId)
+        public List<Category> lstGetChildMenu(int? ParentId)
         {
             return db.Categories.Where(c => c.Parent == ParentId).ToList();
         }
