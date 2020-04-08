@@ -12,9 +12,10 @@
         <p class="rating-links"> <a href="#">1 Đánh giá</a> <span class="separator">|</span> <a href="#">Thêm đánh giá</a> </p>
     </div>
     <p class="availability in-stock">
+        
         @if (Model.InStock == true)
         {
-            <span>Có Hàng</span>
+            <span>Còn Hàng</span>
         }
         else
         {
@@ -24,7 +25,7 @@
     <div class="price-block">
         <div class="price-box">
             <p class="old-price"> <span class="price-label">Regular Price:</span> <span class="price"> @Model.Price </span> </p>
-            <p class="special-price"> <span class="price-label">Special Price</span> <span class="price"> @Model.PriceSale </span> </p>
+            <p class="special-price"> <span class="price-label">Special Price</span> <span class="price"> <i class="icon-phones"></i> 0979.77.11.33 </span> </p>
         </div>
     </div>
     <div class="short-description">
