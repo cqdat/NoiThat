@@ -1,0 +1,23 @@
+﻿@model NoiThat.Models.QuickViewModel
+
+<script type="text/javascript" src="~/js/jquery.min.js"></script>
+<script type="text/javascript" src="~/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="~/js/jquery.jcarousel.min.js"></script>
+<script type="text/javascript" src="~/js/cloudzoom.js"></script>
+<script type="text/javascript" src="~/js/common.js"></script>
+<script type="text/javascript" src="~/js/owl.carousel.min.js"></script>
+
+<div class="product-view">
+    <div class="product-essential">
+        <div id="product_addtocart_form">
+
+            @Html.Partial("_listimage", Model.listimage)
+
+
+            @Html.Partial("_detail", Model.product)
+
+        </div>
+    </div>
+</div>
+
+
