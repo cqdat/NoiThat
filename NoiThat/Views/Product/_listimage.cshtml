@@ -1,48 +1,24 @@
-﻿
+﻿@model List<NoiThat.Models.DataModels.ProductImage>
+@using NoiThat.Utilities
 
+<div class="product-img-box col-lg-6 col-sm-6 col-xs-12">
+    <ul class="moreview" id="moreview">
 
-    <div class="product-img-box col-lg-6 col-sm-6 col-xs-12">
-        <ul class="moreview" id="moreview">
-            <li class="moreview_thumb thumb_1"> 
-                <img class="moreview_thumb_image" src="../products-images/product1.jpg">
-                <img class="moreview_source_image" src="../products-images/product1.jpg" alt=""> 
-                <span class="roll-over">Di chuyển chuột vào hình để phóng to</span> 
-                <img style="position: absolute;" class="zoomImg" src="../products-images/product1.jpg">
+        @foreach (var q in Model)
+        {
+            <li class="moreview_thumb thumb_1">
+                <img class="moreview_thumb_image" src="@WebConstants.ImgProductImage\@q.URLImage">
+                <img class="moreview_source_image" src="@WebConstants.ImgProductImage\@q.URLImage" alt="">
+                <span class="roll-over">Di chuyển chuột vào hình để phóng to</span>
+                <img style="position: absolute;" class="zoomImg" src="@WebConstants.ImgProductImage\@q.URLImage">
             </li>
-            <li class="moreview_thumb thumb_2 moreview_thumb_active"> 
-                <img class="moreview_thumb_image" src="../products-images/product4.jpg"> 
-                <img class="moreview_source_image" src="../products-images/product4.jpg" alt="">
-                <span class="roll-over">Roll over image to zoom in</span> 
-                <img style="position: absolute;" class="zoomImg" src="../images/product4.jpg">
-            </li>
-            <li class="moreview_thumb thumb_3"> 
-                <img class="moreview_thumb_image" src="../products-images/product5.jpg"> 
-                <img class="moreview_source_image" src="../products-images/product5.jpg" alt=""> 
-                <span class="roll-over">Roll over image to zoom in</span> 
-                <img style="position: absolute;" class="zoomImg" src="../products-images/product5.jpg">
-            </li>
-            <li class="moreview_thumb thumb_4"> 
-                <img class="moreview_thumb_image" src="../products-images/product6.jpg"> 
-                <img class="moreview_source_image" src="../products-images/product6.jpg" alt=""> 
-                <span class="roll-over">Roll over image to zoom in</span> 
-                <img style="position: absolute;" class="zoomImg" src="../products-images/product6.jpg">
-            </li>
-            <li class="moreview_thumb thumb_5"> 
-                <img class="moreview_thumb_image" src="../products-images/product7.jpg"> 
-                <img class="moreview_source_image" src="../products-images/product7.jpg" alt=""> 
-                <span class="roll-over">Roll over image to zoom in</span> 
-                <img style="position: absolute;" class="zoomImg" src="../products-images/product7.jpg">
-            </li>
-            <li class="moreview_thumb thumb_6"> 
-                <img class="moreview_thumb_image" src="../products-images/product8.jpg"> 
-                <img class="moreview_source_image" src="../products-images/product8.jpg" alt=""> 
-                <span class="roll-over">Roll over image to zoom in</span> 
-                <img style="position: absolute;" class="zoomImg" src="../products-images/product8.jpg">
-            </li>
+        }
 
-        </ul>
-        <div class="moreview-control"> 
-            <a style="right: 42px;" href="javascript:void(0)" class="moreview-prev"></a> 
-            <a style="right: 42px;" href="javascript:void(0)" class="moreview-next"></a> 
-        </div>
+   
+
+    </ul>
+    <div class="moreview-control">
+        <a style="right: 42px;" href="javascript:void(0)" class="moreview-prev"></a>
+        <a style="right: 42px;" href="javascript:void(0)" class="moreview-next"></a>
     </div>
+</div>

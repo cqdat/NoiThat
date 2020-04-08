@@ -65,7 +65,20 @@ namespace NoiThat.Controllers
             var cate = db.Categories.Find(model.product.CategoryID);
             model.CategoryName = cate.CategoryName;
             model.CategoryLink = "/san-pham/" + cate.SEOUrlRewrite + "-" + cate.CategoryID;
+            model.listimage = db.ProductImages.Where(q => q.ProductID == id).ToList();
+            model.relate = db.Products.Where(q => q.IsActive == true && q.ProductID != id).ToList();
+            model.upsell = db.Products.Where(q => q.IsActive == true && q.ProductID != id).ToList();
             return View(model);
+        }
+
+        public PartialViewResult GetQuickView(int? id)
+        {
+            QuickViewModel model = new QuickViewModel();
+
+            model.listimage = db.ProductImages.Where(q => q.ProductID == id).ToList();
+            model.product = db.Products.Find(id);
+
+            return PartialView("_quickview", model);
         }
     }
 }
