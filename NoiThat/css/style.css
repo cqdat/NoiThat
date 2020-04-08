@@ -2242,8 +2242,9 @@ ul.topnav em:hover {
 }
 .new-top-right {
 	background: none repeat scroll 0 0 #FFFFFF;
-	right: 10px;
-	top: 0;
+	right: 10px !important;
+    left:unset !important;
+	top: 10px !important;
 }
 .sale-top-right {
 	top: 0;
