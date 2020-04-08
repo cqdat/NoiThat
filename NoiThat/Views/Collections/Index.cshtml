@@ -1,0 +1,89 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Index";
+}
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <ul>
+                <li class="home"> <a href="/" title="Go to Home Page">Trang chủ</a><span><i class="icon-long-arrow-right stepby" aria-hidden="true"></i></span></li>
+
+                <li class="category13"><strong>Bộ sưu tập</strong></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<section class="main-container col2-left-layout">
+    <div class="main container">
+        <div class="row">
+            <section class="col-main col-sm-12">
+                <div class="category-title">
+                    <h1>Bộ sưu tập</h1>
+                </div>
+
+                <div class="category-products" id="lstCollections">
+
+
+                </div>
+                <div class="toolbar">
+                    <div class="col-md-2">
+                        <select class="form-control" title="" id="ddlPageSize">
+                            <option value="5">5 dòng</option>
+                            <option value="10">10 dòng</option>
+                            <option value="15" selected>15 dòng</option>
+                            <option value="20">20 dòng</option>
+                            <option value="-1">Tất cả</option>
+                        </select>
+                    </div>
+                    
+                </div>
+            </section>
+
+        </div>
+    </div>
+</section>
+
+@section scripts{
+    <script type="text/javascript">
+
+    $(document).ready(function () {
+         $.ajaxSetup({
+                cache: false
+         });
+
+        filter();
+
+        $('body').on('change', '#ddlPageSize', function () {
+            filter();
+        });
+
+        //Drop change Dept
+            $('.drChange').change(function () {
+                filter();
+            });
+
+
+
+    });
+
+    function filter() {
+        $.ajax({
+            //url: '/BDS_TinTuc/_PartialIndex',
+            url: '@Url.Action("_partialIndex", "Collections", new { area = "Cpanel" })',
+            data: {
+                pageSize: parseInt($('#ddlPageSize').val()),
+            },
+            method: 'GET',
+            dataType: 'html',
+            success: function (data) {
+                $('#lstCollections').html(data);
+                $("#lbl_Message").html("");
+            }
+        });
+
+    }
+    </script>
+}
+
+

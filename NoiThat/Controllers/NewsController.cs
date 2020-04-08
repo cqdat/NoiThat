@@ -53,7 +53,7 @@ namespace NoiThat.Controllers
 
             NewsViewModel model = new NewsViewModel();
             model.blogdetail = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogNews && b.BlogID == id && b.IsActive == true).FirstOrDefault();
-            model.lstBlogs = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogNews).OrderBy(c => c.Sort).ToList();
+            model.lstBlogsNewest = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogNews && b.IsActive == true && b.BlogID != id).OrderByDescending(c => c.LastModify).ToList();
             ViewBag.Title = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogAboutUs && b.BlogID == 3 && b.IsActive == true).FirstOrDefault().BlogName;
             return View(model);
         }

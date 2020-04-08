@@ -1,0 +1,78 @@
+﻿@using NoiThat.Utilities
+@using NoiThat.Models.DataModels
+@model IEnumerable<Product>
+<!-- Item -->
+@foreach (var i in Model)
+{
+    
+    <div class="item">
+        <div class="col-item">
+            <div class="sale-label sale-top-right">
+                @if(i.IsSale == true)
+                {
+                    <span>Sale</span>
+                }
+                else { <span></span>}
+            </div>
+            <div class="images-container">
+                <a class="product-image" title="@i.ProductName" href="/chi-tiet/@i.SEOUrlRewrite-@i.ProductID"> 
+                <img src="@WebConstants.ImgProductHost/@i.Images" class="img-responsive" style="height:288px" alt="@i.Images" /> </a>
+                <div class="actions">
+                    <div class="actions-inner">
+                        <button type="button" title="Add to Cart" class="button btn-cart"><span>Liên Hệ</span></button>
+
+                    </div>
+                </div>
+                <div class="qv-button-container"> <a href="quick_view.html" class="qv-e-button btn-quickview-1"><span><span>Xem Nhanh</span></span></a> </div>
+            </div>
+            <div class="info">
+                <div class="info-inner">
+                    <div class="item-title"> <a title="@i.ProductName" href="/chi-tiet/@i.SEOUrlRewrite-@i.ProductID"> @i.ProductName </a> </div>
+                    <!--item-title-->
+                    <div class="item-content">
+                        <div class="ratings">
+                            <div class="rating-box">
+                                @{
+                                    var rating = i.Rating;
+                                    var r = 0;
+                                    if (rating == 1)
+                                    {
+                                        r = 20;
+                                    }
+                                    if (rating == 2)
+                                    {
+                                        r = 40;
+                                    }
+                                    if (rating == 3)
+                                    {
+                                        r = 60;
+                                    }
+                                    if (rating == 4)
+                                    {
+                                        r = 80;
+                                    }
+                                    if (rating == 5)
+                                    {
+                                        r = 100;
+                                    }
+                                }
+                                <div style="width:@r%" class="rating"></div>
+                            </div>
+                        </div>
+                        @*<div class="price-box">
+                            <p class="special-price"> <span class="price"> $45.00 </span> </p>
+                            <p class="old-price"> <span class="price-sep">-</span> <span class="price"> $50.00 </span> </p>
+                        </div>*@
+                    </div>
+                    <!--item-content-->
+                </div>
+                <!--info-inner-->
+                <!--actions-->
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+
+}
+
+<!-- End Item -->

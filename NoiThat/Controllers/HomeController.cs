@@ -26,6 +26,7 @@ namespace NoiThat.Controllers
             model.lstSlideHomePage = db.Slides.Where(a => a.CategoryID == 0).ToList();
             model.lstAboutUsMore = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogAboutUs_more && b.IsActive == true).ToList();
             model.lstLastProducts = db.Products.Where(p => p.IsProduct == true && p.IsActive == true).OrderByDescending(p => p.ProductID).Take(4).ToList();
+            model.lstBestSellerproducts = db.Products.Where(p => p.IsProduct == true && p.IsActive == true).OrderBy(p => Guid.NewGuid()).Take(6).ToList();
             model.lstNews = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogNews && b.IsActive == true).OrderByDescending(c => c.LastModify).Take(3).ToList();
             return View(model);
         }
@@ -76,7 +77,7 @@ namespace NoiThat.Controllers
             //var model = db.MENUs.Where(q => q.IdCha == 0).OrderBy(o => o.ThuTu);
 
             CollectionsViewModel model = new CollectionsViewModel();
-            model.lstCollection1 = db.Products.Where(p => p.IsProduct == false).OrderBy(p => Guid.NewGuid()).Take(3).ToList();
+            model.lstCollection1 = db.Products.Where(p => p.IsProduct == false && p.IsActive == true).OrderBy(p => Guid.NewGuid()).Take(3).ToList();
 
             return PartialView("_lstCollection", model);
         }

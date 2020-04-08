@@ -18,6 +18,20 @@ namespace NoiThat
               url: "san-pham",
               defaults: new { controller = "product", action = "index", id = UrlParameter.Optional }
           );
+            //Bộ sưu tập
+            routes.MapRoute(
+              name: "Collections",
+              url: "bo-suu-tap",
+              defaults: new { controller = "Collections", action = "index", id = UrlParameter.Optional }
+          );
+
+            //Bộ sưu tập
+            routes.MapRoute(
+              name: "CollectionsDetail",
+              url: "bo-suu-tap/{url}-{id}",
+              defaults: new { controller = "Collections", action = "Details", id = UrlParameter.Optional }
+          );
+
 
             //create new route Tin Tức
             routes.MapRoute(

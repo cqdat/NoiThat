@@ -9,6 +9,6 @@ namespace NoiThat.Models
     public class NewsViewModel
     {
         public Blog blogdetail { get; set; }
-        public List<Blog> lstBlogs { get; set; }
+        public List<Blog> lstBlogsNewest { get; set; }
     }
 }

@@ -8,6 +8,8 @@ namespace NoiThat.Models
 {
     public class CollectionsViewModel
     {
+        public Product detail { get; set; }
+        public List<ProductImage> lstImages { get; set; }
         public List<Product> lstCollection1 { get; set; }
         public List<Product> lstCollection2 { get; set; }
         public List<Product> lstCollection3 { get; set; }
