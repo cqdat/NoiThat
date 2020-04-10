@@ -35,6 +35,10 @@ namespace NoiThat.Models.DataModels
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Advertise>()
+                .Property(e => e.AdvertiseCode)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Advertise>()
                 .Property(e => e.AdvertiseImage)
                 .IsUnicode(false);
 

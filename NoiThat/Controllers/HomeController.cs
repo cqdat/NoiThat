@@ -24,6 +24,7 @@ namespace NoiThat.Controllers
             IndexViewModel model = new IndexViewModel();
             model.PhoneAndEmail = db.Information.Where(a => a.InfoID == 2 || a.InfoID == 3).ToList();
             model.lstSlideHomePage = db.Slides.Where(a => a.CategoryID == 0).ToList();
+            model.lstBannerPro = db.Advertises.Where(a => a.IsActive == true).ToList();
             model.lstAboutUsMore = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogAboutUs_more && b.IsActive == true).ToList();
             model.lstLastProducts = db.Products.Where(p => p.IsProduct == true && p.IsActive == true).OrderByDescending(p => p.ProductID).Take(4).ToList();
             model.lstBestSellerproducts = db.Products.Where(p => p.IsProduct == true && p.IsActive == true).OrderBy(p => Guid.NewGuid()).Take(6).ToList();
@@ -129,9 +130,27 @@ namespace NoiThat.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            AboutUsViewModel model = new AboutUsViewModel();
+            
+            model.lstLeftMenu = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogAboutUs).OrderBy(c => c.Sort).ToList();
+            return View(model);
+        }
 
-            return View();
+        [HttpPost]
+        public ActionResult CustomerContact(FormCollection f)
+        {
+            CustomerContact c = new CustomerContact();
+            c.CustomerName = f["txtFullname"];
+            c.CustomerEmail = f["txtEmail"];
+            c.CustomerPhone = f["txtPhone"];
+            c.CustomerContent = f["txtContent"];
+            c.Created = DateTime.Now;
+            db.CustomerContacts.Add(c);
+            db.SaveChanges();
+            ViewBag.Message = "Thông tin của bạn đã được hệ thống ghi nhận, chúng tôi sẽ phản hồi bạn trong thời gian sớm nhất";
+
+            //return View("Contact","Home");
+            return Redirect("/lien-he");
         }
         public ActionResult NotFound()
         {
