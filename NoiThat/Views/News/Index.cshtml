@@ -118,6 +118,11 @@
                 cache: false
          });
 
+
+         $(".level0 a").removeClass("active");
+         $("a#menutt").addClass("active");
+
+
         filter();
 
         $('body').on('change', '#ddlPageSize', function () {
@@ -139,7 +144,7 @@
     });
 
     function filter() {
-        
+
         $.ajax({
             //url: '/BDS_TinTuc/_PartialIndex',
             url: '@Url.Action("_PartialNewsLst", "News", new { area = "Cpanel" })',

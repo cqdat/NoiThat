@@ -1,8 +1,13 @@
-﻿@{
+﻿@using System.Configuration
+@using NoiThat.Models
+@using NoiThat.Utilities
+@model AboutUsViewModel
+@{
     ViewBag.Title = "Contact";
+    <script src='https://www.google.com/recaptcha/api.js?hl=vi'></script>
 }
 @*<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>*@
+    <h3>@ViewBag.Message</h3>*@
 
 <div class="breadcrumbs">
     <div class="container">
@@ -21,77 +26,88 @@
                 <div class="page-title">
                     <h2>Liên hệ với chúng tôi</h2>
                 </div>
-                <div class="static-contain">
-                    <fieldset class="group-select">
-                        <ul>
-                            <li id="billing-new-address-form">
-                                <fieldset>
-                                    <legend>New Address</legend>
-                                    <input type="hidden" name="billing[address_id]" value="" id="billing:address_id">
-                                    <ul>
-                                        <li>
-                                            <div class="customer-name">
-                                                <div class="input-box name-firstname">
-                                                    <label for="billing:firstname"> Họ Tên<span class="required">*</span></label>
-                                                    <br>
-                                                    <input type="text" id="billing:firstname" name="billing[firstname]" value="" title="First Name" class="input-text ">
+                @ViewBag.Message
+                @using (Html.BeginForm("CustomerContact", "Home", FormMethod.Post, new { id = "Submitf", name = "Submitf", onsubmit = "return validateForm()" }))
+                {
+                    <div class="static-contain">
+                        <fieldset class="group-select">
+                            <ul>
+                                <li id="billing-new-address-form">
+                                    <fieldset>
+                                        <legend>New Address</legend>
+                                        <input type="hidden" name="billing[address_id]" value="" id="billing:address_id">
+                                        <ul>
+                                            <li>
+                                                <div class="customer-name">
+                                                    <div class="input-box name-firstname">
+                                                        <label for="billing:firstname"> Họ Tên<span class="required">*</span></label>
+                                                        <br>
+                                                        <input type="text" id="txtFullname" name="txtFullname" value="" title="First Name" class="input-text ">
+                                                    </div>
+                                                    <div class="input-box name-lastname">
+                                                        <label for="billing:lastname"> Địa chỉ email <span class="required">*</span> </label>
+                                                        <br>
+                                                        <input type="text" id="txtEmail" name="txtEmail" value="" title="Email" class="input-text">
+                                                    </div>
                                                 </div>
-                                                <div class="input-box name-lastname">
-                                                    <label for="billing:lastname"> Địa chỉ email <span class="required">*</span> </label>
+                                            </li>
+                                            <li>
+                                                <div class="input-box">
+                                                    <label for="billing:company">Company</label>
                                                     <br>
-                                                    <input type="text" id="billing:lastname" name="billing[lastname]" value="" title="Last Name" class="input-text">
+                                                    <input type="text" id="txtCompany" name="txtCompany" value="" title="Công ty" class="input-text">
                                                 </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="input-box">
-                                                <label for="billing:company">Company</label>
+                                                <div class="input-box">
+                                                    <label for="billing:email">Số điện thoại <span class="required">*</span></label>
+                                                    <br>
+                                                    <input type="text" name="txtPhone" id="txtPhone" value="" title="Số Điện thoại" class="input-text validate-email">
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <label for="billing:street1">Địa chỉ liên hệ <span class="required">*</span></label>
                                                 <br>
-                                                <input type="text" id="billing:company" name="billing[company]" value="" title="Company" class="input-text">
-                                            </div>
-                                            <div class="input-box">
-                                                <label for="billing:email">Số điện thoại <span class="required">*</span></label>
+                                                <input type="text" title="Địa chỉ liên hệ" name="txtAddress" id="txtAddress" value="" class="input-text">
+                                            </li>
+
+                                            <li class="">
+                                                <label for="comment">Nhập nội dung<em class="required">*</em></label>
                                                 <br>
-                                                <input type="text" name="billing[email]" id="billing:email" value="" title="Email Address" class="input-text validate-email">
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <label for="billing:street1">Địa chỉ liên hệ <span class="required">*</span></label>
-                                            <br>
-                                            <input type="text" title="Street Address" name="billing[street][]" id="billing:street1  street1" value="" class="input-text required-entry">
-                                        </li>
-                                        <li>
-                                            <input type="text" title="Street Address 2" name="billing[street][]" id="billing:street2 street2" value="" class="input-text required-entry">
-                                        </li>
-                                        <li class="">
-                                            <label for="comment">Nhập nội dung<em class="required">*</em></label>
-                                            <br>
-                                            <div style="float:none" class="">
-                                                <textarea name="comment" id="comment" title="Comment" class="required-entry input-text" cols="5" rows="3"></textarea>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </fieldset>
-                            </li>
-                            <p class="require"><em class="required">* </em>Required Fields</p>
-                            <input type="text" name="hideit" id="hideit" value="" style="display:none !important;">
-                            <div class="buttons-set">
-                                <button type="submit" title="Submit" class="button submit"> <span> Gửi </span> </button>
-                            </div>
-                        </ul>
-                    </fieldset>
-                </div>
-            </section>
+                                                <div style="float:none" class="">
+                                                    <textarea name="comment" id="txtContent" title="txtContent" class="required-entry input-text" cols="5" rows="3"></textarea>
+                                                </div>
+                                            </li>
+                                            <li class="">
+
+                                                <br>
+                                                <div style="float:none" class="">
+                                                    <div class="g-recaptcha" data-sitekey="6LcCXOgUAAAAAEN780SHQsVNM18UJbetkBqQNmCg"></div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </fieldset>
+                                </li>
+                                <p class="require"><em class="required">* </em>Bắt Buộc Nhập</p>
+                                
+                                <div class="buttons-set">
+                                    <button type="submit" title="Submit" class="button submit"> <span> Gửi </span> </button>
+                                </div>
+                            </ul>
+                        </fieldset>
+                    </div>
+                }
+
+                </section>
             <aside class="col-right sidebar col-sm-3 wow">
                 <div class="block block-company">
-                    <div class="block-title">NỘI THẤT TÂN THỜI </div>
+                    <div class="block-title">Về chúng tôi </div>
                     <div class="block-content">
                         <ol id="recently-viewed-items">
-                            <li class="item odd"><a href="#">Về chúng tôi</a></li>
-                            <li class="item even"><a href="#">Hướng dẫn mua hàng</a></li>
-                            <li class="item  odd"><a href="#">Chính sách</a></li>
-                            <li class="item even"><a href="#">Search Terms</a></li>
-                            <li class="item last"><strong>Contact Us</strong></li>
+                            @foreach (var i in Model.lstLeftMenu)
+                            {
+                                <li class="item even"><a href="/@i.SEOUrlRewrite-@i.BlogID">@i.BlogName</a></li>
+                            }
+                            <li class="item las"><strong><a href="/lien-he">Liên hệ</a></strong></li>
+
                         </ol>
                     </div>
                 </div>
@@ -99,3 +115,52 @@
         </div>
     </div>
 </div>
+
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+
+            $(".level0 a").removeClass("active");
+            $("a#menulh").addClass("active");
+
+        });
+
+        //Check validation before submit
+        function validateForm() {
+            var flag = true;
+            var txtFullname = $("#txtFullname").val();
+            if (jQuery.trim(txtFullname).length <= 0) {
+                alert("Vui Lòng nhập Họ tên");
+                $("#txtFullname").focus();
+                return false;
+            }
+            else {
+                //$("#txtFullname").html("");
+            }
+
+            var txtPhone = $("#txtPhone").val();
+            if (jQuery.trim(txtPhone).length <= 0) {
+                alert("Vui Lòng nhập Số điện thoại");
+                $("#txtPhone").focus();
+                return false;
+            }
+            else {
+                //$("#lbl_ETD").html("");
+            }
+
+            var txtContent = $("#txtContent").val();
+            if (jQuery.trim(txtContent).length <= 0) {
+                alert("Vui lòng nhập Nội dung cần hỗ trợ");
+                $("#txtContent").focus();
+                return false;
+            }
+            else {
+                //$("#lbl_BookingNo").html("");
+            }
+
+            return flag;
+        }
+    </script>
+}

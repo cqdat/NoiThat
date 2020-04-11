@@ -12,13 +12,13 @@
                 </a>
                 <div class="actions">
                     <div class="actions-inner">
-                        <ul class="add-to-links">
-                            <li><a href="wishlist.html" title="Add to Wishlist" class="link-wishlist"><span>Add to Wishlist</span></a></li>
-                            <li><a href="compare.html" title="Add to Compare" class="link-compare "><span>Add to Compare</span></a></li>
-                        </ul>
+                        @*<ul class="add-to-links">
+                            <li><a href="wishlist.html" title="Add to Wishlist" class="link-wishlist"><span></span></a></li>
+                            <li><a href="compare.html" title="Add to Compare" class="link-compare "><span></span></a></li>
+                        </ul>*@
                     </div>
                 </div>
-                <div class="qv-button-container"> <a href="quick_view.html" class="qv-e-button btn-quickview-1"><span><span>Xem nhanh</span></span></a> </div>
+                <div class="qv-button-container"> <a href="quick_view.html" class="qv-e-button btn-quickview-1 loadquickview" productid="@i.ProductID"><span><span>Xem nhanh</span></span></a> </div>
             </div>
             <div class="info">
                 <div class="info-inner">
@@ -59,8 +59,9 @@
                     <!--item-content-->
                 </div>
                 <!--info-inner-->
-                <div class="actions">
-                    <button class="button btn-cart" title="Add to Cart" type="button"><span>Xem Chi Tiết</span></button>
+                <div class="actions" style="margin-bottom:5px">
+                    @*<button class="button btn-cart" title="Add to Cart" type="button"><span>Xem Chi Tiết</span></button>*@
+                    <a title="@i.ProductName" class="button btn-cart" href="/chi-tiet/@i.SEOUrlRewrite-@i.ProductID"> Chi tiết </a>
                 </div>
                 <!--actions-->
                 <div class="clearfix"> </div>

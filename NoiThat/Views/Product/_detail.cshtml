@@ -7,7 +7,31 @@
     </div>
     <div class="ratings">
         <div class="rating-box">
-            <div style="width:80%" class="rating"></div>
+            @{
+                var rating = Model.Rating;
+                var r = 0;
+                if (rating == 1)
+                {
+                    r = 20;
+                }
+                if (rating == 2)
+                {
+                    r = 40;
+                }
+                if (rating == 3)
+                {
+                    r = 60;
+                }
+                if (rating == 4)
+                {
+                    r = 80;
+                }
+                if (rating == 5)
+                {
+                    r = 100;
+                }
+            }
+            <div style="width:@r%" class="rating"></div>
         </div>
         <p class="rating-links"> <a href="#">1 Đánh giá</a> <span class="separator">|</span> <a href="#">Thêm đánh giá</a> </p>
     </div>
@@ -24,7 +48,7 @@
     </p>
     <div class="price-block">
         <div class="price-box">
-            <p class="old-price"> <span class="price-label">Regular Price:</span> <span class="price"> @Model.Price </span> </p>
+            @*<p class="old-price"> <span class="price-label">Regular Price:</span> <span class="price"> @Model.Price </span> </p>*@
             <p class="special-price"> <span class="price-label">Special Price</span> <span class="price"> <i class="icon-phones"></i> 0979.77.11.33 </span> </p>
         </div>
     </div>

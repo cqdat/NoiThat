@@ -52,6 +52,9 @@
                 cache: false
          });
 
+         $(".level0 a").removeClass("active");
+         $("a#menubst").addClass("active");
+
         filter();
 
         $('body').on('change', '#ddlPageSize', function () {

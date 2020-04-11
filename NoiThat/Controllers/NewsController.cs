@@ -19,6 +19,7 @@ namespace NoiThat.Controllers
         //[ActionName("tin-tuc")]
         public ActionResult Index()
         {
+            
             return View();
         }
 

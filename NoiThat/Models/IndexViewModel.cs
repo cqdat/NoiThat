@@ -11,6 +11,7 @@ namespace NoiThat.Models
         public string logo { get; set; }
         public List<Information> PhoneAndEmail { get; set; }
         public List<Slide> lstSlideHomePage { get; set; }
+        public List<Advertise> lstBannerPro { get; set; }
         public List<Blog> lstAboutUsMore { get; set; }
         public List<Product> lstLastProducts { get; set; }
         public List<Product> lstBestSellerproducts { get; set; }
