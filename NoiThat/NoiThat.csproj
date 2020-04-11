@@ -383,6 +383,12 @@
     <Content Include="Views\Product\_content.cshtml" />
     <Content Include="Views\Product\_relate.cshtml" />
     <Content Include="Views\Product\_upsell.cshtml" />
+    <Content Include="Views\Product\_quickview.cshtml" />
+    <Content Include="Views\News\Details.cshtml" />
+    <Content Include="Views\Collections\Details.cshtml" />
+    <Content Include="Views\Collections\Index.cshtml" />
+    <Content Include="Views\Collections\_partialIndex.cshtml" />
+    <Content Include="Views\Home\_bestSellerProducts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
