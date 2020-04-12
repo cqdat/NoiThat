@@ -21,6 +21,12 @@ namespace NoiThat
             //Bộ sưu tập
             routes.MapRoute(
               name: "Collections",
+              url: "bo-suu-tap/{url}-{id}",
+              defaults: new { controller = "Collections", action = "index", id = UrlParameter.Optional }
+          );
+
+            routes.MapRoute(
+              name: "Collections2",
               url: "bo-suu-tap",
               defaults: new { controller = "Collections", action = "index", id = UrlParameter.Optional }
           );

@@ -29,15 +29,21 @@ namespace NoiThat.Models
         public string CategoryName { get; set; }
         public string CategoryLink { get; set; }
         public Product product { get; set; }
-        public List<ProductImage> listimage { get; set; }
+        public List<ListImage> listimage { get; set; }
         public List<Product> relate { get; set; }
         public List<Product> upsell { get; set; }
+    }
+
+    public class ListImage
+    {
+        public string ImageURL { get; set; }
+        public string URLThumb { get; set; }
     }
 
     public class QuickViewModel
     {
         public Product product { get; set; }
-        public List<ProductImage> listimage { get; set; }
+        public List<ListImage> listimage { get; set; }
     }
 
 }

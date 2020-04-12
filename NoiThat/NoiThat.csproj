@@ -391,6 +391,7 @@
     <Content Include="Views\Product\_quickview.cshtml" />
     <Content Include="Views\Home\_quickview.cshtml" />
     <Content Include="Views\Home\_bannerPromotes.cshtml" />
+    <Content Include="Views\Collections\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -173,12 +173,12 @@
                                     @foreach (var k in Model.menu_lstCollections)
                                     {
                                         <li class="level1 nav-6-1 parent item">
-                                            <a href="grid.html"><span>@k.CategoryName</span></a>
+                                            <a href="/bo-suu-tap/@k.SEOUrlRewrite-@k.CategoryID"><span>@k.CategoryName</span></a>
                                             <!--sub sub category-->
                                             <ul class="level1">
                                                 @foreach (var j in h.lstGetChildMenu(k.CategoryID))
                                                 {
-                                                    <li class="level2 nav-6-1-1"> <a href="grid.html"><span>@j.CategoryName</span></a> </li>
+                                                    <li class="level2 nav-6-1-1"> <a href="/bo-suu-tap/@j.SEOUrlRewrite-@j.CategoryID"><span>@j.CategoryName</span></a> </li>
                                                 }
                                             </ul>
                                             <!--sub sub category-->

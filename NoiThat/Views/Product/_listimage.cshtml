@@ -1,4 +1,4 @@
-﻿@model List<NoiThat.Models.DataModels.ProductImage>
+﻿@model List<NoiThat.Models.ListImage>
 @using NoiThat.Utilities
 
 <div class="product-img-box col-lg-6 col-sm-6 col-xs-12">
@@ -7,10 +7,10 @@
         @foreach (var q in Model)
         {
             <li class="moreview_thumb thumb_1">
-                <img class="moreview_thumb_image" src="@WebConstants.ImgProductImage\@q.URLImage">
-                <img class="moreview_source_image" src="@WebConstants.ImgProductImage\@q.URLImage" alt="">
+                <img class="moreview_thumb_image" src="@WebConstants.ImgProductImage\@q.ImageURL">
+                <img class="moreview_source_image" src="@WebConstants.ImgProductImage\@q.ImageURL" alt="">
                 <span class="roll-over">Di chuyển chuột vào hình để phóng to</span>
-                <img style="position: absolute;" class="zoomImg" src="@WebConstants.ImgProductImage\@q.URLImage">
+                <img style="position: absolute;" class="zoomImg" src="@WebConstants.ImgProductImage\@q.ImageURL">
             </li>
         }
 

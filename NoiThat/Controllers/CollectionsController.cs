@@ -13,7 +13,7 @@ namespace NoiThat.Controllers
     {
         TanThoiEntities db = new TanThoiEntities();
         // GET: Collections
-        public ActionResult Index()
+        public ActionResult Index(int? id)
         {
             return View();
         }
@@ -58,6 +58,11 @@ namespace NoiThat.Controllers
 
 
             return View(model);
+        }
+
+        public ActionResult List(int? id)
+        {
+            return View();
         }
     }
 }

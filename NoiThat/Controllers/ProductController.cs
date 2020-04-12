@@ -65,9 +65,19 @@ namespace NoiThat.Controllers
             var cate = db.Categories.Find(model.product.CategoryID);
             model.CategoryName = cate.CategoryName;
             model.CategoryLink = "/san-pham/" + cate.SEOUrlRewrite + "-" + cate.CategoryID;
-            model.listimage = db.ProductImages.Where(q => q.ProductID == id).ToList();
+            model.listimage = db.ProductImages.Where(q => q.ProductID == id).Select(s => new ListImage { 
+                ImageURL = s.URLImage,
+                URLThumb = s.ImagesThumb
+            }).ToList();
             model.relate = db.Products.Where(q => q.IsActive == true && q.ProductID != id && q.IsProduct == true && q.CategoryID == cate.CategoryID).ToList();
             model.upsell = db.Products.Where(q => q.IsActive == true && q.ProductID != id && q.IsProduct == true).ToList();
+
+            ListImage l = new ListImage();
+            l.URLThumb = model.product.ImagesThumb;
+            l.ImageURL = model.product.Images;
+
+            model.listimage.Add(l);
+
             return View(model);
         }
 
@@ -75,8 +85,21 @@ namespace NoiThat.Controllers
         {
             QuickViewModel model = new QuickViewModel();
 
-            model.listimage = db.ProductImages.Where(q => q.ProductID == id).ToList();
+            model.listimage = db.ProductImages.Where(q => q.ProductID == id).Select(s => new ListImage
+            {
+                ImageURL = s.URLImage,
+                URLThumb = s.ImagesThumb
+            }).ToList();
+
+
+
             model.product = db.Products.Find(id);
+
+            ListImage l = new ListImage();
+            l.URLThumb = model.product.ImagesThumb;
+            l.ImageURL = model.product.Images;
+
+            model.listimage.Add(l);
 
             return PartialView("_quickview", model);
         }
