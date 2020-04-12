@@ -1,0 +1,66 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@using NoiThat.Models.DataModels
+@using NoiThat.Utilities;
+@model IPagedList<NoiThat.Models.DataModels.Product>
+@{
+    int stt = ViewBag.STT;
+
+}
+
+<ul class="products-grid">
+    @foreach (var item in Model)
+    {
+        <li class="item col-lg-4 col-md-4 col-sm-6 col-xs-6">
+            <div class="col-item">
+
+                <div class="images-container">
+                    <a class="product-image" title="@item.ProductName" href="/bo-suu-tap/@item.SEOUrlRewrite-@item.ProductID"> <img src="@WebConstants.ImgCollectionHost/@item.Images" class="img-responsive" alt="@item.Images" style="height:240px"> </a>
+                    <div class="actions">
+                        <div class="actions-inner">
+                            <p style="padding:5px; color:#ffffff; font-size:14px">
+                                @item.ProductName
+                            </p>
+
+                        </div>
+                    </div>
+                    <div class="qv-button-container">
+                        <a class="qv-e-button btn-quickview-1" title="Xem chi tiết" href="/bo-suu-tap/@item.SEOUrlRewrite-@item.ProductID">
+                            <span>
+                                <span>Chi tiết</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </li>
+    }
+</ul>
+<div class="row">
+    <div class="dataTables_paginate paging_bootstrap_full_number" id="sample_1_paginate">
+        @Html.PagedListPager(Model, pageNumber => Url.Action("_PartialIndex",
+           new
+           {
+               pageNumber,
+               pageSize = ViewBag.pageSize,
+               SanPham = ViewBag.SanPham,
+               DanhMucCha = ViewBag.DanhMucCha,
+               SEOKeywords = ViewBag.SEOKeywords
+           }),
+            PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(
+            new PagedListRenderOptions()
+            {
+                Display = PagedListDisplayMode.IfNeeded,
+                DisplayItemSliceAndTotal = true
+            }, new AjaxOptions()
+            {
+                HttpMethod = "GET",
+                InsertionMode = InsertionMode.Replace,
+                UpdateTargetId = "season-list"
+            }))
+    </div>
+
+    <div class="dataTables_info" id="sample_1_info" role="status" aria-live="polite"></div>
+
+</div>

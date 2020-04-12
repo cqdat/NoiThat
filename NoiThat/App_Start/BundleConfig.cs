@@ -21,7 +21,8 @@ namespace NoiThat
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       //"~/Scripts/jquery.unobtrusive-ajax.min.js",
-                      "~/Scripts/bootstrap.js"));
+                      "~/Scripts/bootstrap.js",
+                      "~/Scripts/client.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",

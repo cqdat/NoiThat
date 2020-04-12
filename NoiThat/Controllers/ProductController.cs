@@ -18,7 +18,7 @@ namespace NoiThat.Controllers
             model.Title = "Tất cả sản phẩm";
             model.categories = db.Categories.Where(q => q.IsActive == true && q.TypeCate == 1 && q.Parent == 0).ToList();
             model.slides = db.Slides.Where(q => q.IsActive == true && q.CategoryID == -1).ToList();
-            model.products = db.Products.Where(q => q.IsActive == true).ToList();
+            model.products = db.Products.Where(q => q.IsActive == true && q.IsProduct==true).ToList();
             return View(model);
         }
 
@@ -54,7 +54,7 @@ namespace NoiThat.Controllers
                 model.slides = slide;
             }
             
-            model.products = db.Products.Where(q => q.IsActive == true).ToList();
+            model.products = db.Products.Where(q => q.IsActive == true && q.IsProduct == true).ToList();
             return View(model);
         }
 
@@ -65,7 +65,20 @@ namespace NoiThat.Controllers
             var cate = db.Categories.Find(model.product.CategoryID);
             model.CategoryName = cate.CategoryName;
             model.CategoryLink = "/san-pham/" + cate.SEOUrlRewrite + "-" + cate.CategoryID;
+            model.listimage = db.ProductImages.Where(q => q.ProductID == id).ToList();
+            model.relate = db.Products.Where(q => q.IsActive == true && q.ProductID != id && q.IsProduct == true && q.CategoryID == cate.CategoryID).ToList();
+            model.upsell = db.Products.Where(q => q.IsActive == true && q.ProductID != id && q.IsProduct == true).ToList();
             return View(model);
+        }
+
+        public PartialViewResult GetQuickView(int? id)
+        {
+            QuickViewModel model = new QuickViewModel();
+
+            model.listimage = db.ProductImages.Where(q => q.ProductID == id).ToList();
+            model.product = db.Products.Find(id);
+
+            return PartialView("_quickview", model);
         }
     }
 }

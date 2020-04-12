@@ -16,37 +16,32 @@
     </div>
 </div>
 
-
-
-
-
 <section class="main-container col1-layout">
     <div class="main container">
         <div class="col-main">
             <div class="row">
                 <div class="product-view wow">
                     <div class="product-essential">
-                        <form action="#" method="post" id="product_addtocart_form">
+                        <div id="product_addtocart_form">
 
-
-                            @Html.Partial("_listimage")
+                            @Html.Partial("_listimage", Model.listimage)
 
 
                             @Html.Partial("_detail", Model.product)
 
-                        </form>
+                        </div>
                     </div>
                     <div class="product-collateral">
 
 
-                        @Html.Partial("_content")
+                        @Html.Partial("_content", Model.product)
 
                         <div class="col-sm-12">
                             <div class="box-additional">
 
-                                @Html.Partial("_relate")
+                                @Html.Partial("_relate", Model.relate)
 
-                                @Html.Partial("_upsell")
+                                @Html.Partial("_upsell", Model.upsell)
 
                             </div>
                         </div>

@@ -136,6 +136,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\CollectionsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
@@ -293,6 +294,7 @@
     <Content Include="js\cloudzoom.js" />
     <Content Include="js\common.js" />
     <Content Include="js\jquery.jcarousel.min.js" />
+    <Content Include="js\jquery.loadscript.min.js" />
     <Content Include="js\jquery.min.js" />
     <Content Include="js\owl.carousel.min.js" />
     <Content Include="js\revslider.js" />
@@ -331,6 +333,7 @@
     <Content Include="fonts\fontawesome-webfontf77b.woff" />
     <Content Include="fonts\glyphicons-halflings-regulard41d.eot" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\client.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -380,6 +383,14 @@
     <Content Include="Views\Product\_content.cshtml" />
     <Content Include="Views\Product\_relate.cshtml" />
     <Content Include="Views\Product\_upsell.cshtml" />
+    <Content Include="Views\Collections\Details.cshtml" />
+    <Content Include="Views\Collections\Index.cshtml" />
+    <Content Include="Views\Collections\_partialIndex.cshtml" />
+    <Content Include="Views\News\Details.cshtml" />
+    <Content Include="Views\Home\_bestSellerProducts.cshtml" />
+    <Content Include="Views\Product\_quickview.cshtml" />
+    <Content Include="Views\Home\_quickview.cshtml" />
+    <Content Include="Views\Home\_bannerPromotes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

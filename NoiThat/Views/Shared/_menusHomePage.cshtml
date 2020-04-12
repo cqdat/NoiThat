@@ -49,7 +49,7 @@
                                     </li>
                                     @*Bộ sưu tập*@
                                     <li class="level0 nav-6 level-top">
-                                        <a class="level-top" href="#"> <span>Bộ Sưu tập</span> </a>
+                                        <a class="level-top" href="/bo-suu-tap"> <span>Bộ Sưu tập</span> </a>
                                         <ul class="level0">
                                             @foreach (var k in Model.menu_lstCollections)
                                             {
@@ -158,7 +158,7 @@
 
                 @*Bộ Sưu Tập*@
                 <li class="level0 nav-7 level-top parent">
-                    <a href="grid.html" class="level-top"> <span>Bộ Sưu Tập</span> </a>
+                    <a href="/bo-suu-tap" class="level-top" id="menubst"> <span>Bộ Sưu Tập</span> </a>
                     <div class="level0-wrapper dropdown-6col" style="display: none;">
                         <div class="level0-wrapper2">
                             <!--nav-block nav-block-center-->
@@ -210,7 +210,7 @@
 
                 @*Dịch vụ - Tư vấn*@
                 <li class="level0 parent drop-menu">
-                    <a href="/tin-tuc"><span>Tin Tức - Tư vấn</span> </a>
+                    <a href="/tin-tuc" id="menutt"><span>Tin Tức - Tư vấn</span> </a>
                     <ul style="display: none;" class="level1">
                         @foreach (var f in Model.menu_lstTuVanDichVu)
                         {
@@ -220,7 +220,7 @@
                     </ul>
                 </li>
                 <li class="level0 parent drop-menu">
-                    <a href="/lien-he"><span>Liên hệ</span> </a>
+                    <a href="/lien-he" id="menulh"><span>Liên hệ</span> </a>
 
                 </li>
                 <li class="nav-custom-link level0 level-top parent">

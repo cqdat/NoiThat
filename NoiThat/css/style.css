@@ -2242,8 +2242,9 @@ ul.topnav em:hover {
 }
 .new-top-right {
 	background: none repeat scroll 0 0 #FFFFFF;
-	right: 10px;
-	top: 0;
+	right: 10px !important;
+    left:unset !important;
+	top: 10px !important;
 }
 .sale-top-right {
 	top: 0;
@@ -8685,6 +8686,30 @@ button.subscribe:before {
 .social .fb a:hover {
 	background: #3C5B9B;
 }
+/*Zalo*/
+	.social .zalo a:before {
+		content: "Z";
+		font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	}
+
+.social .zalo a {
+	background: #0cb3ff;
+	font-size: 18px;
+	font-weight:bold;
+	line-height: 35px;
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	color: #fff;
+	text-align: center;
+	padding: 0;
+}
+
+	.social .zalo a:hover {
+		background: #0cb3ff;
+	}
+
+
 .social .tw a:before {
 	content: "\f099";
 	font-family: FontAwesome;
