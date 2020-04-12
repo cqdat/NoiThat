@@ -34,7 +34,7 @@ namespace NoiThat
             //Bộ sưu tập
             routes.MapRoute(
               name: "CollectionsDetail",
-              url: "bo-suu-tap/{url}-{id}",
+              url: "chi-tiet-bo-suu-tap/{url}-{id}",
               defaults: new { controller = "Collections", action = "Details", id = UrlParameter.Optional }
           );
 
