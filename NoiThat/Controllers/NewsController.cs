@@ -35,6 +35,7 @@ namespace NoiThat.Controllers
             var lstnews = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogNews && b.IsActive == true).ToList();
 
             lstnews = lstnews.OrderBy(s => s.LastModify).ToList();
+
             ViewBag.STT = pageNumber * pageSize - pageSize + 1;
             int count = lstnews.ToList().Count();
             ViewBag.TotalRow = count;
