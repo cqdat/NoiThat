@@ -15,8 +15,8 @@
     <div class="container">
         <div class="row">
             <ul>
-                <li class="home"> <a href="/" title="trang chủ">Trang chủ</a><span><i class="icon-long-arrow-right stepby" aria-hidden="true"></i></span></li>
-                <li class="home"> <a href="/bo-suu-tap" title="Bộ sưu tập">Bộ sưu tập</a><span><i class="icon-long-arrow-right stepby" aria-hidden="true"></i></span></li>
+                <li class="home"> <a href="/" title="trang chủ">Trang chủ</a><i class="icon-long-arrow-right stepby" aria-hidden="true"></i></li>
+                <li class="home"> <a href="/bo-suu-tap" title="Bộ sưu tập">Bộ sưu tập</a><i class="icon-long-arrow-right stepby" aria-hidden="true"></i></li>
                 <li class="category13"><strong>@Model.detail.ProductName</strong></li>
             </ul>
         </div>
@@ -26,14 +26,14 @@
     <div class="main container">
         <div class="row">
             <section class="col-main col-sm-12">
-               
+
                 <div id="myCarousel" class="carousel slide" data-ride="carousel">
                     <!-- Indicators -->
                     @*<ol class="carousel-indicators">
-                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                        <li data-target="#myCarousel" data-slide-to="1"></li>
-                        <li data-target="#myCarousel" data-slide-to="2"></li>
-                    </ol>*@
+                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#myCarousel" data-slide-to="1"></li>
+                            <li data-target="#myCarousel" data-slide-to="2"></li>
+                        </ol>*@
 
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner" style="margin-top:unset">
@@ -51,8 +51,8 @@
 
 
                         @*<div class="item">
-                            <img src="https://noithatahome.vn/wp-content/uploads/6-4.jpg" alt="New York">
-                        </div>*@
+                                <img src="https://noithatahome.vn/wp-content/uploads/6-4.jpg" alt="New York">
+                            </div>*@
                     </div>
 
                     <!-- Left and right controls -->
@@ -153,3 +153,19 @@
     </div>
 </section>
 
+@section scripts{
+    <script type="text/javascript">
+
+    $(document).ready(function () {
+       
+
+         $(".level0 a").removeClass("active");
+         $("a#menubst").addClass("active");
+
+    
+
+    });
+
+   
+    </script>
+}

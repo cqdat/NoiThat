@@ -24,6 +24,7 @@ namespace NoiThat.Utilities
         public static int CategoryCollection = 2;
         public static int CategoryNews = 3;
         public static int CategoryAboutUs = 4;
+        public static int CategoryService = 5;
 
         public static int BlogNews = 1;
         public static int BlogCollection = 2;

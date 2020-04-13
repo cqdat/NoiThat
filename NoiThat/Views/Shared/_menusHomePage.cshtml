@@ -54,12 +54,12 @@
                                             @foreach (var k in Model.menu_lstCollections)
                                             {
                                                 <li class="level1 first parent">
-                                                    <a href="checkout.html"><span>@k.CategoryName</span></a>
+                                                    <a href="/bo-suu-tap/@k.SEOUrlRewrite-@k.CategoryID"><span>@k.CategoryName</span></a>
                                                     <ul class="level2">
                                                         @foreach (var i in h.lstGetChildMenu(k.CategoryID))
                                                         {
                                                             <li class="level2 nav-2-1-1 first">
-                                                                <a href="checkout_method.html">
+                                                                <a href="/bo-suu-tap/@i.SEOUrlRewrite-@i.CategoryID">
                                                                     <span>@i.CategoryName</span>
                                                                 </a>
                                                             </li>
@@ -74,7 +74,7 @@
                                     </li>
 
                                     <li class="level0 parent drop-menu">
-                                        <a href="blog.html"><span>Dịch Vụ</span> </a>
+                                        <a href="/dich-vu"><span>Dịch Vụ</span> </a>
                                         <ul class="level1">
                                             <li class="level1 first"><a href="blog_posts_table_view.html"><span>Table View</span></a></li>
                                             <li class="level1 nav-10-2"> <a href="blog_single_post.html"> <span>Single Post</span> </a> </li>
@@ -173,12 +173,12 @@
                                     @foreach (var k in Model.menu_lstCollections)
                                     {
                                         <li class="level1 nav-6-1 parent item">
-                                            <a href="/bo-suu-tap/@k.CategoryID-@k.SEOUrlRewrite"><span>@k.CategoryName</span></a>
+                                            <a href="/bo-suu-tap/@k.SEOUrlRewrite-@k.CategoryID"><span>@k.CategoryName</span></a>
                                             <!--sub sub category-->
                                             <ul class="level1">
                                                 @foreach (var j in h.lstGetChildMenu(k.CategoryID))
                                                 {
-                                                    <li class="level2 nav-6-1-1"> <a href="/bo-suu-tap/@j.CategoryID-@j.SEOUrlRewrite"><span>@j.CategoryName</span></a> </li>
+                                                    <li class="level2 nav-6-1-1"> <a href="/bo-suu-tap/@j.SEOUrlRewrite-@j.CategoryID"><span>@j.CategoryName</span></a> </li>
                                                 }
                                             </ul>
                                             <!--sub sub category-->
@@ -200,10 +200,14 @@
                     </div>
                 </li>
                 <li class="level0 parent drop-menu">
-                    <a href="/Home/Contact/"><span>Dịch Vụ</span> </a>
+                    <a href="/dich-vu"><span>Dịch Vụ</span> </a>
                     <ul style="display: none;" class="level1">
-                        <li class="level1 first"><a href="blog_posts_table_view.html"><span>Thiết kế nội thất</span></a> </li>
-                        <li class="level1 parent"><a href="blog_single_post.html"><span>Thi Công Nội thất</span></a> </li>
+                        @foreach (var j in Model.menu_lstServices)
+                        {
+                             <li class="level1 first"><a href="/dich-vu/@j.SEOUrlRewrite-@j.CategoryID"><span>@j.CategoryName</span></a> </li>
+                        }
+                        @*<li class="level1 first"><a href="blog_posts_table_view.html"><span>Thiết kế nội thất</span></a> </li>
+                        <li class="level1 parent"><a href="blog_single_post.html"><span>Thi Công Nội thất</span></a> </li>*@
 
                     </ul>
                 </li>
@@ -214,7 +218,7 @@
                     <ul style="display: none;" class="level1">
                         @foreach (var f in Model.menu_lstTuVanDichVu)
                         {
-                            <li class="level1 first"><a href="blog_posts_table_view.html"><span>@f.CategoryName</span></a> </li>
+                            <li class="level1 first"><a href="/tin-tuc/@f.SEOUrlRewrite-@f.CategoryID"><span>@f.CategoryName</span></a> </li>
                         }
 
                     </ul>

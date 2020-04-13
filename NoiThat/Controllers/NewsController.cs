@@ -17,7 +17,7 @@ namespace NoiThat.Controllers
         Helpers h = new Helpers();
         // GET: News
         //[ActionName("tin-tuc")]
-        public ActionResult Index()
+        public ActionResult Index(int? id)
         {
             
             return View();
@@ -56,6 +56,29 @@ namespace NoiThat.Controllers
             model.blogdetail = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogNews && b.BlogID == id && b.IsActive == true).FirstOrDefault();
             model.lstBlogsNewest = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogNews && b.IsActive == true && b.BlogID != id).OrderByDescending(c => c.LastModify).ToList();
             ViewBag.Title = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogAboutUs && b.BlogID == 3 && b.IsActive == true).FirstOrDefault().BlogName;
+            int parent = model.blogdetail.CategoryID.Value;
+            model.category = db.Categories.Find(parent);
+
+            return View(model);
+        }
+
+        public ActionResult Service(int? id)
+        {
+            ServiceViewModel model = new ServiceViewModel();
+
+            if(id != null)
+            {
+                model.HasID = true;
+                model.Title = db.Categories.Find(id).CategoryName;
+                model.blogs = db.Blogs.Where(q => q.IsActive == true && q.CategoryID == id).ToList();
+            }
+            else
+            {
+                model.HasID = false;
+                model.Title = "Dịch Vụ";
+                model.blogs = db.Blogs.Where(q => q.IsActive == true && q.Category.TypeCate == 5).ToList();
+            }
+
             return View(model);
         }
     }

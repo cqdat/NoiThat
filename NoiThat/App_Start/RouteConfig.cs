@@ -46,10 +46,36 @@ namespace NoiThat
                 defaults: new { controller = "News", action = "Index", id = UrlParameter.Optional }
             );
 
+            routes.MapRoute(
+               name: "News6",
+               url: "tin-tuc/{url}-{id}",
+               defaults: new { controller = "News", action = "Index", id = UrlParameter.Optional }
+           );
+
+            routes.MapRoute(
+              name: "dichvu",
+              url: "dich-vu",
+              defaults: new { controller = "News", action = "Service", id = UrlParameter.Optional }
+          );
+
+            routes.MapRoute(
+               name: "News2",
+               url: "dich-vu/{url}-{id}",
+               defaults: new { controller = "News", action = "Service", id = UrlParameter.Optional }
+           );
+
+
+            routes.MapRoute(
+              name: "News3",
+              url: "chi-tiet-dich-vu/{url}-{id}",
+              defaults: new { controller = "News", action = "Details", id = UrlParameter.Optional }
+          );
+
+
             //create new route Tin tức details
             routes.MapRoute(
                 name: "NewsDetails",
-                url: "tin-tuc/{url}-{id}",
+                url: "chi-tiet-tin-tuc/{url}-{id}",
                 defaults: new { controller = "News", action = "Details", id = UrlParameter.Optional }
             );
 
@@ -76,7 +102,7 @@ namespace NoiThat
 
             routes.MapRoute(
               name: "product3",
-              url: "chi-tiet/{url}-{id}",
+              url: "chi-tiet-san-pham/{url}-{id}",
               defaults: new { controller = "product", action = "detail", id = UrlParameter.Optional }
           );
 
@@ -87,6 +113,9 @@ namespace NoiThat
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+
+
 
             
         }

@@ -10,5 +10,13 @@ namespace NoiThat.Models
     {
         public Blog blogdetail { get; set; }
         public List<Blog> lstBlogsNewest { get; set; }
+        public Category category { get; set; }
+    }
+
+    public class ServiceViewModel
+    {
+        public string Title { get; set; }
+        public List<Blog> blogs { get; set; }
+        public bool? HasID { get; set; }
     }
 }

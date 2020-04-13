@@ -12,5 +12,6 @@ namespace NoiThat.Models
         public List<Category> menu_lstCollections { get; set; }
         public List<Category> menu_lstServices { get; set; }
         public List<Category> menu_lstTuVanDichVu { get; set; }
+        
     }
 }
