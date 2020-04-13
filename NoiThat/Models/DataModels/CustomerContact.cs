@@ -20,7 +20,12 @@ namespace NoiThat.Models.DataModels
         [StringLength(15)]
         public string CustomerPhone { get; set; }
 
+        [StringLength(500)]
+        public string CustomerAddress { get; set; }
+
         public string CustomerContent { get; set; }
+
+        public int? IdProduct { get; set; }
 
         public DateTime? Created { get; set; }
     }

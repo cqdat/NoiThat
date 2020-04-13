@@ -392,7 +392,7 @@
     <Content Include="Views\Home\_quickview.cshtml" />
     <Content Include="Views\Home\_bannerPromotes.cshtml" />
     <Content Include="Views\Collections\List.cshtml" />
-    <Content Include="Views\News\Service.cshtml" />
+    <Content Include="Views\Home\_sanPhamNoiBat.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
