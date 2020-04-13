@@ -108,10 +108,6 @@ namespace NoiThat.Models.DataModels
                 .Property(e => e.SEOUrlRewrite)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<ProductGroup>()
-                .Property(e => e.GroupCode)
-                .IsUnicode(false);
-
             modelBuilder.Entity<ProductImage>()
                 .Property(e => e.URLImage)
                 .IsUnicode(false);

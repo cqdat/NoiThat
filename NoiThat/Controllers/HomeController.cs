@@ -28,6 +28,7 @@ namespace NoiThat.Controllers
             model.lstAboutUsMore = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogAboutUs_more && b.IsActive == true).ToList();
             model.lstLastProducts = db.Products.Where(p => p.IsProduct == true && p.IsActive == true).OrderByDescending(p => p.ProductID).Take(4).ToList();
             model.lstBestSellerproducts = db.Products.Where(p => p.IsProduct == true && p.IsActive == true).OrderBy(p => Guid.NewGuid()).Take(6).ToList();
+            model.lstSanPhamNoiBat = db.ProductGroups.Where(g => g.GroupCode == WebConstants.ProductNoiBat).ToList();
             model.lstNews = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogNews && b.IsActive == true).OrderByDescending(c => c.LastModify).Take(3).ToList();
             return View(model);
         }
