@@ -35,7 +35,7 @@
                                                     <li class="level1 first parent">
                                                         <a href="/san-pham/@q.SEOUrlRewrite-@q.CategoryID"><span>@q.CategoryName</span></a>
                                                         <ul class="level2">
-                                                            @foreach (var j in h.lstGetChildMenu(q.CategoryID))
+                                                            @foreach (var j in h.lstGetChildMenuHead(q.CategoryID))
                                                             {
                                                                 <li class="level2 nav-2-1-1 first"><a href="/san-pham/@j.SEOUrlRewrite-@j.CategoryID"><span>@j.CategoryName</span></a></li>
                                                             }
@@ -56,7 +56,7 @@
                                                 <li class="level1 first parent">
                                                     <a href="/bo-suu-tap/@k.SEOUrlRewrite-@k.CategoryID"><span>@k.CategoryName</span></a>
                                                     <ul class="level2">
-                                                        @foreach (var i in h.lstGetChildMenu(k.CategoryID))
+                                                        @foreach (var i in h.lstGetChildMenuHead(k.CategoryID))
                                                         {
                                                             <li class="level2 nav-2-1-1 first">
                                                                 <a href="/bo-suu-tap/@i.SEOUrlRewrite-@i.CategoryID">
@@ -123,7 +123,7 @@
                                             <a href="/san-pham/@m.SEOUrlRewrite-@m.CategoryID"><span>@m.CategoryName</span></a>
                                             <!--sub sub category-->
                                             <ul class="level1">
-                                                @foreach (var j in h.lstGetChildMenu(m.CategoryID))
+                                                @foreach (var j in h.lstGetChildMenuHead(m.CategoryID))
                                                 {
                                                     <li class="level2 nav-6-1-1"> <a href="/san-pham/@j.SEOUrlRewrite-@j.CategoryID"><span>@j.CategoryName</span></a> </li>
                                                 }
@@ -136,13 +136,13 @@
                                 </ul>
                                 <div class="nav-add">
                                     <div class="push_item1">
-                                        <div class="push_img"> <a href="#"> <img alt="women jwellery" src="~/images/women-cate-banner.jpg"> </a> </div>
+                                        <div class="push_img"> <a href="/bo-suu-tap"> <img alt="Nội thất giá rẻ Bình Dương" src="~/images/Noi-that-gia-re-binh-duong.jpg"> </a> </div>
                                     </div>
                                     <div class="push_item1">
-                                        <div class="push_img"> <a href="#"> <img alt="women_jwellery" src="~/images/women-cate-banner1.jpg"> </a> </div>
+                                        <div class="push_img"> <a href="/san-pham"> <img alt="Nội thất chung cư bình dương giá rẻ" src="~/images/Noi-that-chung-cu-binh-duong.jpg"> </a> </div>
                                     </div>
                                     <div class="push_item1 push_item1_last">
-                                        <div class="push_img"> <a href="#"> <img alt="women_bag" src="~/images/women-cate-banner2.jpg"> </a> </div>
+                                        <div class="push_img"> <a href="#"> <img alt="Nội thất văn phòng Bình Dương" src="~/images/Noi-That-Van-Phong.jpg"> </a> </div>
                                     </div>
                                     <br class="clear">
                                 </div>
@@ -176,7 +176,7 @@
                                             <a href="/bo-suu-tap/@k.SEOUrlRewrite-@k.CategoryID"><span>@k.CategoryName</span></a>
                                             <!--sub sub category-->
                                             <ul class="level1">
-                                                @foreach (var j in h.lstGetChildMenu(k.CategoryID))
+                                                @foreach (var j in h.lstGetChildMenuHead(k.CategoryID))
                                                 {
                                                     <li class="level2 nav-6-1-1"> <a href="/bo-suu-tap/@j.SEOUrlRewrite-@j.CategoryID"><span>@j.CategoryName</span></a> </li>
                                                 }
@@ -227,7 +227,7 @@
                     <a href="/lien-he" id="menulh"><span>Liên hệ</span> </a>
 
                 </li>
-                <li class="nav-custom-link level0 level-top parent">
+                @*<li class="nav-custom-link level0 level-top parent">
                     <a class="level-top" href="#"><span>Custom</span></a>
                     <div class="level0-wrapper custom-menu" style="left: 0px; display: none;">
                         <div class="header-nav-dropdown-wrapper clearer">
@@ -253,7 +253,7 @@
                             </div>
                         </div>
                     </div>
-                </li>
+                </li>*@
             </ul>
         </div>
     </div>

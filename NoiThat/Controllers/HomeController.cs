@@ -44,8 +44,8 @@ namespace NoiThat.Controllers
             //var model = db.MENUs.Where(q => q.IdCha == 0).OrderBy(o => o.ThuTu);
 
             MenuViewModel model = new MenuViewModel();
-            model.menu_lstProducts = db.Categories.Where(c => c.Parent == 0 && c.IsActive == true && c.TypeCate == WebConstants.CategoryProduct).ToList();
-            model.menu_lstCollections = db.Categories.Where(c => c.Parent == 0 && c.IsActive == true && c.TypeCate == WebConstants.CategoryCollection).ToList();
+            model.menu_lstProducts = db.Categories.Where(c => c.Parent == 0 && c.DisplayMenu == true && c.IsActive == true && c.TypeCate == WebConstants.CategoryProduct).ToList();
+            model.menu_lstCollections = db.Categories.Where(c => c.Parent == 0 && c.DisplayMenu == true && c.IsActive == true && c.TypeCate == WebConstants.CategoryCollection).ToList();
             model.menu_lstTuVanDichVu = db.Categories.Where(c => c.Parent == 0 && c.IsActive == true && c.TypeCate == WebConstants.CategoryNews).ToList();
             model.menu_lstServices = db.Categories.Where(c => c.Parent == 0 && c.IsActive == true && c.TypeCate == WebConstants.CategoryService).ToList();
             var gt = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogAboutUs && b.BlogID == 3 && b.IsActive == true).FirstOrDefault();
@@ -65,7 +65,7 @@ namespace NoiThat.Controllers
             model.logo = "";
             model.lstCategories = db.Categories.Where(c => c.Parent == 0 && c.IsActive == true && c.TypeCate == WebConstants.CategoryProduct).ToList();
             model.Phone = db.Information.Where(a => a.InfoID == 2).FirstOrDefault().InfoContent;
-            model.Email = db.Information.Where(a => a.InfoID == 4).FirstOrDefault().InfoContent;
+            model.Email = db.Information.Where(a => a.InfoID == 3).FirstOrDefault().InfoContent;
 
             return PartialView("_header", model);
         }

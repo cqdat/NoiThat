@@ -31,9 +31,13 @@ namespace NoiThat.Utilities
             
         }
 
+        public List<Category> lstGetChildMenuHead(int? ParentId)
+        {
+            return db.Categories.Where(c => c.Parent == ParentId && c.DisplayMenu == true && c.IsActive == true).ToList();
+        }
         public List<Category> lstGetChildMenu(int? ParentId)
         {
-            return db.Categories.Where(c => c.Parent == ParentId).ToList();
+            return db.Categories.Where(c => c.Parent == ParentId && c.IsActive == true).ToList();
         }
         #region Rewrite string (Dung-cho-SEO-Google)
         /// <summary>

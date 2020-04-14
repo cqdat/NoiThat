@@ -8,6 +8,7 @@ using NoiThat.Utilities;
 using NoiThat.Models;
 using System.Net;
 using PagedList;
+using System.Data.Entity;
 
 namespace NoiThat.Controllers
 {
@@ -32,7 +33,7 @@ namespace NoiThat.Controllers
             }
             ViewBag.PageSize = pageSize;
 
-            var lstnews = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogNews && b.IsActive == true).ToList();
+            var lstnews = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogNews && b.IsActive == true).OrderByDescending(b=>b.LastModify).ToList();
 
             lstnews = lstnews.OrderBy(s => s.LastModify).ToList();
 
@@ -52,6 +53,10 @@ namespace NoiThat.Controllers
             {
                 return View("NotFound", "Home");
             }
+            var blog = db.Blogs.FirstOrDefault(b => b.BlogID == id);
+            blog.CountView = blog.CountView + 1;
+            db.Entry(blog).State = EntityState.Modified;
+            db.SaveChanges();
 
             NewsViewModel model = new NewsViewModel();
             model.blogdetail = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogNews && b.BlogID == id && b.IsActive == true).FirstOrDefault();
