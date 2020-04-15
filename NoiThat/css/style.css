@@ -116,6 +116,9 @@ ul, ol {
 legend {
 	display: none;
 }
+img {
+	max-width: 100% !important;
+}
 /* 2. Layout */
 .page {
 	position: relative;
