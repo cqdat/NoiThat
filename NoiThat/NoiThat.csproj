@@ -239,7 +239,6 @@
     <Content Include="images\fancybox\fancy_title_main.html" />
     <Content Include="images\fancybox\fancy_title_over.html" />
     <Content Include="images\fancybox\fancy_title_right.html" />
-    <Content Include="images\footer-logo.png" />
     <Content Include="images\francais.png" />
     <Content Include="images\german.png" />
     <Content Include="images\icon_arrow_down.png" />
@@ -252,13 +251,16 @@
     <Content Include="images\large-icon-sitemap.png" />
     <Content Include="images\left-a.png" />
     <Content Include="images\leftNav.png" />
-    <Content Include="images\logo-small.png" />
     <Content Include="images\logo.png" />
+    <Content Include="images\LogoTT-small.png" />
+    <Content Include="images\LogoTT.png" />
+    <Content Include="images\Logo_TT.png" />
     <Content Include="images\men-banner-img.jpg" />
     <Content Include="images\men-banner-img1.jpg" />
     <Content Include="images\minus.png" />
     <Content Include="images\nav-img1.jpg" />
     <Content Include="images\nav-men-banner.jpg" />
+    <Content Include="images\nav-men-banner1.jpg" />
     <Content Include="images\nav-women-banner.jpg" />
     <Content Include="images\newsletter-bg.jpg" />
     <Content Include="images\offer-banner2.jpg" />
@@ -286,9 +288,6 @@
     <Content Include="images\slide3.jpg" />
     <Content Include="images\slider_img_1.html" />
     <Content Include="images\to-top-arrow.png" />
-    <Content Include="images\women-cate-banner.jpg" />
-    <Content Include="images\women-cate-banner1.jpg" />
-    <Content Include="images\women-cate-banner2.jpg" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\cloud-zoom.js" />
     <Content Include="js\cloudzoom.js" />
@@ -332,6 +331,7 @@
     <Content Include="fonts\fontawesome-webfontf77b.ttf" />
     <Content Include="fonts\fontawesome-webfontf77b.woff" />
     <Content Include="fonts\glyphicons-halflings-regulard41d.eot" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\client.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />

@@ -11,29 +11,30 @@
         <div class="row">
             <div class="col-lg-2 col-sm-3 col-md-2 col-xs-12">
                 <!-- Header Logo -->
-                <a class="logo" title="Magento Commerce" href="/"><img alt="Magento Commerce" src="~/images/Logo_TT.png"></a>
+                <a class="logo" title="Magento Commerce" href="/"><img alt="Nội thất tân thời" style="width:135px" src="~/images/Logo_TT.png"></a>
+
                 <!-- End Header Logo -->
             </div>
             <div class="col-lg-7 col-sm-4 col-md-6 col-xs-12">
                 <!-- Search-col -->
                 <div class="search-box">
-                    <form action="http://htmldemo.magikcommerce.com/ecommerce/inspire-html-template/furniture/cat" method="POST" id="search_mini_form" name="Categories">
-                        <select name="category_id" class="cate-dropdown hidden-xs">
-                            <option value="0">Tất cả sản phẩm</option>
-                            @foreach (var i in Model.lstCategories)
-                            {
-                                //foreach (var j in h.lstGetChildMenu(i.CategoryID))
-                                //{
-                                    <option value="@i.CategoryID">@i.CategoryName</option>
-                                //}
 
-                            }
+                    <select name="category_id" class="cate-dropdown hidden-xs">
+                        <option value="0">Tất cả sản phẩm</option>
+                        @foreach (var i in Model.lstCategories)
+                        {
+                            //foreach (var j in h.lstGetChildMenu(i.CategoryID))
+                            //{
+                            <option value="@i.CategoryID">@i.CategoryName</option>
+                            //}
+
+                        }
 
 
-                        </select>
-                        <input type="text" placeholder="Nhập nội dung..." value="" maxlength="70" class="" name="search" id="search">
-                        <button id="submit-button" class="search-btn-bg"><span>Tìm Kiếm</span></button>
-                    </form>
+                    </select>
+                    <input type="text" placeholder="Nhập nội dung..." value="" maxlength="70" class="" name="search" id="search">
+                    <button id="submit-button" class="search-btn-bg"><span>Tìm Kiếm</span></button>
+
                 </div>
                 <!-- End Search-col -->
             </div>
@@ -41,7 +42,7 @@
             <div class="col-lg-3 col-sm-5 col-md-4 col-xs-12">
 
                 <div class="signup">
-                <a title="Login" href="mailto:@Model.Email?Subject=Xin%20Chào"><span>@Model.Email</span></a>
+                    <a title="Login" href="mailto:@Model.Email?Subject=Xin%20Chào"><span>@Model.Email</span></a>
                 </div>
                 <span class="or"> | </span>
                 <div class="login"><a title="Login" href="#"><span>@Model.Phone</span></a></div>
