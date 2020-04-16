@@ -27,7 +27,8 @@ namespace NoiThat.Controllers
             int cateid = Convert.ToInt32(cate[cate.Length - 1]);
 
             SearchViewModel model = new SearchViewModel();
-            var products = db.Products.Where(q => q.ProductName.Contains(tukhoa)).ToList();
+
+            var products = db.Products.Where(q => q.IsActive == true && q.ProductName.Contains(tukhoa)).ToList();
 
             //string[] key = tukhoa.Split(' ');
 
@@ -35,6 +36,11 @@ namespace NoiThat.Controllers
             //{
 
             //}
+
+            if(cateid > 0)
+            {
+                products = products.Where(q => q.CategoryID == cateid).ToList();
+            }
 
             model.TuKhoa = tukhoa;
             model.categories = db.Categories.Where(q => q.IsActive == true && q.TypeCate == 1 && q.Parent == 0).ToList();
