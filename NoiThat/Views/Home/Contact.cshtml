@@ -3,11 +3,14 @@
 @using NoiThat.Utilities
 @model AboutUsViewModel
 @{
-    ViewBag.Title = "Contact";
+    ViewBag.Title = "Liên hệ với chúng tôi";
     <script src='https://www.google.com/recaptcha/api.js?hl=vi'></script>
 }
-@*<h2>@ViewBag.Title.</h2>
-    <h3>@ViewBag.Message</h3>*@
+@section metatags
+{
+    <meta name="keywords" content="Nội thất giá rẻ, nội thất chung cư" />
+    <meta name="description" content="Tân Thời chúng tôi luôn cung cấp tới thị trường các sản phẩm nội thất giá rẻ, nội thất chung cư với chất lượng cao" />
+}
 
 <div class="breadcrumbs">
     <div class="container">
@@ -87,7 +90,7 @@
                                     </fieldset>
                                 </li>
                                 <p class="require"><em class="required">* </em>Bắt Buộc Nhập</p>
-                                
+
                                 <div class="buttons-set">
                                     <button type="submit" title="Submit" class="button submit"> <span> Gửi </span> </button>
                                 </div>
@@ -96,7 +99,7 @@
                     </div>
                 }
 
-                </section>
+            </section>
             <aside class="col-right sidebar col-sm-3 wow">
                 <div class="block block-company">
                     <div class="block-title">Về chúng tôi </div>

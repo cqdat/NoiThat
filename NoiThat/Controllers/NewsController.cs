@@ -61,7 +61,7 @@ namespace NoiThat.Controllers
             NewsViewModel model = new NewsViewModel();
             model.blogdetail = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogNews && b.BlogID == id && b.IsActive == true).FirstOrDefault();
             model.lstBlogsNewest = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogNews && b.IsActive == true && b.BlogID != id).OrderByDescending(c => c.LastModify).ToList();
-            ViewBag.Title = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogAboutUs && b.BlogID == 3 && b.IsActive == true).FirstOrDefault().BlogName;
+            ViewBag.Title = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogAboutUs && b.BlogID == 3 && b.IsActive == true).FirstOrDefault().SEOTitle;
             int parent = model.blogdetail.CategoryID.Value;
             model.category = db.Categories.Find(parent);
 
@@ -75,7 +75,8 @@ namespace NoiThat.Controllers
             if(id != null)
             {
                 model.HasID = true;
-                model.Title = db.Categories.Find(id).CategoryName;
+                model.Title = db.Categories.Find(id).SEOTitle;
+                
                 model.blogs = db.Blogs.Where(q => q.IsActive == true && q.CategoryID == id).ToList();
             }
             else

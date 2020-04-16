@@ -147,7 +147,7 @@
 
         $.ajax({
             //url: '/BDS_TinTuc/_PartialIndex',
-            url: '@Url.Action("_PartialNewsLst", "News", new { area = "Cpanel" })',
+            url: '@Url.Action("_PartialNewsLst", "News")',
             data: {
                 pageSize: parseInt($('#ddlPageSize').val()),
             },
