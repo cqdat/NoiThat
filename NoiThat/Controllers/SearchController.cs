@@ -28,7 +28,7 @@ namespace NoiThat.Controllers
 
             SearchViewModel model = new SearchViewModel();
 
-            var products = db.Products.Where(q => q.IsActive == true && q.ProductName.Contains(tukhoa)).ToList();
+            var products = db.Products.Where(q => q.IsActive == true && q.IsProduct == true &&  q.ProductName.Contains(tukhoa)).ToList();
 
             //string[] key = tukhoa.Split(' ');
 
