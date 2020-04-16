@@ -1,5 +1,22 @@
 ﻿$(document).ready(function () {
+    $(document).on("click", "#submit-search", function (event) {
 
+        var categoryid = $("#category_id").children("option:selected").val();
+        var categoryname = $("#category_id").children("option:selected").text().trim();
+
+        var key = $("#search").val().trim();
+
+        if (key != "") {
+            location.href = "/tim-kiem?tu-khoa=" + key + "&the-loai=" + categoryname + "-" + categoryid
+        }
+        else {
+            alert("Vui lòng nhập từ khóa");
+        }
+
+        
+
+
+    });
     $(document).on("click", ".loadquickview", function (event) {
 
         var id = $(this).attr("productid");

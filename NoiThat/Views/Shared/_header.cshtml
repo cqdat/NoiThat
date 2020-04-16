@@ -19,7 +19,7 @@
                 <!-- Search-col -->
                 <div class="search-box">
 
-                    <select name="category_id" class="cate-dropdown hidden-xs">
+                    <select name="category_id" class="cate-dropdown hidden-xs" id="category_id">
                         <option value="0">Tất cả sản phẩm</option>
                         @foreach (var i in Model.lstCategories)
                         {
@@ -33,7 +33,7 @@
 
                     </select>
                     <input type="text" placeholder="Nhập nội dung..." value="" maxlength="70" class="" name="search" id="search">
-                    <button id="submit-button" class="search-btn-bg"><span>Tìm Kiếm</span></button>
+                    <button id="submit-search" class="search-btn-bg"><span>Tìm Kiếm</span></button>
 
                 </div>
                 <!-- End Search-col -->

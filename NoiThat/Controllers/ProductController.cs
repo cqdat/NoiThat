@@ -54,7 +54,7 @@ namespace NoiThat.Controllers
                 model.slides = slide;
             }
             
-            model.products = db.Products.Where(q => q.IsActive == true && q.IsProduct == true).ToList();
+            model.products = db.Products.Where(q => q.IsActive == true && q.IsProduct == true && q.CategoryID == id).ToList();
             return View(model);
         }
 

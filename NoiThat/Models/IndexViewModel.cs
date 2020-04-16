@@ -19,4 +19,12 @@ namespace NoiThat.Models
         public List<Blog> lstNews { get; set; }
 
     }
+
+    public class SearchViewModel
+    {
+        public List<Product> products { get; set; }
+        public string TuKhoa { get; set; }
+        public List<Category> categories { get; set; }
+    }
+
 }

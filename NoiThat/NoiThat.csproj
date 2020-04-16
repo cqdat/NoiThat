@@ -140,6 +140,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -394,6 +395,9 @@
     <Content Include="Views\Collections\List.cshtml" />
     <Content Include="Views\Home\_sanPhamNoiBat.cshtml" />
     <Content Include="Views\News\Service.cshtml" />
+    <Content Include="Views\Search\Result.cshtml" />
+    <Content Include="Views\Search\_grid.cshtml" />
+    <Content Include="Views\Search\_leftmenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

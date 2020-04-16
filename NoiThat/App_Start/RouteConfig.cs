@@ -12,7 +12,14 @@ namespace NoiThat
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-            
+
+
+            routes.MapRoute(
+             name: "search",
+             url: "tim-kiem",
+             defaults: new { controller = "search", action = "result", id = UrlParameter.Optional }
+         );
+
             routes.MapRoute(
               name: "product",
               url: "san-pham",
@@ -106,6 +113,7 @@ namespace NoiThat
               defaults: new { controller = "product", action = "detail", id = UrlParameter.Optional }
           );
 
+           
 
 
             routes.MapRoute(
