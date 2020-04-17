@@ -32,7 +32,7 @@
                             <div class="item">
                                 <img src="@WebConstants.ImgCollectionHost/@i.Images" style="height:410px" alt="@i.ProductName">
                                 <div class="carousel-caption">
-                                    <h3><a href="/" title="@i.ProductName">@i.ProductName</a></h3>
+                                    <h3><a href="/chi-tiet-san-pham/@i.SEOUrlRewrite-@i.ProductID" title="@i.ProductName">@i.ProductName</a></h3>
                                     <p>
                                         @{
                                             var shortString = "";
@@ -65,48 +65,25 @@
                 <h2 class="category-pro-title"><span>Tops Collection</span></h2>
                 <div class="category-products">
                     <div class="products small-list">
-                        <div class="item">
-                            <div class="item-area">
-                                <div class="product-image-area"> <a href="#" class="product-image"> <img src="~/products-images/product1.jpg" alt="products images"> </a> </div>
-                                <div class="details-area">
-                                    <h2 class="product-name"><a href="#">Men Watch-Indigo</a></h2>
-                                    <div class="ratings">
-                                        <div class="rating-box">
-                                            <div class="rating"></div>
+
+                        @foreach (var i in Model.lstCollection2)
+                        {
+                            <div class="item">
+                                <div class="item-area">
+                                    <div class="product-image-area"> <a href="/chi-tiet-san-pham/@i.SEOUrlRewrite-@i.ProductID" class="product-image"> <img src="@WebConstants.ImgCollectionHost/@i.Images" alt="@i.ProductName"> </a> </div>
+                                    <div class="details-area">
+                                        <h2 class="product-name"><a href="#">@i.ProductName</a></h2>
+                                        <div class="ratings">
+                                            <div class="rating-box">
+                                                <div class="rating" style="width:@i.Rating"></div>
+                                            </div>
                                         </div>
+                                        <div class="price-box"> <span class="regular-price"> <span class="price">@i.Price</span> </span> </div>
                                     </div>
-                                    <div class="price-box"> <span class="regular-price"> <span class="price">$290.00</span> </span> </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="item">
-                            <div class="item-area">
-                                <div class="product-image-area"> <a href="#" class="product-image"> <img src="products-images/product2.jpg" alt="products images"> </a> </div>
-                                <div class="details-area">
-                                    <h2 class="product-name"><a href="#">Men Sports Watch-M</a></h2>
-                                    <div class="ratings">
-                                        <div class="rating-box">
-                                            <div class="rating" style="width:20%"></div>
-                                        </div>
-                                    </div>
-                                    <div class="price-box"> <span class="regular-price"> <span class="price">$320.00</span> </span> </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="item-area">
-                                <div class="product-image-area"> <a href="#" class="product-image"> <img src="products-images/product3.jpg" alt="products images"> </a> </div>
-                                <div class="details-area">
-                                    <h2 class="product-name"><a href="#">Men Watch-Indigo</a></h2>
-                                    <div class="ratings">
-                                        <div class="rating-box">
-                                            <div class="rating"></div>
-                                        </div>
-                                    </div>
-                                    <div class="price-box"> <span class="regular-price"> <span class="price">$200.00</span> </span> </div>
-                                </div>
-                            </div>
-                        </div>
+                        }                   
+
                     </div>
                 </div>
             </div>
@@ -116,57 +93,25 @@
                 <h2 class="category-pro-title"><span>Bags Collection</span></h2>
                 <div class="category-products">
                     <div class="products small-list">
-                        <div class="item">
-                            <div class="item-area">
-                                <div class="product-image-area"> <a href="#" class="product-image"> <img src="products-images/product21.jpg" alt="products images"> </a> </div>
-                                <div class="details-area">
-                                    <h2 class="product-name"><a href="#">Jewellery Earring K3</a></h2>
-                                    <div class="ratings">
-                                        <div class="rating-box">
-                                            <div class="rating"></div>
+
+                        @foreach (var i in Model.lstCollection3)
+                        {
+                            <div class="item">
+                                <div class="item-area">
+                                    <div class="product-image-area"> <a href="/chi-tiet-san-pham/@i.SEOUrlRewrite-@i.ProductID" class="product-image"> <img src="@WebConstants.ImgCollectionHost/@i.Images" alt="@i.ProductName"> </a> </div>
+                                    <div class="details-area">
+                                        <h2 class="product-name"><a href="#">@i.ProductName</a></h2>
+                                        <div class="ratings">
+                                            <div class="rating-box">
+                                                <div class="rating" style="width:@i.Rating"></div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="price-box">
-                                        <p class="old-price"> <span class="price-label">Regular Price:</span> <span class="price"> $180.00 </span> </p>
-                                        <p class="special-price"> <span class="price-label">Special Price</span> <span class="price"> $150.00 </span> </p>
+                                        <div class="price-box"> <span class="regular-price"> <span class="price">@i.Price</span> </span> </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="item">
-                            <div class="item-area">
-                                <div class="product-image-area"> <a href="#" class="product-image"> <img src="products-images/product22.jpg" alt="products images"> </a> </div>
-                                <div class="details-area">
-                                    <h2 class="product-name"><a href="#">Jewellery Earring SK</a></h2>
-                                    <div class="ratings">
-                                        <div class="rating-box">
-                                            <div class="rating"></div>
-                                        </div>
-                                    </div>
-                                    <div class="price-box">
-                                        <p class="old-price"> <span class="price-label">Regular Price:</span> <span class="price"> $180.00 </span> </p>
-                                        <p class="special-price"> <span class="price-label">Special Price</span> <span class="price"> $140.00 </span> </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="item-area">
-                                <div class="product-image-area"> <a href="#" class="product-image"> <img src="products-images/product23.jpg" alt="products images"> </a> </div>
-                                <div class="details-area">
-                                    <h2 class="product-name"><a href="#">Jewellery Rings-Rolex</a></h2>
-                                    <div class="ratings">
-                                        <div class="rating-box">
-                                            <div class="rating"></div>
-                                        </div>
-                                    </div>
-                                    <div class="price-box">
-                                        <p class="old-price"> <span class="price-label">Regular Price:</span> <span class="price"> $520.00 </span> </p>
-                                        <p class="special-price"> <span class="price-label">Special Price</span> <span class="price"> $480.00 </span> </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        }
+
                     </div>
                 </div>
             </div>

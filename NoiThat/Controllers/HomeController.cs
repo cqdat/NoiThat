@@ -65,7 +65,7 @@ namespace NoiThat.Controllers
             model.logo = "";
             model.lstCategories = db.Categories.Where(c => c.Parent == 0 && c.IsActive == true && c.TypeCate == WebConstants.CategoryProduct).ToList();
             model.Phone = db.Information.Where(a => a.InfoID == 2).FirstOrDefault().InfoContent;
-            model.Email = db.Information.Where(a => a.InfoID == 3).FirstOrDefault().InfoContent;
+            model.Email = db.Information.Where(a => a.InfoID == 4).FirstOrDefault().InfoContent;
 
             return PartialView("_header", model);
         }
@@ -80,6 +80,8 @@ namespace NoiThat.Controllers
 
             CollectionsViewModel model = new CollectionsViewModel();
             model.lstCollection1 = db.Products.Where(p => p.IsProduct == false && p.IsActive == true).OrderBy(p => Guid.NewGuid()).Take(3).ToList();
+            model.lstCollection2 = db.Products.Where(p => p.IsProduct == false && p.IsActive == true).OrderBy(p => Guid.NewGuid()).Take(3).ToList();
+            model.lstCollection3 = db.Products.Where(p => p.IsProduct == false && p.IsActive == true).OrderBy(p => Guid.NewGuid()).Take(3).ToList();
 
             return PartialView("_lstCollection", model);
         }
