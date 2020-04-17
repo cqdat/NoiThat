@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /css/*
+Disallow: /Scripts/*
+Allow: /*
+ 
+Sitemap: https://noithattanthoi.com/sitemap.xml
