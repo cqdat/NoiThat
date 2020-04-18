@@ -20,7 +20,13 @@ namespace NoiThat.Controllers
             model.categories = db.Categories.Where(q => q.IsActive == true && q.TypeCate == 1 && q.Parent == 0).ToList();
             model.slides = db.Slides.Where(q => q.IsActive == true && q.CategoryID == -1).ToList();
             model.products = db.Products.Where(q => q.IsActive == true && q.IsProduct==true).ToList();
+            model.LeftPromote = db.Advertises.Where(a => a.IsActive == true && a.Location == WebConstants.PromoteLeft).ToList();
             model.listviewed = GetListProduct();
+
+            model.SEOTitle = model.Title;
+            model.SEOKeywords = "";
+            model.SEOMetadescription = "";
+
             return View(model);
         }
 
@@ -59,6 +65,11 @@ namespace NoiThat.Controllers
             model.products = db.Products.Where(q => q.IsActive == true && q.IsProduct == true && q.CategoryID == id).ToList();
             model.LeftPromote = db.Advertises.Where(a => a.IsActive == true && a.Location == WebConstants.PromoteLeft).ToList();
             model.listviewed = GetListProduct();
+
+            model.SEOTitle = cate.SEOTitle;
+            model.SEOKeywords = cate.SEOKeywords;
+            model.SEOMetadescription = cate.SEOMetadescription;
+
             return View(model);
         }
 

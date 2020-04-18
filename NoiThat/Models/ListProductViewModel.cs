@@ -25,6 +25,9 @@ namespace NoiThat.Models
         public string TitleParent { get; set; }
         public string LinkParent { get; set; }
         public List<Product> listviewed { get; set; }
+        public string SEOTitle { get; set; }
+        public string SEOKeywords { get; set; }
+        public string SEOMetadescription { get; set; }
     }
 
      

@@ -1,8 +1,14 @@
 ﻿@model NoiThat.Models.ListProductViewModel2
 @{
-    ViewBag.Title = Model.Title;
+    ViewBag.Title = Model.SEOTitle;
 }
 
+
+@section metatags
+{
+    <meta name="keywords" content="@Model.SEOKeywords" />
+    <meta name="description" content="@Model.SEOMetadescription" />
+}
 
 <div class="breadcrumbs">
     <div class="container">
@@ -106,7 +112,7 @@
                         <video src="~/images/TanThoi.mp4" controls="controls" height="150px" autoplay="autoplay" audio="muted">Dòng thông báo</video>
                     </div>
                 </div>
-                
+
                 <div class="block block-subscribe">
                     <div class="block-title"><span>Bản tin</span></div>
                     <form action="#" method="post" id="newsletter-validate-detail">

@@ -3,6 +3,11 @@
     ViewBag.Title = Model.Title;
 }
 
+@section metatags
+{
+    <meta name="keywords" content="@Model.SEOKeywords" />
+    <meta name="description" content="@Model.SEOMetadescription" />
+}
 
 <div class="breadcrumbs">
     <div class="container">
@@ -26,79 +31,124 @@
                     <h1>@Model.Title</h1>
                 </div>
 
-                
+
                 @Html.Partial("_slide", Model.slides)
 
 
-            <div class="category-products">
+                <div class="category-products">
 
-                <div class="toolbar">
-                    <div class="sorter">
-                        <div class="view-mode"> <span title="Grid" class="button button-active button-grid">Grid</span><a href="list.html" title="List" class="button button-list">List</a> </div>
-                    </div>
-                    <div id="sort-by">
-                        <label class="left">Sort By: </label>
-                        <ul>
-                            <li>
-                                <a href="#">Position<span class="right-arrow"></span></a>
-                                <ul>
-                                    <li><a href="#">Name</a></li>
-                                    <li><a href="#">Price</a></li>
-                                    <li><a href="#">Position</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <a class="button-asc left" href="#" title="Set Descending Direction"><span style="color:#999;font-size:11px;" class="glyphicon glyphicon-arrow-up"></span></a>
-                    </div>
-                    <div class="pager">
-                        <div id="limiter">
-                            <label>View: </label>
+                    <div class="toolbar">
+                        <div class="sorter">
+                            <div class="view-mode"> <span title="Grid" class="button button-active button-grid">Grid</span><a href="list.html" title="List" class="button button-list">List</a> </div>
+                        </div>
+                        <div id="sort-by">
+                            <label class="left">Sort By: </label>
                             <ul>
                                 <li>
-                                    <a href="#">15<span class="right-arrow"></span></a>
+                                    <a href="#">Position<span class="right-arrow"></span></a>
                                     <ul>
-                                        <li><a href="#">20</a></li>
-                                        <li><a href="#">30</a></li>
-                                        <li><a href="#">35</a></li>
+                                        <li><a href="#">Name</a></li>
+                                        <li><a href="#">Price</a></li>
+                                        <li><a href="#">Position</a></li>
                                     </ul>
                                 </li>
                             </ul>
+                            <a class="button-asc left" href="#" title="Set Descending Direction"><span style="color:#999;font-size:11px;" class="glyphicon glyphicon-arrow-up"></span></a>
                         </div>
-                        <div class="pages">
-                            <label>Page:</label>
-                            <ul class="pagination">
-                                <li><a href="#">&laquo;</a></li>
-                                <li class="active"><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li><a href="#">&raquo;</a></li>
-                            </ul>
+                        <div class="pager">
+                            <div id="limiter">
+                                <label>View: </label>
+                                <ul>
+                                    <li>
+                                        <a href="#">15<span class="right-arrow"></span></a>
+                                        <ul>
+                                            <li><a href="#">20</a></li>
+                                            <li><a href="#">30</a></li>
+                                            <li><a href="#">35</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="pages">
+                                <label>Page:</label>
+                                <ul class="pagination">
+                                    <li><a href="#">&laquo;</a></li>
+                                    <li class="active"><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">4</a></li>
+                                    <li><a href="#">5</a></li>
+                                    <li><a href="#">&raquo;</a></li>
+                                </ul>
+                            </div>
                         </div>
+                    </div>
+
+                    @if (Session["viewlist"] == null)
+                    {
+                        @Html.Partial("_grid", Model.products)
+                    }
+                    else
+                    {
+                        @Html.Partial("_list", Model.products)
+                    }
+
+
+
+                </div>
+
+
+
+
+            </section>
+
+
+            <aside class="col-left sidebar col-sm-3 col-xs-12 col-sm-pull-9 wow">
+
+                @Html.Partial("_leftmenu", Model)
+
+                <div class="block block-poll">
+                    <div class="block-title"><span>Videos</span> </div>
+                    <div class="block-content">
+                        <video src="~/images/TanThoi.mp4" controls="controls" height="150px" autoplay="autoplay" audio="muted">Dòng thông báo</video>
                     </div>
                 </div>
 
-                @if (Session["viewlist"] == null)
-                {
-                    @Html.Partial("_grid", Model.products)
-                }
-                else
-                {
-                    @Html.Partial("_list", Model.products)
-                }
+                <div class="block block-subscribe">
+                    <div class="block-title"><span>Bản tin</span></div>
+                    <form action="#" method="post" id="newsletter-validate-detail">
+                        <div class="block-content">
+                            <div class="form-subscribe-header"> Đăng ký nhận bản tin mới: </div>
+                            <input type="text" name="email" id="newsletter" title="" class="input-text required-entry validate-email" placeholder="nhập email">
+                            <div class="actions">
+                                <button type="submit" title="Submit" class="subscribe"><span>Theo dõi</span></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
 
 
+                @Html.Partial("_leftPromote", Model.LeftPromote)
+                <div class="block block-tags">
+                    <div class="block-title"><span>Từ khóa phổ biến</span></div>
+                    <div class="block-content">
+                        <ul class="tags-list">
+                            <li><a style="font-size:98.3333333333%;" href="#tagId/23/">Nội thất văn phòng</a></li>
+                            <li><a style="font-size:86.6666666667%;" href="#tagId/109/">Nội thất phòng bếp</a></li>
+                            <li><a style="font-size:145%;" href="#tagId/27/">Nội thất giá rẻ Bình Dương</a></li>
+                            <li><a style="font-size:75%;" href="#tagId/61/">Nội thất giá rẻ</a></li>
+                            <li><a style="font-size:110%;" href="#tagId/29/">Thiết kế nội thất Chung cư</a></li>
+                            <li><a style="font-size:86.6666666667%;" href="#tagId/17/">Thiết kế nội thất bình dương</a></li>
+                            <li><a style="font-size:110%;" href="#tagId/12/">Thi công nội thất Bình Dương</a></li>
+                            <li><a style="font-size:86.6666666667%;" href="#tagId/184/">nội thất chung cư giá rẻ tại bình dương</a></li>
 
-            </div>
+                        </ul>
+                        <div class="actions"> <a class="view-all" title="Xem tất cả sản phẩm" href="/san-pham">Tất cả sản phẩm</a> </div>
+                    </div>
+                </div>
 
 
-               
-
-            </section>
-            
-
-            @Html.Partial("_leftmenu", Model)
+            </aside>
 
         </div>
     </div>
