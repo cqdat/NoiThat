@@ -60,6 +60,15 @@ namespace NoiThat.Controllers
             return View(model);
         }
 
+        public List<Product> GetListProduct()
+        {
+            var list = new List<Product>();
+
+
+
+            return list;
+        }
+
         public ActionResult Detail(int? id)
         {
             ProductDetailViewModel model = new ProductDetailViewModel();
