@@ -35,6 +35,9 @@ namespace NoiThat.Controllers
             else
             {
                 model.Title = "Tin tức";
+                model.SEOTitle = "";
+                model.SEOKeywords = "";
+                model.SEOMetadescription = "";
             }
             return View(model);
         }
