@@ -62,7 +62,15 @@ namespace NoiThat.Controllers
                 model.slides = slide;
             }
             
-            model.products = db.Products.Where(q => q.IsActive == true && q.IsProduct == true && q.CategoryID == id).ToList();
+            if(cate.Parent == 0)
+            {
+                model.products = db.Products.Where(q => q.IsActive == true && q.IsProduct == true && q.CategoryIDParent == id).ToList();
+            }
+            else
+            {
+                model.products = db.Products.Where(q => q.IsActive == true && q.IsProduct == true && q.CategoryID == id).ToList();
+            }
+
             model.LeftPromote = db.Advertises.Where(a => a.IsActive == true && a.Location == WebConstants.PromoteLeft).ToList();
             model.listviewed = GetListProduct();
 
