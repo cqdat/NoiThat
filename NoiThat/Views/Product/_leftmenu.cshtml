@@ -1,4 +1,4 @@
-﻿@model List<NoiThat.Models.DataModels.Category>
+﻿@model NoiThat.Models.ListProductViewModel2
 @using NoiThat.Utilities
 @{
     Helpers h = new Helpers();
@@ -12,7 +12,7 @@
         <!-- BEGIN BOX-CATEGORY -->
         <div class="box-content box-category">
             <ul>
-                @foreach (var q in Model)
+                @foreach (var q in Model.categories)
                 {
                     <li>
                         <a class="active" href="/san-pham/@q.SEOUrlRewrite-@q.CategoryID">@q.CategoryName</a> <span class="subDropdown minus"></span>
@@ -57,17 +57,21 @@
     <div class="block block-list block-viewed">
         <div class="block-title"><span>Sản phẩm đã xem</span> </div>
         <div class="block-content">
-            <ol id="recently-viewed-items">
-                <li class="item odd">
-                    <p class="product-name"><a href="#"> Armchair with Box-Edge Upholstered Arm</a></p>
-                </li>
-                <li class="item even">
-                    <p class="product-name"><a href="#"> Pearce Upholstered Slee pere</a></p>
-                </li>
-                <li class="item last odd">
-                    <p class="product-name"><a href="#"> Sofa with Box-Edge Down-Blend Wrapped Cushions</a></p>
-                </li>
-            </ol>
+            @if (Model.listviewed.Count > 0)
+            {
+                <ol id="recently-viewed-items">
+                    @foreach (var q in Model.listviewed)
+                    {
+                        <li class="item odd">
+                            <p class="product-name"><a href="/chi-tiet-san-pham/@q.SEOUrlRewrite-@q.ProductID"> @q.ProductName</a></p>
+                        </li>
+                    }
+                </ol>
+            }
+            else
+            {
+                <span class="text-danger" style="font-style:italic; padding-left:8px;">Bạn chưa xem sản phẩm nào</span>
+            }
         </div>
     </div>
     <div class="block block-poll">

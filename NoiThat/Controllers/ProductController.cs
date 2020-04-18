@@ -14,11 +14,12 @@ namespace NoiThat.Controllers
         // GET: Product
         public ActionResult Index()
         {
-            ListProductViewModel model = new ListProductViewModel();
+            ListProductViewModel2 model = new ListProductViewModel2();
             model.Title = "Tất cả sản phẩm";
             model.categories = db.Categories.Where(q => q.IsActive == true && q.TypeCate == 1 && q.Parent == 0).ToList();
             model.slides = db.Slides.Where(q => q.IsActive == true && q.CategoryID == -1).ToList();
             model.products = db.Products.Where(q => q.IsActive == true && q.IsProduct==true).ToList();
+            model.listviewed = GetListProduct();
             return View(model);
         }
 
@@ -55,6 +56,7 @@ namespace NoiThat.Controllers
             }
             
             model.products = db.Products.Where(q => q.IsActive == true && q.IsProduct == true && q.CategoryID == id).ToList();
+            model.listviewed = GetListProduct();
             return View(model);
         }
 
@@ -62,9 +64,33 @@ namespace NoiThat.Controllers
         {
             var list = new List<Product>();
 
-
+            if(Session["listviewed"] != null)
+            {
+                list = Session["listviewed"] as List<Product>;
+            }
 
             return list;
+        }
+
+        public void AddList(Product p)
+        {
+            var list = new List<Product>();
+
+            if (Session["listviewed"] != null)
+            {
+                list = Session["listviewed"] as List<Product>;
+
+                var x = list.FirstOrDefault(q => q.ProductID == p.ProductID);
+                if(x == null)
+                {
+                    list.Add(p);
+                }
+            }
+            else
+            {
+                list.Add(p);
+            }   
+            Session["listviewed"] = list;
         }
 
         public ActionResult Detail(int? id)
@@ -86,6 +112,8 @@ namespace NoiThat.Controllers
             l.ImageURL = model.product.Images;
 
             model.listimage.Add(l);
+
+            AddList(model.product);
 
             return View(model);
         }
