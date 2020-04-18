@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using NoiThat.Utilities;
 
 namespace NoiThat.Controllers
 {
@@ -56,6 +57,7 @@ namespace NoiThat.Controllers
             }
             
             model.products = db.Products.Where(q => q.IsActive == true && q.IsProduct == true && q.CategoryID == id).ToList();
+            model.LeftPromote = db.Advertises.Where(a => a.IsActive == true && a.Location == WebConstants.PromoteLeft).ToList();
             model.listviewed = GetListProduct();
             return View(model);
         }
