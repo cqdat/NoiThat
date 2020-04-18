@@ -35,5 +35,9 @@ namespace NoiThat.Utilities
         public static int ProductNoiBat = 3;
         public static int ProductBanChay = 4;
         public static int ProductDangKM = 2;
+
+        public static int PromoteHomePage1 = 1;
+        public static int PromoteHomePage2 = 2;
+        public static int PromoteLeft = 3;
     }
 }

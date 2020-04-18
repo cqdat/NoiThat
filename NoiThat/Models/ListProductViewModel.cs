@@ -21,6 +21,7 @@ namespace NoiThat.Models
         public List<Category> categories { get; set; }
         public List<Product> products { get; set; }
         public List<Slide> slides { get; set; }
+        public List<Advertise> LeftPromote { get; set; }
         public string TitleParent { get; set; }
         public string LinkParent { get; set; }
         public List<Product> listviewed { get; set; }

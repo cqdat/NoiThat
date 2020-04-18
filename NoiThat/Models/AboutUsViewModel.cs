@@ -12,5 +12,6 @@ namespace NoiThat.Models
     {
         public Blog aboutus { get; set; }
         public List<Blog> lstLeftMenu { get; set; }
+        public List<Blog> lstAbout_more { get; set; }
     }
 }

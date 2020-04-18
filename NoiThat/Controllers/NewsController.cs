@@ -20,8 +20,11 @@ namespace NoiThat.Controllers
         //[ActionName("tin-tuc")]
         public ActionResult Index(int? id)
         {
-            
-            return View();
+            NewsViewModel model = new NewsViewModel();
+            model.lstBlogsNewest= db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogNews && b.IsActive == true).OrderByDescending(c => c.LastModify).Take(6).ToList();
+            model.lstServices = db.Categories.Where(c => c.Parent == 0 && c.IsActive == true && c.TypeCate == WebConstants.CategoryService).ToList();
+            model.LeftPromote = db.Advertises.Where(a => a.IsActive == true && a.Location == WebConstants.PromoteLeft).ToList();
+            return View(model);
         }
 
         public ActionResult _PartialNewsLst(int? pageNumber, int? pageSize)
@@ -60,8 +63,8 @@ namespace NoiThat.Controllers
 
             NewsViewModel model = new NewsViewModel();
             model.blogdetail = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogNews && b.BlogID == id && b.IsActive == true).FirstOrDefault();
-            model.lstBlogsNewest = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogNews && b.IsActive == true && b.BlogID != id).OrderByDescending(c => c.LastModify).ToList();
-            ViewBag.Title = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogAboutUs && b.BlogID == 3 && b.IsActive == true).FirstOrDefault().SEOTitle;
+            model.lstBlogsNewest = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogNews && b.IsActive == true && b.BlogID != id).OrderByDescending(c => c.LastModify).Take(5).ToList();
+            ViewBag.Title = model.blogdetail.SEOTitle;
             int parent = model.blogdetail.CategoryID.Value;
             model.category = db.Categories.Find(parent);
 

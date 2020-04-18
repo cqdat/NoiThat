@@ -64,28 +64,7 @@
                                 </div>
                                 <!--comments-wrapper-->
 
-                                <div class="comments-form-wrapper clearfix">
-                                    <h3>Leave A reply</h3>
-                                    <form class="comment-form" method="post" id="postComment" action="#">
-                                        <div class="field">
-                                            <label for="name">Name<em class="required">*</em></label>
-                                            <input type="text" class="input-text" title="Name" value="" id="user" name="user_name">
-                                        </div>
-                                        <div class="field">
-                                            <label for="email">Email<em class="required">*</em></label>
-                                            <input type="text" class="input-text validate-email" title="Email" value="" id="email" name="user_email">
-                                        </div>
-                                        <div class="clear"></div>
-                                        <div class="field aw-blog-comment-area">
-                                            <label for="comment">Comment<em class="required">*</em></label>
-                                            <textarea rows="5" cols="50" class="input-text" title="Comment" id="comment" name="comment"></textarea>
-                                        </div>
-                                        <div style="width:96%" class="button-set">
-                                            <input type="hidden" value="1" name="blog_id">
-                                            <button type="submit" class="bnt-comment"><span><span>Add Comment</span></span></button>
-                                        </div>
-                                    </form>
-                                </div>
+                                
                                 <!--comments-form-wrapper clearfix-->
 
                             </div>
@@ -103,14 +82,14 @@
                                 {
                                 <li>
                                     <figure class="featured-thumb"> 
-                                    <a href="#/pellentesque-posuere"> 
+                                    <a href="/chi-tiet-tin-tuc/@i.SEOUrlRewrite-@i.BlogID"> 
                                         <img width="80" height="53" alt="@i.BlogName" src="@WebConstants.ImgNewsHost/@i.ImageURL"> </a>
                                     </figure>
                                     <!--featured-thumb-->
-                                    <h4><a title="@i.BlogName" href="/tin-tuc/@i.SEOUrlRewrite-@i.BlogID">@i.BlogName  </a></h4>
+                                    <h4><a title="@i.BlogName" href="/chi-tiet-tin-tuc/@i.SEOUrlRewrite-@i.BlogID">@i.BlogName  </a></h4>
                                     <p class="post-meta">
                                         <i class="icon-calendar"></i>
-                                        <time datetime="2014-07-10T07:09:31+00:00" class="entry-date">@Convert.ToDateTime(i.LastModify).ToString(WebConstants.DateFormatVI)</time>
+                                        <time class="entry-date">@Convert.ToDateTime(i.LastModify).ToString(WebConstants.DateFormatVI)</time>
                                         .
                                     </p>
                                 </li>

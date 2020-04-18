@@ -6,51 +6,56 @@
 @{
     Helpers h = new Helpers();
 }
-<div class="posts-isotope row">
-    <!-- Blog post -->
-    @foreach (var i in Model)
-    {
-        <div class="col-sm-6 col-md-6">
+    <div class="posts-isotope row">
+        
+        <!-- Blog post -->
+        @foreach (var i in Model)
+        {
+            <div class="col-sm-6 col-md-6">
 
-            <article class="container-paper-table">
-                <div class="title">
-                    <h2 class="entry-title"><a href="/chi-tiet-tin-tuc/@i.SEOUrlRewrite-@i.BlogID">@i.BlogName</a></h2>
-                </div>
-                <div class="post-container">
-                    <a href="/chi-tiet-tin-tuc/@i.SEOUrlRewrite-@i.BlogID"><img class="img-responsive" src="@WebConstants.ImgNewsHost/@i.ImageURL" style="height:250px" alt="@i.ImageURL"></a>
-                    <div class="text">
-                        <ul class="list-info">
-                            <li><span class="icon-user">&nbsp;</span>By @i.User.UserName</li>
-                            <li><span class="icon-time">&nbsp;</span>Lúc @Convert.ToDateTime(i.LastModify).ToString(WebConstants.DateFormatVI)</li>
-                        </ul>
-                        <p class="post-excerpt">
-                            @{
-                                var shortString = "";
-                                if (i.Descript.Length >= 102)
-                                {
-                                    shortString = i.Descript.Substring(0, 102);
-                                }
-                                else
-                                {
-                                    shortString = i.Descript;
-                                }
-                            }
-
-                            @shortString  ...
-                        </p>
-                        <a href="/chi-tiet-tin-tuc/@i.SEOUrlRewrite-@i.BlogID" class="btn btn-mega">Xem thêm &nbsp; <span class="icon icon-arrow-right-5"></span></a>
-                        <ul class="list-info">
-                            <li><span class="icon-eye-open">&nbsp;</span>@i.CountView Views</li>
-                            <li><span class="icon-comments">&nbsp;</span><a href="#">3 Comments</a></li>
-                        </ul>
+                <article class="container-paper-table">
+                    <div class="title">
+                        <h2 class="entry-title"><a href="/chi-tiet-tin-tuc/@i.SEOUrlRewrite-@i.BlogID">@i.BlogName</a></h2>
                     </div>
-                </div>
-            </article>
+                    <div class="post-container">
+                        <a href="/chi-tiet-tin-tuc/@i.SEOUrlRewrite-@i.BlogID"><img class="img-responsive" src="@WebConstants.ImgNewsHost/@i.ImageURL" style="height:250px" alt="@i.ImageURL"></a>
+                        <div class="text">
+                            <ul class="list-info">
+                                <li><span class="icon-user">&nbsp;</span>By @i.User.UserName</li>
+                                <li><span class="icon-time">&nbsp;</span>Lúc @Convert.ToDateTime(i.LastModify).ToString(WebConstants.DateFormatVI)</li>
+                            </ul>
+                            <p class="post-excerpt">
+                                @{
+                                    var shortString = "";
+                                    if (i.Descript.Length >= 102)
+                                    {
+                                        shortString = i.Descript.Substring(0, 102);
+                                    }
+                                    else
+                                    {
+                                        shortString = i.Descript;
+                                    }
+                                }
+
+                                @shortString  ...
+                            </p>
+                            <a href="/chi-tiet-tin-tuc/@i.SEOUrlRewrite-@i.BlogID" class="btn btn-mega">Xem thêm &nbsp; <span class="icon icon-arrow-right-5"></span></a>
+                            <ul class="list-info">
+                                <li><span class="icon-eye-open">&nbsp;</span>@i.CountView Views</li>
+                                <li><span class="icon-comments">&nbsp;</span><a href="#">3 Comments</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
 
 
-        </div>
-    }
-    <div class="dataTables_paginate paging_bootstrap_full_number pull-right" id="sample_1_paginate">
+            </div>
+        }
+
+
+        @*<div class="dataTables_info" id="sample_1_info" role="status" aria-live="polite"></div>*@
+    </div>
+    <div class="pagination" id="sample_1_paginate">
         @Html.PagedListPager(Model, pageNumber => Url.Action("_PartialNewsLst",
            new
            {
@@ -69,9 +74,6 @@
             {
                 HttpMethod = "GET",
                 InsertionMode = InsertionMode.Replace,
-                UpdateTargetId = "season-list"
+                UpdateTargetId = "main"
             }))
     </div>
-
-    <div class="dataTables_info" id="sample_1_info" role="status" aria-live="polite"></div>
-</div>

@@ -1,6 +1,6 @@
 ﻿@using NoiThat.Utilities
 @using NoiThat.Models.DataModels
-@model IEnumerable<Product>
+@model IEnumerable<ProductGroup>
 <!-- Item -->
 @foreach (var i in Model)
 {
@@ -8,7 +8,7 @@
     <div class="item">
         <div class="col-item">
 
-            @if (i.IsSale == true)
+            @if (i.Product.IsSale == true)
             {
                 <div class="sale-label sale-top-right">
                     Sale
@@ -16,8 +16,8 @@
             }
             
             <div class="images-container">
-                <a class="product-image" title="@i.ProductName" href="/chi-tiet-san-pham/@i.SEOUrlRewrite-@i.ProductID">
-                    <img src="@WebConstants.ImgProductHost/@i.Images" class="img-responsive" style="height:288px" alt="@i.Images" />
+                <a class="product-image" title="@i.Product.ProductName" href="/chi-tiet-san-pham/@i.Product.SEOUrlRewrite-@i.ProductID">
+                    <img src="@WebConstants.ImgProductHost/@i.Product.Images" class="img-responsive" style="height:288px" alt="@i.Product.Images" />
                 </a>
                 <div class="actions">
                     <div class="actions-inner">
@@ -25,17 +25,17 @@
 
                     </div>
                 </div>
-                <div class="qv-button-container"> <a href="javascript:" class="qv-e-button btn-quickview-1 loadquickview" productid="@i.ProductID"><span><span>Xem Nhanh</span></span></a> </div>
+                <div class="qv-button-container"> <a href="javascript:" class="qv-e-button btn-quickview-1 loadquickview" productid="@i.Product.ProductID"><span><span>Xem Nhanh</span></span></a> </div>
             </div>
             <div class="info">
                 <div class="info-inner">
-                    <div class="item-title"> <a title="@i.ProductName" href="/chi-tiet-san-pham/@i.SEOUrlRewrite-@i.ProductID"> @i.ProductName </a> </div>
+                    <div class="item-title"> <a title="@i.Product.ProductName" href="/chi-tiet-san-pham/@i.Product.SEOUrlRewrite-@i.Product.ProductID"> @i.Product.ProductName </a> </div>
                     <!--item-title-->
                     <div class="item-content">
                         <div class="ratings">
                             <div class="rating-box">
                                 @{
-                                    var rating = i.Rating;
+                                    var rating = i.Product.Rating;
                                     var r = 0;
                                     if (rating == 1)
                                     {

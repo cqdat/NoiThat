@@ -24,10 +24,12 @@ namespace NoiThat.Controllers
             IndexViewModel model = new IndexViewModel();
             model.PhoneAndEmail = db.Information.Where(a => a.InfoID == 2 || a.InfoID == 3).ToList();
             model.lstSlideHomePage = db.Slides.Where(a => a.CategoryID == 0).ToList();
-            model.lstBannerPro = db.Advertises.Where(a => a.IsActive == true).ToList();
+            model.lstBannerPro = db.Advertises.Where(a => a.IsActive == true && a.Location == 1).ToList();
             model.lstAboutUsMore = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogAboutUs_more && b.IsActive == true).ToList();
-            model.lstLastProducts = db.Products.Where(p => p.IsProduct == true && p.IsActive == true).OrderByDescending(p => p.ProductID).Take(4).ToList();
-            model.lstBestSellerproducts = db.Products.Where(p => p.IsProduct == true && p.IsActive == true).OrderBy(p => Guid.NewGuid()).Take(6).ToList();
+            //model.lstLastProducts = db.Products.Where(p => p.IsProduct == true && p.IsActive == true).OrderByDescending(p => p.ProductID).Take(4).ToList();
+            model.lstLastProducts = db.ProductGroups.Where(p => p.GroupCode ==WebConstants.ProductMoi).OrderByDescending(p => p.ProductID).Take(4).ToList();
+            //model.lstBestSellerproducts = db.Products.Where(p => p.IsProduct == true && p.IsActive == true).OrderBy(p => Guid.NewGuid()).Take(6).ToList();
+            model.lstBestSellerproducts = db.ProductGroups.Where(g => g.GroupCode == WebConstants.ProductBanChay).OrderByDescending(b=>b.ProductID).Take(8).ToList();
             model.lstSanPhamNoiBat = db.ProductGroups.Where(g => g.GroupCode == WebConstants.ProductNoiBat).ToList();
             model.lstNews = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogNews && b.IsActive == true).OrderByDescending(c => c.LastModify).Take(3).ToList();
             return View(model);
@@ -48,7 +50,7 @@ namespace NoiThat.Controllers
             model.menu_lstCollections = db.Categories.Where(c => c.Parent == 0 && c.DisplayMenu == true && c.IsActive == true && c.TypeCate == WebConstants.CategoryCollection).ToList();
             model.menu_lstTuVanDichVu = db.Categories.Where(c => c.Parent == 0 && c.IsActive == true && c.TypeCate == WebConstants.CategoryNews).ToList();
             model.menu_lstServices = db.Categories.Where(c => c.Parent == 0 && c.IsActive == true && c.TypeCate == WebConstants.CategoryService).ToList();
-            var gt = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogAboutUs && b.BlogID == 3 && b.IsActive == true).FirstOrDefault();
+            var gt = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogAboutUs_more && b.BlogID == 3 && b.IsActive == true).FirstOrDefault();
             ViewBag.URLGioiThieu = gt.SEOUrlRewrite + "-" + gt.BlogID;
             return PartialView("_menusHomePage", model);
         }
@@ -107,8 +109,8 @@ namespace NoiThat.Controllers
             FooterViewModel model = new FooterViewModel();
             //var model = db.MENUs.Where(q => q.IdCha == 0).OrderBy(o => o.ThuTu);
 
-            model.lstAboutus = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogAboutUs).OrderBy(c => c.Sort).ToList();
-            model.lstAboutus_more = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogAboutUs_more).OrderBy(c => c.Sort).ToList();
+            model.lstAboutus = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogAboutUs && b.IsActive == true).OrderBy(c => c.Sort).ToList();
+            model.lstAboutus_more = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogAboutUs_more && b.IsActive == true).OrderBy(c => c.Sort).ToList();
             return PartialView("_footer", model);
         }
         #endregion
@@ -126,8 +128,9 @@ namespace NoiThat.Controllers
             }
             AboutUsViewModel model = new AboutUsViewModel();
             model.aboutus = db.Blogs.Where(b => b.IsActive == true && b.BlogID == id && (b.TypeBlog == WebConstants.BlogAboutUs || b.TypeBlog == WebConstants.BlogAboutUs_more)).FirstOrDefault();
-            model.lstLeftMenu = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogAboutUs).OrderBy(c => c.Sort).ToList();
-            ViewBag.Title = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogAboutUs && b.BlogID == 3 && b.IsActive == true).FirstOrDefault().BlogName;
+            model.lstLeftMenu = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogAboutUs && b.IsActive == true).OrderBy(c => c.Sort).ToList();
+            model.lstAbout_more = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogAboutUs_more && b.IsActive == true).OrderBy(c => c.Sort).ToList();
+            ViewBag.Title = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogAboutUs_more && b.BlogID == 3 && b.IsActive == true).FirstOrDefault().SEOTitle;
             return View(model);
         }
 
