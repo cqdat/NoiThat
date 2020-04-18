@@ -5,104 +5,30 @@
 }
 
 
-<aside class="col-left sidebar col-sm-3 col-xs-12 col-sm-pull-9 wow">
-    <div class="side-nav-categories">
-        <div class="block-title"> Danh Mục </div>
-        <!--block-title-->
-        <!-- BEGIN BOX-CATEGORY -->
-        <div class="box-content box-category">
-            <ul>
-                @foreach (var q in Model)
-                {
-                    <li>
-                        <a class="active" href="/san-pham/@q.SEOUrlRewrite-@q.CategoryID">@q.CategoryName</a> <span class="subDropdown minus"></span>
-                        @foreach (var x in h.lstGetChildMenu(q.CategoryID))
-                        {
-                            <ul class="level0_415" style="display:block">
-                                <li>
-                                    <a href="/san-pham/@x.SEOUrlRewrite-@x.CategoryID"> @x.CategoryName </a>
-                                </li>
-                            </ul>
-                        }
+<div class="side-nav-categories">
+    <div class="block-title"> Danh Mục </div>
+    <!--block-title-->
+    <!-- BEGIN BOX-CATEGORY -->
+    <div class="box-content box-category">
+        <ul>
+            @foreach (var q in Model)
+            {
+                <li>
+                    <a class="active" href="/san-pham/@q.SEOUrlRewrite-@q.CategoryID">@q.CategoryName</a> <span class="subDropdown minus"></span>
+                    @foreach (var x in h.lstGetChildMenu(q.CategoryID))
+                    {
+                        <ul class="level0_415" style="display:block">
+                            <li>
+                                <a href="/san-pham/@x.SEOUrlRewrite-@x.CategoryID"> @x.CategoryName </a>
+                            </li>
+                        </ul>
+                    }
 
 
-                    </li>
-                }
-            </ul>
-        </div>
-        <!--box-content box-category-->
-    </div>
-
-
-
-
-
-
-    <div class="block block-subscribe">
-        <div class="block-title"><span>Bản tin</span></div>
-        <form action="#" method="post" id="newsletter-validate-detail">
-            <div class="block-content">
-                <div class="form-subscribe-header"> Đăng ký nhận bản tin mới: </div>
-                <input type="text" name="email" id="newsletter" title="" class="input-text required-entry validate-email" placeholder="nhập email">
-                <div class="actions">
-                    <button type="submit" title="Submit" class="subscribe"><span>Theo dõi</span></button>
-                </div>
-            </div>
-        </form>
-    </div>
-
-
-
-
-    <div class="block block-list block-viewed">
-        <div class="block-title"><span>Sản phẩm đã xem</span> </div>
-        <div class="block-content">
-            <ol id="recently-viewed-items">
-                <li class="item odd">
-                    <p class="product-name"><a href="#"> Armchair with Box-Edge Upholstered Arm</a></p>
                 </li>
-                <li class="item even">
-                    <p class="product-name"><a href="#"> Pearce Upholstered Slee pere</a></p>
-                </li>
-                <li class="item last odd">
-                    <p class="product-name"><a href="#"> Sofa with Box-Edge Down-Blend Wrapped Cushions</a></p>
-                </li>
-            </ol>
-        </div>
+            }
+        </ul>
     </div>
-    <div class="block block-poll">
-        <div class="block-title"><span>Videos</span> </div>
-        <div class="block-content">
-            <video src="~/images/TanThoi.mp4" controls="controls" height="150px" autoplay="autoplay" audio="muted">Dòng thông báo</video>
-        </div>
-    </div>
-    <div class="block block-tags">
-        <div class="block-title"><span>Chủ đề phổ biến</span></div>
-        <div class="block-content">
-            <ul class="tags-list">
-                <li><a style="font-size:98.3333333333%;" href="#tagId/23/">Camera</a></li>
-                <li><a style="font-size:86.6666666667%;" href="#tagId/109/">Hohoho</a></li>
-                <li><a style="font-size:145%;" href="#tagId/27/">SEXY</a></li>
-                <li><a style="font-size:75%;" href="#tagId/61/">Tag</a></li>
-                <li><a style="font-size:110%;" href="#tagId/29/">Test</a></li>
-                <li><a style="font-size:86.6666666667%;" href="#tagId/17/">bones</a></li>
-                <li><a style="font-size:110%;" href="#tagId/12/">cool</a></li>
-                <li><a style="font-size:86.6666666667%;" href="#tagId/184/">cool t-shirt</a></li>
-                <li><a style="font-size:86.6666666667%;" href="#tagId/173/">crap</a></li>
-                <li><a style="font-size:86.6666666667%;" href="#tagId/41/">good</a></li>
-                <li><a style="font-size:86.6666666667%;" href="#tagId/16/">green</a></li>
-                <li><a style="font-size:86.6666666667%;" href="#tagId/5/">hip</a></li>
-                <li><a style="font-size:75%;" href="#tagId/51/">laptop</a></li>
-                <li><a style="font-size:75%;" href="#tagId/20/">mobile</a></li>
-                <li><a style="font-size:75%;" href="#tagId/70/">nice</a></li>
-                <li><a style="font-size:86.6666666667%;" href="#tagId/42/">phone</a></li>
-                <li><a style="font-size:98.3333333333%;" href="#tagId/30/">red</a></li>
-                <li><a style="font-size:86.6666666667%;" href="#tagId/28/">tight</a></li>
-                <li><a style="font-size:75%;" href="#tagId/2/">trendy</a></li>
-                <li><a style="font-size:86.6666666667%;" href="#tagId/4/">young</a></li>
-            </ul>
-            <div class="actions"> <a class="view-all" href="#">View All Tags</a> </div>
-        </div>
-    </div>
-    <div class="block block-banner"><a href="#"><img src="~/images/block-banner.png" alt="block-banner"></a></div>
-</aside>
+    <!--box-content box-category-->
+</div>
+

@@ -30,20 +30,7 @@
                     <h2>@Model.aboutus.BlogName</h2>
                 </div>
                 <div class="static-contain">
-                    @*@{
-                            string founder = Model.aboutus.Content;
-                            string afterFounder = "";
-                            int pos = founder.IndexOf(ConfigurationManager.AppSettings["CKImgFinderLocal"]);
-                            if (pos >= 0)
-                            {
-                                // String after founder
-                                afterFounder = founder.Replace(ConfigurationManager.AppSettings["CKImgFinderLocal"], ConfigurationManager.AppSettings["CKImgFinderHost"]);
-                            }
-                            else
-                            {
-                                afterFounder = founder;
-                            }
-                        }*@
+                    
                     @*@Helpers.ReplaceString(ConfigurationManager.AppSettings["CKImgFinderLocal"], ConfigurationManager.AppSettings["CKImgFinderHost"])*@
                     @Html.Raw(@Helpers.ReplaceString(Model.aboutus.Content, ConfigurationManager.AppSettings["CKImgFinderLocal"], ConfigurationManager.AppSettings["CKImgFinderHost"]))
                 </div>
@@ -53,7 +40,7 @@
                     <div class="block-title">Về chúng tôi </div>
                     <div class="block-content">
                         <ol id="recently-viewed-items">
-                            @foreach (var i in Model.lstLeftMenu)
+                            @foreach (var i in Model.lstAbout_more)
                             {
                                 <li class="item even"><a href="/@i.SEOUrlRewrite-@i.BlogID">@i.BlogName</a></li>
                             }
@@ -61,7 +48,25 @@
                         </ol>
                     </div>
                 </div>
+                <div class="block block-company">
+                    <div class="block-title">Chính sách </div>
+                    <div class="block-content">
+                        <ol id="recently-viewed-items">
+                            @foreach (var i in Model.lstLeftMenu)
+                            {
+                                <li class="item even"><a href="/@i.SEOUrlRewrite-@i.BlogID">@i.BlogName</a></li>
+                            }
+                        </ol>
+                    </div>
+                </div>
+                <div class="block block-company">
+                    <div class="block-title">Video giới thiệu </div>
+                    <div class="block-content">
+                        <video src="~/images/TanThoi.mp4" controls="controls" style="height:150px; width:100%" audio="muted">Dòng thông báo</video>
+                    </div>
+                </div>
             </aside>
+            
         </div>
     </div>
 </div>

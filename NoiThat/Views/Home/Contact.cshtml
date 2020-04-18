@@ -24,11 +24,13 @@
 </div>
 <div class="main-container col2-right-layout">
     <div class="main container">
+       
         <div class="row">
             <section class="col-main col-sm-9 wow">
                 <div class="page-title">
                     <h2>Liên hệ với chúng tôi</h2>
                 </div>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.631461568335!2d106.67371131401376!3d10.991165258200652!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174d11e194e753d%3A0x8b0abb956d79efbc!2zQ-G7rWEgSMOgbmcgS8OtbmggQ8aw4budbmcgTOG7sWMgVMOibiBUaOG7nWk!5e0!3m2!1svi!2s!4v1587141568643!5m2!1svi!2s" height="400" frameborder="0" style="border:0; width:100%" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
                 @ViewBag.Message
                 @using (Html.BeginForm("CustomerContact", "Home", FormMethod.Post, new { id = "Submitf", name = "Submitf", onsubmit = "return validateForm()" }))
                 {
@@ -112,6 +114,45 @@
                             <li class="item las"><strong><a href="/lien-he">Liên hệ</a></strong></li>
 
                         </ol>
+                    </div>
+                </div>
+                <div class="block block-progress">
+                    <div class="block-title ">Văn phòng - Showrooms</div>
+                    <div class="block-content">
+                        <dl>
+                            <dt class="complete"> Văn Phòng <span class="separator">|</span> <a title="Xem trên Google Map" target="_blank" href="https://goo.gl/maps/cia4B1CNN9F1MQJs9">Xem Đường đi</a> </dt>
+                            <dd class="complete">
+                                <address>
+                                    188/4 Thích Quảng Đức, Phú Cường, TP-TDM, Bình Dương
+                                </address>
+                            </dd>
+                            <dt class="complete"> Showroom <span class="separator">|</span> <span class="separator">|</span> <a title="Xem trên Google Map" target="_blank" href="https://goo.gl/maps/PG9gi5FHLmHhNPq79">Xem Đường đi</a> </dt>
+                            <dd class="complete">
+                                <address>
+                                    51A Huỳnh Văn Lũy, Phú Lợi, TP-TDM, Bình Dương
+                                </address>
+                            </dd>
+                            <dt class="complete"> Xưởng mộc <span class="separator">|</span> <a title="Xem trên Google Map" target="_blank" href="https://goo.gl/maps/oCt2h6t86bk38TGS8">Xem Đường đi</a></dt>
+                            <dd class="complete">
+                                <address>
+                                    Hẻm 228 Huỳnh Văn Lũy, Phú Lợi, TP-TDM, Bình Dương
+                                </address>
+                            </dd>
+                            <dt class="complete"> Xưởng kính <span class="separator">|</span><a title="Xem trên Google Map" target="_blank" href="https://goo.gl/maps/Mw3ishAHYgDYvSpq6">Xem Đường đi</a> </dt>
+                            <dd class="complete">
+                                <address>
+                                    31 Lê Hồng Phong, Phú Lợi, TP-TDM, Bình Dương
+                                </address>
+                            </dd>
+                            <dt class="complete"> Điện thoại & Email </dt>
+                            <dd class="complete">
+                                <span class="price">0274 389 22 33 - 0979.77.11.33 </span><br />
+                                Email <br />
+                                <span class="price">noithattanthoi@gmail.com <br /> 
+                                nhomkinhtanthoi@gmail.com </span>
+                            </dd>
+                            
+                        </dl>
                     </div>
                 </div>
             </aside>

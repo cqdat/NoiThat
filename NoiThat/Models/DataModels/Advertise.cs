@@ -24,6 +24,7 @@ namespace NoiThat.Models.DataModels
         public string AdvertiseURL { get; set; }
 
         public bool? IsActive { get; set; }
+        public int? Location { get; set; }
 
         public string AdvContent { get; set; }
 

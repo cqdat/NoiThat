@@ -3,6 +3,7 @@ using NoiThat.Models.DataModels;
 using PagedList;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -52,6 +53,9 @@ namespace NoiThat.Controllers
             }
             CollectionsViewModel model = new CollectionsViewModel();
             model.detail = db.Products.Where(p => p.IsActive == true && p.IsProduct == false && p.ProductID == id).FirstOrDefault();
+            model.detail.CountView = model.detail.CountView + 1;
+            db.Entry(model.detail).State = EntityState.Modified;
+            db.SaveChanges();
             model.lstImages = db.ProductImages.Where(i=>i.ProductID == id).ToList();
             var cateid = db.Products.Where(p => p.IsActive == true && p.IsProduct == false && p.ProductID == id).FirstOrDefault().CategoryID;
             model.lstCollection1 = db.Products.Where(p => p.IsActive == true && p.IsProduct == false && p.CategoryID == cateid && p.ProductID != id).OrderByDescending(p=>p.ProductID).Take(4).ToList();

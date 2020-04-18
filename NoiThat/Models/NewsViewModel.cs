@@ -10,6 +10,8 @@ namespace NoiThat.Models
     {
         public Blog blogdetail { get; set; }
         public List<Blog> lstBlogsNewest { get; set; }
+        public List<Category> lstServices { get; set; }
+        public List<Advertise> LeftPromote { get; set; }
         public Category category { get; set; }
     }
 

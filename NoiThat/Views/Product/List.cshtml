@@ -96,10 +96,51 @@
 
 
             </section>
+            <aside class="col-left sidebar col-sm-3 col-xs-12 col-sm-pull-9 wow">
+
+                @Html.Partial("_leftmenu", Model.categories)
+
+                <div class="block block-poll">
+                    <div class="block-title"><span>Videos</span> </div>
+                    <div class="block-content">
+                        <video src="~/images/TanThoi.mp4" controls="controls" height="150px" autoplay="autoplay" audio="muted">Dòng thông báo</video>
+                    </div>
+                </div>
+                <div class="block block-subscribe">
+                    <div class="block-title"><span>Bản tin</span></div>
+                    <form action="#" method="post" id="newsletter-validate-detail">
+                        <div class="block-content">
+                            <div class="form-subscribe-header"> Đăng ký nhận bản tin mới: </div>
+                            <input type="text" name="email" id="newsletter" title="" class="input-text required-entry validate-email" placeholder="nhập email">
+                            <div class="actions">
+                                <button type="submit" title="Submit" class="subscribe"><span>Theo dõi</span></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
 
 
-            @Html.Partial("_leftmenu", Model.categories)
+                @Html.Partial("_leftPromote", Model.LeftPromote)
+                <div class="block block-tags">
+                    <div class="block-title"><span>Từ khóa phổ biến</span></div>
+                    <div class="block-content">
+                        <ul class="tags-list">
+                            <li><a style="font-size:98.3333333333%;" href="#tagId/23/">Nội thất văn phòng</a></li>
+                            <li><a style="font-size:86.6666666667%;" href="#tagId/109/">Nội thất phòng bếp</a></li>
+                            <li><a style="font-size:145%;" href="#tagId/27/">Nội thất giá rẻ Bình Dương</a></li>
+                            <li><a style="font-size:75%;" href="#tagId/61/">Nội thất giá rẻ</a></li>
+                            <li><a style="font-size:110%;" href="#tagId/29/">Thiết kế nội thất Chung cư</a></li>
+                            <li><a style="font-size:86.6666666667%;" href="#tagId/17/">Thiết kế nội thất bình dương</a></li>
+                            <li><a style="font-size:110%;" href="#tagId/12/">Thi công nội thất Bình Dương</a></li>
+                            <li><a style="font-size:86.6666666667%;" href="#tagId/184/">nội thất chung cư giá rẻ tại bình dương</a></li>
 
+                        </ul>
+                        <div class="actions"> <a class="view-all" title="Xem tất cả sản phẩm" href="/san-pham">Tất cả sản phẩm</a> </div>
+                    </div>
+                </div>
+
+
+            </aside>
         </div>
     </div>
 </section>

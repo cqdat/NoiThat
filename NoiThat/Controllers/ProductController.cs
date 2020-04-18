@@ -2,10 +2,11 @@
 using NoiThat.Models.DataModels;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using NoiThat.Utilities;
 namespace NoiThat.Controllers
 {
     public class ProductController : Controller
@@ -55,6 +56,7 @@ namespace NoiThat.Controllers
             }
             
             model.products = db.Products.Where(q => q.IsActive == true && q.IsProduct == true && q.CategoryID == id).ToList();
+            model.LeftPromote = db.Advertises.Where(a => a.IsActive == true && a.Location == WebConstants.PromoteLeft).ToList();
             return View(model);
         }
 
@@ -62,6 +64,11 @@ namespace NoiThat.Controllers
         {
             ProductDetailViewModel model = new ProductDetailViewModel();
             model.product = db.Products.Find(id);
+
+            model.product.CountView = model.product.CountView + 1;
+            db.Entry(model.product).State = EntityState.Modified;
+            db.SaveChanges();
+
             var cate = db.Categories.Find(model.product.CategoryID);
             model.CategoryName = cate.CategoryName;
             model.CategoryLink = "/san-pham/" + cate.SEOUrlRewrite + "-" + cate.CategoryID;

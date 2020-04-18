@@ -1,0 +1,17 @@
+﻿@model List<NoiThat.Models.DataModels.Advertise>
+@using NoiThat.Utilities
+@{
+    Helpers h = new Helpers();
+}
+
+    <div class="block block-banner">
+        <div class="block-title"><span>Quảng cáo</span> </div>
+        @foreach (var i in Model)
+        {
+            <a href="#"><img alt="@i.AdvertiseName" src="@WebConstants.ImgNewsHost/@i.AdvertiseImage" /></a>
+            
+        }
+
+    </div>
+
+

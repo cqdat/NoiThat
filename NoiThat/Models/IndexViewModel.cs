@@ -13,8 +13,8 @@ namespace NoiThat.Models
         public List<Slide> lstSlideHomePage { get; set; }
         public List<Advertise> lstBannerPro { get; set; }
         public List<Blog> lstAboutUsMore { get; set; }
-        public List<Product> lstLastProducts { get; set; }
-        public List<Product> lstBestSellerproducts { get; set; }
+        public List<ProductGroup> lstLastProducts { get; set; }
+        public List<ProductGroup> lstBestSellerproducts { get; set; }
         public List<ProductGroup> lstSanPhamNoiBat { get; set; }
         public List<Blog> lstNews { get; set; }
 

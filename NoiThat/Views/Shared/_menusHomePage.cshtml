@@ -28,7 +28,7 @@
                                         <a class="level-top" href="/@ViewBag.URLGioiThieu"> <span>Giới Thiệu</span> </a>
                                     </li>
                                     <li class="level0 nav-6 level-top">
-                                        <a class="level-top" href="/san-pham"> <span>Sản Phẩm</span> </a>
+                                        <a class="level-top" href="#"> <span>Sản Phẩm</span> </a>
                                         <ul class="level0">
                                             @{ foreach (var q in Model.menu_lstProducts)
                                                 {
@@ -74,11 +74,15 @@
                                     </li>
 
                                     <li class="level0 parent drop-menu">
-                                        <a href="/dich-vu"><span>Dịch Vụ</span> </a>
+                                        <a href="#"><span>Dịch Vụ</span> </a>
                                         <ul class="level1">
-                                            <li class="level1 first"><a href="blog_posts_table_view.html"><span>Table View</span></a></li>
-                                            <li class="level1 nav-10-2"> <a href="blog_single_post.html"> <span>Single Post</span> </a> </li>
+                                            @foreach (var j in Model.menu_lstServices)
+                                            {
+                                                <li class="level1 first"><a href="/dich-vu/@j.SEOUrlRewrite-@j.CategoryID"><span>@j.CategoryName</span></a> </li>
+                                            }
+                                           
                                         </ul>
+                                        
                                     </li>
                                     <li class="level0 parent drop-menu">
                                         <a href="blog.html"><span>Tư vấn - Thiết kế</span> </a>
@@ -115,7 +119,7 @@
                 </li>
                 @*Sản phẩm*@
                 <li class="level0 nav-5 level-top first">
-                    <a href="/san-pham" class="level-top" id="menusp"> <span>Sản phẩm</span> </a>
+                    <a href="#" class="level-top" id="menusp"> <span>Sản phẩm</span> </a>
                     <div class="level0-wrapper dropdown-6col" style="display:none;">
                         <div class="level0-wrapper2">
                             <div class="nav-block nav-block-center grid12-8 itemgrid itemgrid-4col">
@@ -209,9 +213,7 @@
                         {
                              <li class="level1 first"><a href="/dich-vu/@j.SEOUrlRewrite-@j.CategoryID"><span>@j.CategoryName</span></a> </li>
                         }
-                        @*<li class="level1 first"><a href="blog_posts_table_view.html"><span>Thiết kế nội thất</span></a> </li>
-                        <li class="level1 parent"><a href="blog_single_post.html"><span>Thi Công Nội thất</span></a> </li>*@
-
+                        
                     </ul>
                 </li>
 
