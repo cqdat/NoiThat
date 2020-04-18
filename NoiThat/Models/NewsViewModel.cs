@@ -13,6 +13,8 @@ namespace NoiThat.Models
         public List<Category> lstServices { get; set; }
         public List<Advertise> LeftPromote { get; set; }
         public Category category { get; set; }
+        public string Title { get; set; }
+        public string TitleUrl { get; set; }
     }
 
     public class ServiceViewModel

@@ -2,14 +2,14 @@
 @using NoiThat.Utilities;
 @model NewsViewModel
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Tin tức";
 }
 <div class="breadcrumbs">
     <div class="container">
         <div class="row">
             <ul>
-                <li class="home"> <a title="Go to Home Page" href="/">Trang chủ</a><span>—›</span></li>
-                <li class="category13"><strong>Tin tức</strong></li>
+                <li class="home"> <a title="Go to Home Page" href="/">Trang chủ</a><i class="icon-long-arrow-right stepby" aria-hidden="true"></i></li>
+                <li class="category13"><strong>@Model.Title</strong></li>
             </ul>
         </div>
     </div>
@@ -19,7 +19,7 @@
         <div class="row">
             <div class="col-main col-sm-9">
                 <div class="page-title">
-                    <h2>Tin tức</h2>
+                    <h2>@Model.Title</h2>
                 </div>
                 <div class="blog-wrapper" id="main">
 
@@ -97,6 +97,7 @@
         </div>
     </div>
 </div>
+<input type="hidden" id="categoryid" value="@Model.category.CategoryID" />
 @section scripts{
     <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
     <script type="text/javascript">
@@ -131,21 +132,22 @@
 
     });
 
-    function filter() {
-
-        $.ajax({
-            //url: '/BDS_TinTuc/_PartialIndex',
-            url: '@Url.Action("_PartialNewsLst", "News")',
-            data: {
-                pageSize: parseInt($('#ddlPageSize').val()),
-            },
-            method: 'GET',
-            dataType: 'html',
-            success: function (data) {
-                $('#main').html(data);
-                $("#lbl_Message").html("");
-            }
-        });
+        function filter() {
+            var categoryid = $("#categoryid").val().trim();
+            $.ajax({
+                //url: '/BDS_TinTuc/_PartialIndex',
+                url: '@Url.Action("_PartialNewsLst", "News")',
+                data: {
+                    pageSize: parseInt($('#ddlPageSize').val()),
+                    categoryid: categoryid
+                },
+                method: 'GET',
+                dataType: 'html',
+                success: function (data) {
+                    $('#main').html(data);
+                    $("#lbl_Message").html("");
+                }
+            });
 
     }
     </script>

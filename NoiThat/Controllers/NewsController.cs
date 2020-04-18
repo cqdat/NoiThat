@@ -24,10 +24,19 @@ namespace NoiThat.Controllers
             model.lstBlogsNewest= db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogNews && b.IsActive == true).OrderByDescending(c => c.LastModify).Take(6).ToList();
             model.lstServices = db.Categories.Where(c => c.Parent == 0 && c.IsActive == true && c.TypeCate == WebConstants.CategoryService).ToList();
             model.LeftPromote = db.Advertises.Where(a => a.IsActive == true && a.Location == WebConstants.PromoteLeft).ToList();
+            model.category = db.Categories.Find(id);
+            if (id > 0)
+            {                
+                model.Title = model.category.CategoryName;
+            }
+            else
+            {
+                model.Title = "Tin tức";
+            }
             return View(model);
         }
 
-        public ActionResult _PartialNewsLst(int? pageNumber, int? pageSize)
+        public ActionResult _PartialNewsLst(int? pageNumber, int? pageSize, int? categoryid)
         {
             
             if (pageSize == -1)
@@ -36,7 +45,17 @@ namespace NoiThat.Controllers
             }
             ViewBag.PageSize = pageSize;
 
-            var lstnews = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogNews && b.IsActive == true).OrderByDescending(b=>b.LastModify).ToList();
+            var lstnews = new List<Blog>();
+
+            if (categoryid > 0)
+            {
+                lstnews = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogNews && b.IsActive == true && b.CategoryID == categoryid).OrderByDescending(b => b.LastModify).ToList();
+            }
+            else
+            {
+                lstnews = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogNews && b.IsActive == true).OrderByDescending(b => b.LastModify).ToList();
+            }
+            
 
             lstnews = lstnews.OrderBy(s => s.LastModify).ToList();
 
@@ -67,6 +86,17 @@ namespace NoiThat.Controllers
             ViewBag.Title = model.blogdetail.SEOTitle;
             int parent = model.blogdetail.CategoryID.Value;
             model.category = db.Categories.Find(parent);
+
+            if(model.category.TypeCate == 5)
+            {
+                model.Title = "Dịch Vụ";
+                model.TitleUrl = "/dich-vu";
+            }
+            else
+            {
+                model.Title = "Tin Tức";
+                model.TitleUrl = "/tin-tuc";
+            }
 
             return View(model);
         }
