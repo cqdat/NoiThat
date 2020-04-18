@@ -75,6 +75,8 @@ namespace NoiThat.Controllers
             model.LeftPromote = db.Advertises.Where(a => a.IsActive == true && a.Location == WebConstants.PromoteLeft).ToList();
             model.listviewed = GetListProduct();
 
+            model.category = cate;
+
             model.SEOTitle = cate.SEOTitle;
             model.SEOKeywords = cate.SEOKeywords;
             model.SEOMetadescription = cate.SEOMetadescription;
@@ -82,7 +84,7 @@ namespace NoiThat.Controllers
             return View(model);
         }
 
-        public ActionResult _grid(int? pageNumber, int? pageSize, string SanPham)
+        public ActionResult _grid(int? pageNumber, int? pageSize, string SanPham, int? categoryid)
         {
 
             if (pageSize == -1)
@@ -103,6 +105,17 @@ namespace NoiThat.Controllers
             ViewBag.STT = pageNumber * pageSize - pageSize + 1;
             int count = lstprod.ToList().Count();
             ViewBag.TotalRow = count;
+
+            var cate = db.Categories.Find(categoryid);
+            if(cate.Parent == 0)
+            {
+                lstprod = lstprod.Where(q => q.CategoryIDParent == categoryid).ToList() ;
+            }
+            else
+            {
+                lstprod = lstprod.Where(q => q.CategoryID == categoryid).ToList();
+            }
+
             if (Request.IsAjaxRequest())
             {
                 return PartialView("~/Views/Product/_grid.cshtml", lstprod.ToList().ToPagedList(pageNumber ?? 1, pageSize ?? 2));

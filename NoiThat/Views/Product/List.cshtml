@@ -93,15 +93,26 @@
                         </div>
                     </div>
 
-                    @if (Session["viewlist"] == null)
+                    @*@if (Session["viewlist"] == null)
                     {
                         @Html.Partial("_grid", Model.products)
                     }
                     else
                     {
                         @Html.Partial("_list", Model.products)
-                    }
+                    }*@
 
+                    <div id="lstProducts">
+                        @*@if (Session["viewlist"] == null)
+                            {
+                                @Html.Partial("_grid", Model.products)
+                            }
+                            else
+                            {
+                                @Html.Partial("_list", Model.products)
+                            }*@
+
+                    </div>
 
 
                 </div>
@@ -160,7 +171,7 @@
     </div>
 </section>
 
-
+<input type="hidden" id="categoryid" value="@Model.category.CategoryID" />
 
 @section scripts
 {
@@ -170,6 +181,37 @@
             $(".level0 a").removeClass("active");
             $("a#menusp").addClass("active");
 
+            $.ajaxSetup({
+                cache: false
+         });
+
+
+
+
+        filter();
+
         });
+
+         function filter() {
+             var SanPham = $("#txtTenSP").val();
+             var categoryid = $("#categoryid").val();
+            $.ajax({
+                //url: '/BDS_TinTuc/_PartialIndex',
+                url: '@Url.Action("_grid", "Product")',
+                data: {
+                    pageSize: parseInt($('#ddlPageSize').val()),
+                    SanPham: SanPham,
+                    categoryid: categoryid
+                },
+                method: 'GET',
+                dataType: 'html',
+                success: function (data) {
+                    $('#lstProducts').html(data);
+                    $("#lbl_Message").html("");
+                }
+            });
+
+        }
+
     </script>
 }
