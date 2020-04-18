@@ -94,6 +94,19 @@ namespace NoiThat.Controllers
             ViewBag.PageSize = pageSize;
 
             var lstprod = db.Products.Where(q => q.IsActive == true && q.IsProduct == true).ToList();
+            var cate = db.Categories.Find(categoryid);
+            if (categoryid == null)
+            {
+                lstprod = lstprod;
+            }
+            else if (cate.Parent == 0)
+            {
+                lstprod = lstprod.Where(q => q.CategoryIDParent == categoryid).ToList();
+            }
+            else
+            {
+                lstprod = lstprod.Where(q => q.CategoryID == categoryid).ToList();
+            }
             if (!string.IsNullOrEmpty(SanPham))
             {
                 lstprod = lstprod.Where(s => s.ProductName.ToUpper().Contains(SanPham.ToUpper())).ToList();
@@ -106,15 +119,7 @@ namespace NoiThat.Controllers
             int count = lstprod.ToList().Count();
             ViewBag.TotalRow = count;
 
-            var cate = db.Categories.Find(categoryid);
-            if(cate.Parent == 0)
-            {
-                lstprod = lstprod.Where(q => q.CategoryIDParent == categoryid).ToList() ;
-            }
-            else
-            {
-                lstprod = lstprod.Where(q => q.CategoryID == categoryid).ToList();
-            }
+            
 
             if (Request.IsAjaxRequest())
             {

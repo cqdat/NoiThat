@@ -36,86 +36,37 @@
                 @Html.Partial("_slide", Model.slides)
 
 
-                <div class="category-products">
+            <div class="category-products">
+                <div class="toolbar">
+                    <div class="col-md-6" style="float:left"><input type="text" id="txtTenSP" style="width:80%" class="input-text " placeholder="Nhập tên sản phẩm..." /></div>
+                    <div class="col-md-6" style="text-align:right">
+                        @*<span>Hiện thị: </span>*@
 
-                    <div class="toolbar">
-                        <div class="sorter">
-                            <div class="view-mode"> <span title="Grid" class="button button-active button-grid">Grid</span><a href="list.html" title="List" class="button button-list">List</a> </div>
-                        </div>
-                        <div id="sort-by">
-                            <label class="left">Sort By: </label>
-                            <ul>
-                                <li>
-                                    <a href="#">Position<span class="right-arrow"></span></a>
-                                    <ul>
-                                        <li><a href="#">Name</a></li>
-                                        <li><a href="#">Price</a></li>
-                                        <li><a href="#">Position</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                            <a class="button-asc left" href="#" title="Set Descending Direction"><span style="color:#999;font-size:11px;" class="glyphicon glyphicon-arrow-up"></span></a>
-                        </div>
-                        <div class="pager">
-                            <div id="limiter">
-                                <label>View: </label>
-                                <ul>
-                                    <li>
-                                        <a href="#">15<span class="right-arrow"></span></a>
-                                        <ul>
-                                            <li><a href="#">20</a></li>
-                                            <li><a href="#">30</a></li>
-                                            <li><a href="#">35</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                                <select id="ddlPageSize">
-                                    <option value="4">Hiện thị 4 tin</option>
-                                    <option value="8">Hiện thị 8 tin</option>
-                                    <option value="10" selected>Hiện thị 10 tin</option>
-                                    <option value="16">Hiện thị 16 tin</option>
-                                    <option value="20">Hiện thị 20 tin</option>
-                                    <option value="-1">Hiện thị Tất cả</option>
-                                </select>
-                            </div>
-                            <div class="pages">
-                                <label>Page:</label>
-                                <ul class="pagination">
-                                    <li><a href="#">&laquo;</a></li>
-                                    <li class="active"><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
-                                    <li><a href="#">5</a></li>
-                                    <li><a href="#">&raquo;</a></li>
-                                </ul>
-                            </div>
-                        </div>
+                        <select id="ddlPageSize">
+                            <option value="15" selected>15 sản phẩm/trang</option>
+
+                            <option value="30">30 sản phẩm/trang</option>
+                            <option value="35">35 sản phẩm/trang</option>
+                            <option value="40">40 sản phẩm/trang</option>
+                            <option value="-1">Tất cả sản phẩm</option>
+                        </select>
                     </div>
+                </div>
 
+                <div id="lstProducts">
                     @*@if (Session["viewlist"] == null)
-                    {
-                        @Html.Partial("_grid", Model.products)
-                    }
-                    else
-                    {
-                        @Html.Partial("_list", Model.products)
-                    }*@
-
-                    <div id="lstProducts">
-                        @*@if (Session["viewlist"] == null)
-                            {
-                                @Html.Partial("_grid", Model.products)
-                            }
-                            else
-                            {
-                                @Html.Partial("_list", Model.products)
-                            }*@
-
-                    </div>
-
+            {
+                @Html.Partial("_grid", Model.products)
+            }
+            else
+            {
+                @Html.Partial("_list", Model.products)
+            }*@
 
                 </div>
+
+
+            </div>
 
 
 
@@ -185,10 +136,16 @@
                 cache: false
          });
 
+            filter();
 
+             $('body').on('change', '#ddlPageSize', function () {
+                filter();
+            });
 
-
-        filter();
+            //textbox name
+            $('#txtTenSP').on('input', function () {
+                filter();
+            });
 
         });
 
