@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using NoiThat.Utilities;
+using PagedList;
 
 namespace NoiThat.Controllers
 {
@@ -79,6 +80,34 @@ namespace NoiThat.Controllers
             model.SEOMetadescription = cate.SEOMetadescription;
 
             return View(model);
+        }
+
+        public ActionResult _grid(int? pageNumber, int? pageSize, string SanPham)
+        {
+
+            if (pageSize == -1)
+            {
+                pageSize = db.Products.Where(q => q.IsActive == true && q.IsProduct == true).ToList().Count;
+            }
+            ViewBag.PageSize = pageSize;
+
+            var lstprod = db.Products.Where(q => q.IsActive == true && q.IsProduct == true).ToList();
+            if (!string.IsNullOrEmpty(SanPham))
+            {
+                lstprod = lstprod.Where(s => s.ProductName.ToUpper().Contains(SanPham.ToUpper())).ToList();
+            }
+            ViewBag.SanPham = SanPham;
+
+            lstprod = lstprod.OrderByDescending(s => s.ProductID).ToList();
+
+            ViewBag.STT = pageNumber * pageSize - pageSize + 1;
+            int count = lstprod.ToList().Count();
+            ViewBag.TotalRow = count;
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView("~/Views/Product/_grid.cshtml", lstprod.ToList().ToPagedList(pageNumber ?? 1, pageSize ?? 2));
+            }
+            return View(lstprod.ToList().ToPagedList(pageNumber ?? 1, pageSize ?? 2));
         }
 
         public List<Product> GetListProduct()
