@@ -3,6 +3,11 @@
     ViewBag.Title = Model.product.ProductName;
 }
 
+@section metatags
+{
+    <meta name="keywords" content="@Model.product.SEOKeywords" />
+    <meta name="description" content="@Model.product.SEOMetadescription" />
+}
 
 <div class="breadcrumbs">
     <div class="container">
@@ -68,7 +73,7 @@
 @section scripts
 {
 
-   
+
     <script>
         $(document).ready(function () {
 
