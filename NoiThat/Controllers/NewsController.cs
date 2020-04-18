@@ -28,6 +28,9 @@ namespace NoiThat.Controllers
             if (id > 0)
             {                
                 model.Title = model.category.CategoryName;
+                model.SEOTitle = model.category.SEOTitle;
+                model.SEOKeywords = model.category.SEOKeywords;
+                model.SEOMetadescription = model.category.SEOMetadescription;
             }
             else
             {
@@ -75,7 +78,7 @@ namespace NoiThat.Controllers
             {
                 return View("NotFound", "Home");
             }
-            var blog = db.Blogs.FirstOrDefault(b => b.BlogID == id);
+            var blog = db.Blogs.Find(id);
             blog.CountView = blog.CountView + 1;
             db.Entry(blog).State = EntityState.Modified;
             db.SaveChanges();
@@ -87,7 +90,11 @@ namespace NoiThat.Controllers
             int parent = model.blogdetail.CategoryID.Value;
             model.category = db.Categories.Find(parent);
 
-            if(model.category.TypeCate == 5)
+            //model.SEOTitle = blog.SEOTitle;
+            //model.SEOKeywords = blog.SEOKeywords;
+            //model.SEOMetadescription = blog.SEOMetadescription;
+
+            if (model.category.TypeCate == 5)
             {
                 model.Title = "Dịch Vụ";
                 model.TitleUrl = "/dich-vu";
@@ -108,14 +115,18 @@ namespace NoiThat.Controllers
             if(id != null)
             {
                 model.HasID = true;
-                model.Title = db.Categories.Find(id).SEOTitle;
+                var cate = db.Categories.Find(id);
                 
                 model.blogs = db.Blogs.Where(q => q.IsActive == true && q.CategoryID == id).ToList();
+
+                model.SEOTitle = cate.SEOTitle;
+                model.SEOKeywords = cate.SEOKeywords;
+                model.SEOMetadescription = cate.SEOMetadescription;
             }
             else
             {
                 model.HasID = false;
-                model.Title = "Dịch Vụ";
+                model.SEOTitle = "Dịch Vụ";
                 model.blogs = db.Blogs.Where(q => q.IsActive == true && q.Category.TypeCate == 5).ToList();
             }
 

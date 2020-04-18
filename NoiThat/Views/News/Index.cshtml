@@ -2,7 +2,12 @@
 @using NoiThat.Utilities;
 @model NewsViewModel
 @{
-    ViewBag.Title = "Tin tức";
+    ViewBag.Title = Model.SEOTitle;
+}
+@section metatags
+{
+    <meta name="keywords" content="@Model.SEOKeywords" />
+    <meta name="description" content="@Model.SEOMetadescription" />
 }
 <div class="breadcrumbs">
     <div class="container">

@@ -7,7 +7,13 @@
     Helpers h = new Helpers();
 }
 @{
-    ViewBag.Title = Model.Title;
+    ViewBag.Title = Model.SEOTitle;
+}
+
+@section metatags
+{
+    <meta name="keywords" content="@Model.SEOKeywords" />
+    <meta name="description" content="@Model.SEOMetadescription" />
 }
 
 <div class="breadcrumbs">
@@ -22,7 +28,7 @@
                 else
                 {
                     <li class="home"> <a href="/dich-vu" title="Bộ sưu tập">Dịch Vụ</a><i class="icon-long-arrow-right stepby" aria-hidden="true"></i></li>
-                    <li class="category13"><strong>@Model.Title</strong></li>
+                    <li class="category13"><strong>@Model.SEOTitle</strong></li>
                 }
             </ul>
         </div>
@@ -34,7 +40,7 @@
         <div class="row">
             <div class="col-main col-sm-9">
                 <div class="page-title">
-                    <h2>@Model.Title</h2>
+                    <h2>@Model.SEOTitle</h2>
                 </div>
                 <div class="blog-wrapper" id="main">
                     <div class="category-products">
@@ -90,7 +96,7 @@
                                     <div class="product_image">
                                         <div class="images-container">
                                             <a class="product-image" title="Sample Product" href="product-detail.html"> <img src="products-images/product1.jpg" class="img-responsive" alt="a"> </a>
-                                            
+
                                         </div>
                                     </div>
                                     <div class="product-shop">
@@ -106,8 +112,8 @@
                                                 tincidunt mi. Vivamus dictum nec... <a class="link-learn" title="" href="#">Learn More</a>
                                             </p>
                                         </div>
-                                        
-                                        
+
+
                                         <div class="actions">
                                             <button class="button btn-cart ajx-cart" title="Add to Cart" type="button"><span>Add to Cart</span></button>
                                             <span class="add-to-links"> <a title="Add to Wishlist" class="button link-wishlist" href="wishlist.html"><span>Add to Wishlist</span></a> <a title="Add to Compare" class="button link-compare" href="compare.html"><span>Add to Compare</span></a> </span>
@@ -505,27 +511,27 @@
                             </div>
                         }
                         @*<div class="dataTables_paginate paging_bootstrap_full_number pull-right" id="sample_1_paginate">
-                @Html.PagedListPager(Model.blogs, pageNumber => Url.Action("_PartialNewsLst",
-                   new
-                   {
-                       pageNumber,
-                       pageSize = ViewBag.pageSize,
-                       SanPham = ViewBag.SanPham,
-                       DanhMucCha = ViewBag.DanhMucCha,
-                       SEOKeywords = ViewBag.SEOKeywords
-                   }),
-                    PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(
-                    new PagedListRenderOptions()
-                    {
-                        Display = PagedListDisplayMode.IfNeeded,
-                        DisplayItemSliceAndTotal = true
-                    }, new AjaxOptions()
-                    {
-                        HttpMethod = "GET",
-                        InsertionMode = InsertionMode.Replace,
-                        UpdateTargetId = "season-list"
-                    }))
-            </div>*@
+                                @Html.PagedListPager(Model.blogs, pageNumber => Url.Action("_PartialNewsLst",
+                                   new
+                                   {
+                                       pageNumber,
+                                       pageSize = ViewBag.pageSize,
+                                       SanPham = ViewBag.SanPham,
+                                       DanhMucCha = ViewBag.DanhMucCha,
+                                       SEOKeywords = ViewBag.SEOKeywords
+                                   }),
+                                    PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(
+                                    new PagedListRenderOptions()
+                                    {
+                                        Display = PagedListDisplayMode.IfNeeded,
+                                        DisplayItemSliceAndTotal = true
+                                    }, new AjaxOptions()
+                                    {
+                                        HttpMethod = "GET",
+                                        InsertionMode = InsertionMode.Replace,
+                                        UpdateTargetId = "season-list"
+                                    }))
+                            </div>*@
 
                         <div class="dataTables_info" id="sample_1_info" role="status" aria-live="polite"></div>
                     </div>

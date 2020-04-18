@@ -15,12 +15,18 @@ namespace NoiThat.Models
         public Category category { get; set; }
         public string Title { get; set; }
         public string TitleUrl { get; set; }
+        public string SEOTitle { get; set; }
+        public string SEOKeywords { get; set; }
+        public string SEOMetadescription { get; set; }
     }
 
     public class ServiceViewModel
     {
-        public string Title { get; set; }
+        //public string Title { get; set; }
         public List<Blog> blogs { get; set; }
         public bool? HasID { get; set; }
+        public string SEOTitle { get; set; }
+        public string SEOKeywords { get; set; }
+        public string SEOMetadescription { get; set; }
     }
 }
