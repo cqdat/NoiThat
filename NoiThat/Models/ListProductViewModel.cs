@@ -28,6 +28,7 @@ namespace NoiThat.Models
         public string SEOTitle { get; set; }
         public string SEOKeywords { get; set; }
         public string SEOMetadescription { get; set; }
+        public Category category { get; set; }
     }
 
      

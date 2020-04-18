@@ -24,6 +24,7 @@ namespace NoiThat.Controllers
             model.lstBlogsNewest= db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogNews && b.IsActive == true).OrderByDescending(c => c.LastModify).Take(6).ToList();
             model.lstServices = db.Categories.Where(c => c.Parent == 0 && c.IsActive == true && c.TypeCate == WebConstants.CategoryService).ToList();
             model.LeftPromote = db.Advertises.Where(a => a.IsActive == true && a.Location == WebConstants.PromoteLeft).ToList();
+
             model.category = db.Categories.Find(id);
             if (id > 0)
             {                
