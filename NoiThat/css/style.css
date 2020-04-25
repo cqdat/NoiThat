@@ -10739,7 +10739,7 @@ a.button.wishlist {
 
 .footer-middle {
     margin: auto;
-    margin-bottom: 20px;
+    /*margin-bottom: 20px;*/
     overflow: hidden;
     padding-top: 35px;
 }
@@ -10764,6 +10764,7 @@ a.button.wishlist {
     margin: auto;
     overflow: hidden;
     padding: 15px 0 15px;
+    text-align:center;
 }
 
     .footer-bottom a {

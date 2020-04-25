@@ -12,15 +12,17 @@
     <meta name="keywords" content="@Model.blogdetail.SEOKeywords" />
     <meta name="description" content="@Model.blogdetail.SEOMetadescription" />
 }
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v6.0&appId=2522905957975232&autoLogAppEvents=1"></script>
 
 <div class="breadcrumbs">
     <div class="container">
         <div class="row">
             <ul>
-                <li class="home"> <a href="/" title="trang chủ">Trang Chủ</a><i class="icon-long-arrow-right stepby" aria-hidden="true"></i></li>  
-                    <li class="home"> <a href="@Model.TitleUrl" title="@Model.Title">@Model.Title</a><i class="icon-long-arrow-right stepby" aria-hidden="true"></i></li>
-                    <li class="category13"><strong>@Model.category.CategoryName</strong></li>
-                
+                <li class="home"> <a href="/" title="trang chủ">Trang Chủ</a><i class="icon-long-arrow-right stepby" aria-hidden="true"></i></li>
+                <li class="home"> <a href="@Model.TitleUrl" title="@Model.Title">@Model.Title</a><i class="icon-long-arrow-right stepby" aria-hidden="true"></i></li>
+                <li class="category13"><strong>@Model.category.CategoryName</strong></li>
+
             </ul>
         </div>
     </div>
@@ -63,8 +65,6 @@
                                     <!--commentlist-->
                                 </div>
                                 <!--comments-wrapper-->
-
-                                
                                 <!--comments-form-wrapper clearfix-->
 
                             </div>
@@ -78,50 +78,58 @@
                         <h3 class="widget-title"><span>Bài viết mới</span></h3>
                         <div class="widget-content">
                             <ul class="posts-list unstyled clearfix">
-                                @foreach(var i in Model.lstBlogsNewest)
+                                @foreach (var i in Model.lstBlogsNewest)
                                 {
-                                <li>
-                                    <figure class="featured-thumb"> 
-                                    <a href="/chi-tiet-tin-tuc/@i.SEOUrlRewrite-@i.BlogID"> 
-                                        <img width="80" height="53" alt="@i.BlogName" src="@WebConstants.ImgNewsHost/@i.ImageURL"> </a>
-                                    </figure>
-                                    <!--featured-thumb-->
-                                    <h4><a title="@i.BlogName" href="/chi-tiet-tin-tuc/@i.SEOUrlRewrite-@i.BlogID">@i.BlogName  </a></h4>
-                                    <p class="post-meta">
-                                        <i class="icon-calendar"></i>
-                                        <time class="entry-date">@Convert.ToDateTime(i.LastModify).ToString(WebConstants.DateFormatVI)</time>
-                                        .
-                                    </p>
-                                </li>
+                                    <li>
+                                        <figure class="featured-thumb">
+                                            <a href="/chi-tiet-tin-tuc/@i.SEOUrlRewrite-@i.BlogID">
+                                                <img width="80" height="53" alt="@i.BlogName" src="@WebConstants.ImgNewsHost/@i.ImageURL">
+                                            </a>
+                                        </figure>
+                                        <!--featured-thumb-->
+                                        <h4><a title="@i.BlogName" href="/chi-tiet-tin-tuc/@i.SEOUrlRewrite-@i.BlogID">@i.BlogName  </a></h4>
+                                        <p class="post-meta">
+                                            <i class="icon-calendar"></i>
+                                            <time class="entry-date">@Convert.ToDateTime(i.LastModify).ToString(WebConstants.DateFormatVI)</time>
+                                            .
+                                        </p>
+                                    </li>
                                 }
-                                
+
                             </ul>
                         </div>
                         <!--widget-content-->
                     </div>
                     <div class="popular-posts widget widget_categories wow" id="categories-2">
-                        <h3 class="widget-title"><span>Categories</span></h3>
+                        <h3 class="widget-title"><span>Dịch vụ</span></h3>
                         <ul>
-                            <li class="cat-item cat-item-19599"><a href="#/first-category">First Category</a></li>
-                            <ul>
-                            </ul>
-                            <li class="cat-item cat-item-19599"><a href="#/second-category">Second Category</a></li>
-                            <ul>
-                            </ul>
+                            @foreach (var j in Model.lstServices)
+                            {
+                                <li class="cat-item cat-item-19599"><a href="/dich-vu/@j.SEOUrlRewrite-@j.CategoryID">@j.CategoryName</a></li>
+                            }
+
                         </ul>
                     </div>
                     <!-- Banner Ad Block -->
                     <div class="ad-spots widget widget__sidebar">
-                        <h3 class="widget-title"><span>Ad Spots</span></h3>
-                        <div class="widget-content"><a target="_self" href="#" title=""><img alt="offer banner" src="~/images/RHS-banner-img.jpg"></a></div>
+                        <h3 class="widget-title"><span>Quảng cáo</span></h3>
+                        <div class="widget-content">
+                            @foreach (var i in Model.LeftPromote)
+                            {
+                                <a target="_self" href="#" title="">
+                                    <img alt="@i.AdvertiseName" src="@WebConstants.ImgNewsHost/@i.AdvertiseImage" />
+                                </a>
+                            }
+                        </div>
+
                     </div>
                     <!-- Banner Text Block -->
                     <div class="text-widget widget widget__sidebar">
-                        <h3 class="widget-title"><span>Text Widget</span></h3>
+                        <h3 class="widget-title"><span>Nội thất Tân thời</span></h3>
                         <div class="widget-content">
-                            Mauris at blandit erat. Nam vel tortor non quam scelerisque cursus. Praesent nunc vitae magna pellentesque auctor. Quisque id lectus.<br>
-                            <br>
-                            Massa, eget eleifend tellus. Proin nec ante leo ssim nunc sit amet velit malesuada pharetra. Nulla neque sapien, sollicitudin non ornare quis, malesuada.
+                            <strong>CÔNG TY TNHH MTV TM - DV - CƠ KHÍ XÂY DỰNG TÂN THỜI</strong>
+                            Lấy phương châm uy tín và chất lượng làm điều kiện để thương hiệu chúng tôi tồn tại
+                            <a href="/gioi-thieu-3" class="btn btn-mega">Xem thêm &nbsp; <span class="icon icon-arrow-right-5"></span></a>
                         </div>
                     </div>
                 </div>
@@ -129,4 +137,3 @@
         </div>
     </div>
 </div>
-

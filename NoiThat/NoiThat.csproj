@@ -399,6 +399,7 @@
     <Content Include="Views\Search\_grid.cshtml" />
     <Content Include="Views\Search\_leftmenu.cshtml" />
     <Content Include="Views\Product\_leftPromote.cshtml" />
+    <Content Include="Views\News\_partialServices.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

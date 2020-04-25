@@ -17,7 +17,7 @@ namespace NoiThat.Controllers
         public ActionResult Index()
         {
             ListProductViewModel2 model = new ListProductViewModel2();
-            model.Title = "Tất cả sản phẩm";
+            model.Title = "Sản phẩm nội thất tại Bình Dương ";
             model.categories = db.Categories.Where(q => q.IsActive == true && q.TypeCate == 1 && q.Parent == 0).ToList();
             model.slides = db.Slides.Where(q => q.IsActive == true && q.CategoryID == -1).ToList();
             model.products = db.Products.Where(q => q.IsActive == true && q.IsProduct==true).ToList();
@@ -25,8 +25,8 @@ namespace NoiThat.Controllers
             model.listviewed = GetListProduct();
 
             model.SEOTitle = model.Title;
-            model.SEOKeywords = "";
-            model.SEOMetadescription = "";
+            model.SEOKeywords = "Nội thất giá rẻ Bình Dương, Nội thất Chung Cư Bình Dương, nội thất Bình Dương";
+            model.SEOMetadescription = "Công ty Tân Thời chúng tôi, chúng tôi hiện đã và đang xuất ra thị trường các chủng loại sản phẩm nội thất chung cư, nội thất giá rẻ tại Bình Dương đáp ứng được nhu cầu đa dạng của KH";
 
             return View(model);
         }
@@ -102,11 +102,14 @@ namespace NoiThat.Controllers
             else if (cate.Parent == 0)
             {
                 lstprod = lstprod.Where(q => q.CategoryIDParent == categoryid).ToList();
+                ViewBag.categoryid = categoryid;
             }
             else
             {
                 lstprod = lstprod.Where(q => q.CategoryID == categoryid).ToList();
+                ViewBag.categoryid = categoryid;
             }
+
             if (!string.IsNullOrEmpty(SanPham))
             {
                 lstprod = lstprod.Where(s => s.ProductName.ToUpper().Contains(SanPham.ToUpper())).ToList();

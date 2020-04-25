@@ -25,7 +25,7 @@ namespace NoiThat.Controllers
             model.PhoneAndEmail = db.Information.Where(a => a.InfoID == 2 || a.InfoID == 3).ToList();
             model.lstSlideHomePage = db.Slides.Where(a => a.CategoryID == 0).ToList();
             model.lstBannerPro = db.Advertises.Where(a => a.IsActive == true && a.Location == 1).ToList();
-            model.lstAboutUsMore = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogAboutUs_more && b.IsActive == true).ToList();
+            model.lstAboutUsMore = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogAboutUs_more && b.IsActive == true && b.BlogID !=3).ToList();
             //model.lstLastProducts = db.Products.Where(p => p.IsProduct == true && p.IsActive == true).OrderByDescending(p => p.ProductID).Take(4).ToList();
             model.lstLastProducts = db.ProductGroups.Where(p => p.GroupCode ==WebConstants.ProductMoi).OrderByDescending(p => p.ProductID).Take(4).ToList();
             //model.lstBestSellerproducts = db.Products.Where(p => p.IsProduct == true && p.IsActive == true).OrderBy(p => Guid.NewGuid()).Take(6).ToList();

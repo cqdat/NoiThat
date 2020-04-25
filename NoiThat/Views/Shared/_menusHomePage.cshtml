@@ -28,7 +28,7 @@
                                         <a class="level-top" href="/@ViewBag.URLGioiThieu"> <span>Giới Thiệu</span> </a>
                                     </li>
                                     <li class="level0 nav-6 level-top">
-                                        <a class="level-top" href="/san-pham"> <span>Sản Phẩm</span> </a>
+                                        <a class="level-top" href="#"> <span>Sản Phẩm</span> </a>
                                         <ul class="level0">
                                             @{ foreach (var q in Model.menu_lstProducts)
                                                 {
@@ -85,7 +85,7 @@
                                         
                                     </li>
                                     <li class="level0 parent drop-menu">
-                                        <a href="blog.html"><span>Tư vấn - Thiết kế</span> </a>
+                                        <a href="#"><span>Tin tức - Tư vấn</span> </a>
                                         <ul class="level1">
                                             @foreach (var l in Model.menu_lstTuVanDichVu)
                                             {
@@ -119,7 +119,7 @@
                 </li>
                 @*Sản phẩm*@
                 <li class="level0 nav-5 level-top first">
-                    <a href="/san-pham" class="level-top" id="menusp"> <span>Sản phẩm</span> </a>
+                    <a href="#" class="level-top" id="menusp"> <span>Sản phẩm</span> </a>
                     <div class="level0-wrapper dropdown-6col" style="display:none;">
                         <div class="level0-wrapper2">
                             <div class="nav-block nav-block-center grid12-8 itemgrid itemgrid-4col">
@@ -207,7 +207,7 @@
                     </div>
                 </li>
                 <li class="level0 parent drop-menu">
-                    <a href="/dich-vu"><span>Dịch Vụ</span> </a>
+                    <a href="#"><span>Dịch Vụ</span> </a>
                     <ul style="display: none;" class="level1">
                         @foreach (var j in Model.menu_lstServices)
                         {
@@ -219,7 +219,7 @@
 
                 @*Dịch vụ - Tư vấn*@
                 <li class="level0 parent drop-menu">
-                    <a href="/tin-tuc" id="menutt"><span>Tin Tức - Tư vấn</span> </a>
+                    <a href="#" id="menutt"><span>Tin Tức - Tư vấn</span> </a>
                     <ul style="display: none;" class="level1">
                         @foreach (var f in Model.menu_lstTuVanDichVu)
                         {

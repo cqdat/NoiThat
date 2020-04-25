@@ -40,8 +40,7 @@
                     <div class="toolbar">
                         <div class="col-md-6" style="float:left"><input type="text" id="txtTenSP" style="width:80%" class="input-text " placeholder="Nhập tên sản phẩm..." /></div>
                         <div class="col-md-6" style="text-align:right">
-                            @*<span>Hiện thị: </span>*@
-
+                           
                             <select id="ddlPageSize">
                                 <option value="15" selected>15 sản phẩm/trang</option>
 
@@ -51,19 +50,9 @@
                                 <option value="-1">Tất cả sản phẩm</option>
                             </select>
                         </div>
-
-
                     </div>
                     <div id="lstProducts">
-                        @*@if (Session["viewlist"] == null)
-                            {
-                                @Html.Partial("_grid", Model.products)
-                            }
-                            else
-                            {
-                                @Html.Partial("_list", Model.products)
-                            }*@
-
+                       
                     </div>
 
                 </div>

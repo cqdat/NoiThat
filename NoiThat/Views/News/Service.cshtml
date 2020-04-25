@@ -45,426 +45,23 @@
                 <div class="blog-wrapper" id="main">
                     <div class="category-products">
                         <div class="toolbar">
-                            <div class="sorter">
-                                <div class="view-mode"> <a href="grid.html" title="Grid" class="button button-grid">Grid</a>&nbsp; <span title="List" class="button button-active button-list">List</span>&nbsp; </div>
-                            </div>
-                            <div id="sort-by">
-                                <label class="left">Sort By: </label>
-                                <ul>
-                                    <li>
-                                        <a href="#">Position<span class="right-arrow"></span></a>
-                                        <ul>
-                                            <li><a href="#">Name</a></li>
-                                            <li><a href="#">Price</a></li>
-                                            <li><a href="#">Position</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                                <a class="button-asc left" href="#?dir=desc&amp;order=position" title="Set Descending Direction"><span style="color:#999;font-size:11px;" class="glyphicon glyphicon-arrow-up"></span></a>
-                            </div>
-                            <div class="pager">
-                                <div id="limiter">
-                                    <label>View: </label>
-                                    <ul>
-                                        <li>
-                                            <a href="#">15<span class="right-arrow"></span></a>
-                                            <ul>
-                                                <li><a href="#">20</a></li>
-                                                <li><a href="#">30</a></li>
-                                                <li><a href="#">35</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="pages">
-                                    <label>Page:</label>
-                                    <ul class="pagination">
-                                        <li><a href="#">«</a></li>
-                                        <li class="active"><a href="#">1</a></li>
-                                        <li><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a href="#">4</a></li>
-                                        <li><a href="#">5</a></li>
-                                        <li><a href="#">»</a></li>
-                                    </ul>
-                                </div>
+                            <div class="col-md-6" style="float:left"><input type="text" id="txtTieuDe" style="width:80%" class="input-text " placeholder="Nhập từ muốn tìm kiếm..." /></div>
+                            <div class="col-md-6" style="text-align:right">
+
+                                <select id="ddlPageSize">
+                                    <option value="15" selected>15 sản phẩm/trang</option>
+
+                                    <option value="30">30 sản phẩm/trang</option>
+                                    <option value="35">35 sản phẩm/trang</option>
+                                    <option value="40">40 sản phẩm/trang</option>
+                                    <option value="-1">Tất cả sản phẩm</option>
+                                </select>
                             </div>
                         </div>
-                        <ul id="products-list" class="products-list">
-                            <li class="item odd">
-                                <div class="col-item">
-                                    <div class="product_image">
-                                        <div class="images-container">
-                                            <a class="product-image" title="Sample Product" href="product-detail.html"> <img src="products-images/product1.jpg" class="img-responsive" alt="a"> </a>
+                        <div id="lstProducts">
 
-                                        </div>
-                                    </div>
-                                    <div class="product-shop">
-                                        <h2 class="product-name"><a title=" Sample Product" href="product-detail.html"> Sample Product </a></h2>
-                                        <div class="desc std">
-                                            <p>
-                                                Sed volutpat ac massa eget
-                                                lacinia.
-                                                Aenean volutpat lacus at dolor blandit
-                                            </p>
-                                            <p>
-                                                Sed sed interdum diam. Donec sit ametenim tempor, dapibus nunc eu,
-                                                tincidunt mi. Vivamus dictum nec... <a class="link-learn" title="" href="#">Learn More</a>
-                                            </p>
-                                        </div>
+                        </div>
 
-
-                                        <div class="actions">
-                                            <button class="button btn-cart ajx-cart" title="Add to Cart" type="button"><span>Add to Cart</span></button>
-                                            <span class="add-to-links"> <a title="Add to Wishlist" class="button link-wishlist" href="wishlist.html"><span>Add to Wishlist</span></a> <a title="Add to Compare" class="button link-compare" href="compare.html"><span>Add to Compare</span></a> </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-
-                            <li class="item even">
-                                <div class="col-item">
-                                    <div class="product_image">
-                                        <div class="images-container">
-                                            <a class="product-image" title="Sample Product" href="product-detail.html"> <img src="products-images/product2.jpg" class="img-responsive" alt="a"> </a>
-                                            <div class="qv-button-container"> <a class="qv-e-button btn-quickview-1" href="quick_view.html"><span><span>Quick View</span></span></a> </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-shop">
-                                        <h2 class="product-name"><a title=" Sample Product" href="product-detail.html"> Sample Product </a></h2>
-                                        <div class="price-box">
-                                            <p class="old-price"> <span class="price-label"></span> <span id="old-price-212" class="price"> $442.99 </span> </p>
-                                            <p class="special-price"> <span class="price-label"></span> <span id="product-price-212" class="price"> $222.99 </span> </p>
-                                        </div>
-                                        <div class="ratings">
-                                            <div class="rating-box">
-                                                <div style="width:50%" class="rating"></div>
-                                            </div>
-                                            <p class="rating-links"> <a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#review-form">Add Your Review</a> </p>
-                                        </div>
-                                        <div class="desc std">
-                                            <p>
-                                                Sed volutpat ac massa eget
-                                                lacinia.
-                                                Aenean volutpat lacus at dolor blandit
-                                            </p>
-                                            <p>
-                                                Sed sed interdum diam. Donec sit ametenim tempor, dapibus nunc eu,
-                                                tincidunt mi. Vivamus dictum nec... <a class="link-learn" title="" href="#">Learn More</a>
-                                            </p>
-                                        </div>
-                                        <div class="actions">
-                                            <button class="button btn-cart ajx-cart" title="Add to Cart" type="button"><span>Add to Cart</span></button>
-                                            <span class="add-to-links"> <a title="Add to Wishlist" class="button link-wishlist" href="wishlist.html"><span>Add to Wishlist</span></a> <a title="Add to Compare" class="button link-compare" href="compare.html"><span>Add to Compare</span></a> </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="item odd">
-                                <div class="col-item">
-                                    <div class="product_image">
-                                        <div class="images-container">
-                                            <a class="product-image" title="Sample Product" href="product-detail.html"> <img src="products-images/product3.jpg" class="img-responsive" alt="a"> </a>
-                                            <div class="qv-button-container"> <a class="qv-e-button btn-quickview-1" href="quick_view.html"><span><span>Quick View</span></span></a> </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-shop">
-                                        <h2 class="product-name"><a title=" Sample Product" href="product-detail.html"> Sample Product </a></h2>
-                                        <div class="price-box">
-                                            <p class="old-price"> <span class="price-label"></span> <span id="old-price-212" class="price"> $442.99 </span> </p>
-                                            <p class="special-price"> <span class="price-label"></span> <span id="product-price-212" class="price"> $222.99 </span> </p>
-                                        </div>
-                                        <div class="ratings">
-                                            <div class="rating-box">
-                                                <div style="width:50%" class="rating"></div>
-                                            </div>
-                                            <p class="rating-links"> <a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#review-form">Add Your Review</a> </p>
-                                        </div>
-                                        <div class="desc std">
-                                            <p>
-                                                Sed volutpat ac massa eget
-                                                lacinia.
-                                                Aenean volutpat lacus at dolor blandit
-                                            </p>
-                                            <p>
-                                                Sed sed interdum diam. Donec sit ametenim tempor, dapibus nunc eu,
-                                                tincidunt mi. Vivamus dictum nec... <a class="link-learn" title="" href="#">Learn More</a>
-                                            </p>
-                                        </div>
-                                        <div class="actions">
-                                            <button class="button btn-cart ajx-cart" title="Add to Cart" type="button"><span>Add to Cart</span></button>
-                                            <span class="add-to-links"> <a title="Add to Wishlist" class="button link-wishlist" href="wishlist.html"><span>Add to Wishlist</span></a> <a title="Add to Compare" class="button link-compare" href="compare.html"><span>Add to Compare</span></a> </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="item even">
-                                <div class="col-item">
-                                    <div class="product_image">
-                                        <div class="images-container">
-                                            <a class="product-image" title="Sample Product" href="product-detail.html"> <img src="products-images/product4.jpg" class="img-responsive" alt="a"> </a>
-                                            <div class="qv-button-container"> <a class="qv-e-button btn-quickview-1" href="quick_view.html"><span><span>Quick View</span></span></a> </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-shop">
-                                        <h2 class="product-name"><a title=" Sample Product" href="product-detail.html"> Sample Product </a></h2>
-                                        <div class="price-box">
-                                            <p class="old-price"> <span class="price-label"></span> <span id="old-price-212" class="price"> $442.99 </span> </p>
-                                            <p class="special-price"> <span class="price-label"></span> <span id="product-price-212" class="price"> $222.99 </span> </p>
-                                        </div>
-                                        <div class="ratings">
-                                            <div class="rating-box">
-                                                <div style="width:50%" class="rating"></div>
-                                            </div>
-                                            <p class="rating-links"> <a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#review-form">Add Your Review</a> </p>
-                                        </div>
-                                        <div class="desc std">
-                                            <p>
-                                                Sed volutpat ac massa eget
-                                                lacinia.
-                                                Aenean volutpat lacus at dolor blandit
-                                            </p>
-                                            <p>
-                                                Sed sed interdum diam. Donec sit ametenim tempor, dapibus nunc eu,
-                                                tincidunt mi. Vivamus dictum nec... <a class="link-learn" title="" href="#">Learn More</a>
-                                            </p>
-                                        </div>
-                                        <div class="actions">
-                                            <button class="button btn-cart ajx-cart" title="Add to Cart" type="button"><span>Add to Cart</span></button>
-                                            <span class="add-to-links"> <a title="Add to Wishlist" class="button link-wishlist" href="wishlist.html"><span>Add to Wishlist</span></a> <a title="Add to Compare" class="button link-compare" href="compare.html"><span>Add to Compare</span></a> </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="item odd">
-                                <div class="col-item">
-                                    <div class="product_image">
-                                        <div class="images-container">
-                                            <a class="product-image" title="Sample Product" href="product-detail.html"> <img src="products-images/product5.jpg" class="img-responsive" alt="a"> </a>
-                                            <div class="qv-button-container"> <a class="qv-e-button btn-quickview-1" href="quick_view.html"><span><span>Quick View</span></span></a> </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-shop">
-                                        <h2 class="product-name"><a title=" Sample Product" href="product-detail.html"> Sample Product </a></h2>
-                                        <div class="price-box">
-                                            <p class="old-price"> <span class="price-label"></span> <span id="old-price-212" class="price"> $442.99 </span> </p>
-                                            <p class="special-price"> <span class="price-label"></span> <span id="product-price-212" class="price"> $222.99 </span> </p>
-                                        </div>
-                                        <div class="ratings">
-                                            <div class="rating-box">
-                                                <div style="width:50%" class="rating"></div>
-                                            </div>
-                                            <p class="rating-links"> <a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#review-form">Add Your Review</a> </p>
-                                        </div>
-                                        <div class="desc std">
-                                            <p>
-                                                Sed volutpat ac massa eget
-                                                lacinia.
-                                                Aenean volutpat lacus at dolor blandit
-                                            </p>
-                                            <p>
-                                                Sed sed interdum diam. Donec sit ametenim tempor, dapibus nunc eu,
-                                                tincidunt mi. Vivamus dictum nec... <a class="link-learn" title="" href="#">Learn More</a>
-                                            </p>
-                                        </div>
-                                        <div class="actions">
-                                            <button class="button btn-cart ajx-cart" title="Add to Cart" type="button"><span>Add to Cart</span></button>
-                                            <span class="add-to-links"> <a title="Add to Wishlist" class="button link-wishlist" href="wishlist.html"><span>Add to Wishlist</span></a> <a title="Add to Compare" class="button link-compare" href="compare.html"><span>Add to Compare</span></a> </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="item even">
-                                <div class="col-item">
-                                    <div class="product_image">
-                                        <div class="images-container">
-                                            <a class="product-image" title="Sample Product" href="product-detail.html"> <img src="products-images/product6.jpg" class="img-responsive" alt="a"> </a>
-                                            <div class="qv-button-container"> <a class="qv-e-button btn-quickview-1" href="quick_view.html"><span><span>Quick View</span></span></a> </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-shop">
-                                        <h2 class="product-name"><a title=" Sample Product" href="product-detail.html"> Sample Product </a></h2>
-                                        <div class="price-box">
-                                            <p class="old-price"> <span class="price-label"></span> <span id="old-price-212" class="price"> $442.99 </span> </p>
-                                            <p class="special-price"> <span class="price-label"></span> <span id="product-price-212" class="price"> $222.99 </span> </p>
-                                        </div>
-                                        <div class="ratings">
-                                            <div class="rating-box">
-                                                <div style="width:50%" class="rating"></div>
-                                            </div>
-                                            <p class="rating-links"> <a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#review-form">Add Your Review</a> </p>
-                                        </div>
-                                        <div class="desc std">
-                                            <p>
-                                                Sed volutpat ac massa eget
-                                                lacinia.
-                                                Aenean volutpat lacus at dolor blandit
-                                            </p>
-                                            <p>
-                                                Sed sed interdum diam. Donec sit ametenim tempor, dapibus nunc eu,
-                                                tincidunt mi. Vivamus dictum nec... <a class="link-learn" title="" href="#">Learn More</a>
-                                            </p>
-                                        </div>
-                                        <div class="actions">
-                                            <button class="button btn-cart ajx-cart" title="Add to Cart" type="button"><span>Add to Cart</span></button>
-                                            <span class="add-to-links"> <a title="Add to Wishlist" class="button link-wishlist" href="wishlist.html"><span>Add to Wishlist</span></a> <a title="Add to Compare" class="button link-compare" href="compare.html"><span>Add to Compare</span></a> </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="item odd">
-                                <div class="col-item">
-                                    <div class="product_image">
-                                        <div class="images-container">
-                                            <a class="product-image" title="Sample Product" href="product-detail.html"> <img src="products-images/product7.jpg" class="img-responsive" alt="a"> </a>
-                                            <div class="qv-button-container"> <a class="qv-e-button btn-quickview-1" href="quick_view.html"><span><span>Quick View</span></span></a> </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-shop">
-                                        <h2 class="product-name"><a title=" Sample Product" href="product-detail.html"> Sample Product </a></h2>
-                                        <div class="price-box">
-                                            <p class="old-price"> <span class="price-label"></span> <span id="old-price-212" class="price"> $442.99 </span> </p>
-                                            <p class="special-price"> <span class="price-label"></span> <span id="product-price-212" class="price"> $222.99 </span> </p>
-                                        </div>
-                                        <div class="ratings">
-                                            <div class="rating-box">
-                                                <div style="width:50%" class="rating"></div>
-                                            </div>
-                                            <p class="rating-links"> <a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#review-form">Add Your Review</a> </p>
-                                        </div>
-                                        <div class="desc std">
-                                            <p>
-                                                Sed volutpat ac massa eget
-                                                lacinia.
-                                                Aenean volutpat lacus at dolor blandit
-                                            </p>
-                                            <p>
-                                                Sed sed interdum diam. Donec sit ametenim tempor, dapibus nunc eu,
-                                                tincidunt mi. Vivamus dictum nec... <a class="link-learn" title="" href="#">Learn More</a>
-                                            </p>
-                                        </div>
-                                        <div class="actions">
-                                            <button class="button btn-cart ajx-cart" title="Add to Cart" type="button"><span>Add to Cart</span></button>
-                                            <span class="add-to-links"> <a title="Add to Wishlist" class="button link-wishlist" href="wishlist.html"><span>Add to Wishlist</span></a> <a title="Add to Compare" class="button link-compare" href="compare.html"><span>Add to Compare</span></a> </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="item even">
-                                <div class="col-item">
-                                    <div class="product_image">
-                                        <div class="images-container">
-                                            <a class="product-image" title="Sample Product" href="product-detail.html"> <img src="products-images/product8.jpg" class="img-responsive" alt="a"> </a>
-                                            <div class="qv-button-container"> <a class="qv-e-button btn-quickview-1" href="quick_view.html"><span><span>Quick View</span></span></a> </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-shop">
-                                        <h2 class="product-name"><a title=" Sample Product" href="product-detail.html"> Sample Product </a></h2>
-                                        <div class="price-box">
-                                            <p class="old-price"> <span class="price-label"></span> <span id="old-price-212" class="price"> $442.99 </span> </p>
-                                            <p class="special-price"> <span class="price-label"></span> <span id="product-price-212" class="price"> $222.99 </span> </p>
-                                        </div>
-                                        <div class="ratings">
-                                            <div class="rating-box">
-                                                <div style="width:50%" class="rating"></div>
-                                            </div>
-                                            <p class="rating-links"> <a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#review-form">Add Your Review</a> </p>
-                                        </div>
-                                        <div class="desc std">
-                                            <p>
-                                                Sed volutpat ac massa eget
-                                                lacinia.
-                                                Aenean volutpat lacus at dolor blandit
-                                            </p>
-                                            <p>
-                                                Sed sed interdum diam. Donec sit ametenim tempor, dapibus nunc eu,
-                                                tincidunt mi. Vivamus dictum nec... <a class="link-learn" title="" href="#">Learn More</a>
-                                            </p>
-                                        </div>
-                                        <div class="actions">
-                                            <button class="button btn-cart ajx-cart" title="Add to Cart" type="button"><span>Add to Cart</span></button>
-                                            <span class="add-to-links"> <a title="Add to Wishlist" class="button link-wishlist" href="wishlist.html"><span>Add to Wishlist</span></a> <a title="Add to Compare" class="button link-compare" href="compare.html"><span>Add to Compare</span></a> </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="item odd">
-                                <div class="col-item">
-                                    <div class="product_image">
-                                        <div class="images-container">
-                                            <a class="product-image" title="Sample Product" href="product-detail.html"> <img src="products-images/product9.jpg" class="img-responsive" alt="a"> </a>
-                                            <div class="qv-button-container"> <a class="qv-e-button btn-quickview-1" href="quick_view.html"><span><span>Quick View</span></span></a> </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-shop">
-                                        <h2 class="product-name"><a title=" Sample Product" href="product-detail.html"> Sample Product </a></h2>
-                                        <div class="price-box">
-                                            <p class="old-price"> <span class="price-label"></span> <span id="old-price-212" class="price"> $442.99 </span> </p>
-                                            <p class="special-price"> <span class="price-label"></span> <span id="product-price-212" class="price"> $222.99 </span> </p>
-                                        </div>
-                                        <div class="ratings">
-                                            <div class="rating-box">
-                                                <div style="width:50%" class="rating"></div>
-                                            </div>
-                                            <p class="rating-links"> <a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#review-form">Add Your Review</a> </p>
-                                        </div>
-                                        <div class="desc std">
-                                            <p>
-                                                Sed volutpat ac massa eget
-                                                lacinia.
-                                                Aenean volutpat lacus at dolor blandit
-                                            </p>
-                                            <p>
-                                                Sed sed interdum diam. Donec sit ametenim tempor, dapibus nunc eu,
-                                                tincidunt mi. Vivamus dictum nec... <a class="link-learn" title="" href="#">Learn More</a>
-                                            </p>
-                                        </div>
-                                        <div class="actions">
-                                            <button class="button btn-cart ajx-cart" title="Add to Cart" type="button"><span>Add to Cart</span></button>
-                                            <span class="add-to-links"> <a title="Add to Wishlist" class="button link-wishlist" href="wishlist.html"><span>Add to Wishlist</span></a> <a title="Add to Compare" class="button link-compare" href="compare.html"><span>Add to Compare</span></a> </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="item last even">
-                                <div class="col-item">
-                                    <div class="product_image">
-                                        <div class="images-container">
-                                            <a class="product-image" title="Sample Product" href="product-detail.html"> <img src="products-images/product10.jpg" class="img-responsive" alt="a"> </a>
-                                            <div class="qv-button-container"> <a class="qv-e-button btn-quickview-1" href="quick_view.html"><span><span>Quick View</span></span></a> </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-shop">
-                                        <h2 class="product-name"><a title=" Sample Product" href="product-detail.html"> Sample Product </a></h2>
-                                        <div class="price-box">
-                                            <p class="old-price"> <span class="price-label"></span> <span id="old-price-212" class="price"> $442.99 </span> </p>
-                                            <p class="special-price"> <span class="price-label"></span> <span id="product-price-212" class="price"> $222.99 </span> </p>
-                                        </div>
-                                        <div class="ratings">
-                                            <div class="rating-box">
-                                                <div style="width:50%" class="rating"></div>
-                                            </div>
-                                            <p class="rating-links"> <a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#review-form">Add Your Review</a> </p>
-                                        </div>
-                                        <div class="desc std">
-                                            <p>
-                                                Sed volutpat ac massa eget
-                                                lacinia.
-                                                Aenean volutpat lacus at dolor blandit
-                                            </p>
-                                            <p>
-                                                Sed sed interdum diam. Donec sit ametenim tempor, dapibus nunc eu,
-                                                tincidunt mi. Vivamus dictum nec... <a class="link-learn" title="" href="#">Learn More</a>
-                                            </p>
-                                        </div>
-                                        <div class="actions">
-                                            <button class="button btn-cart ajx-cart" title="Add to Cart" type="button"><span>Add to Cart</span></button>
-                                            <span class="add-to-links"> <a title="Add to Wishlist" class="button link-wishlist" href="wishlist.html"><span>Add to Wishlist</span></a> <a title="Add to Compare" class="button link-compare" href="compare.html"><span>Add to Compare</span></a> </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
                     </div>
                     <div class="posts-isotope row">
                         <!-- Blog post -->
@@ -539,13 +136,7 @@
 
 
                 </div>
-                <select name="sample_2_length" aria-controls="sample_2" style="display:none" class="form-control input-xsmall input-inline select2-offscreen" tabindex="-1" title="" id="ddlPageSize">
-                    <option value="5">5 dòng</option>
-                    <option value="10">10 dòng</option>
-                    <option value="16" selected>15 dòng</option>
-                    <option value="20">20 dòng</option>
-                    <option value="-1">Tất cả</option>
-                </select>
+
             </div>
             <div class="col-right sidebar col-sm-3">
                 <div role="complementary" class="widget_wrapper13" id="secondary">
@@ -628,4 +219,44 @@
     </div>
 </div>
 
+@section scripts
+{
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $(".level0 a").removeClass("active");
+            $("a#menusp").addClass("active");
+            filter();
+
+            $('body').on('change', '#ddlPageSize', function () {
+                filter();
+            });
+
+            //textbox name
+            $('#txtTenSP').on('input', function () {
+                filter();
+            });
+        });
+
+        function filter() {
+            var TieuDe = $("#txtTieuDe").val();
+            $.ajax({
+                //url: '/BDS_TinTuc/_PartialIndex',
+                url: '@Url.Action("_partialServices", "News")',
+                data: {
+                    pageSize: parseInt($('#ddlPageSize').val()),
+                    TieuDe: TieuDe,
+                },
+                method: 'GET',
+                dataType: 'html',
+                success: function (data) {
+                    $('#lstProducts').html(data);
+                    $("#lbl_Message").html("");
+                }
+            });
+
+        }
+    </script>
+}
 

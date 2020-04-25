@@ -26,19 +26,19 @@ namespace NoiThat.Controllers
             model.LeftPromote = db.Advertises.Where(a => a.IsActive == true && a.Location == WebConstants.PromoteLeft).ToList();
 
             model.category = db.Categories.Find(id);
-            if (id > 0)
-            {                
-                model.Title = model.category.CategoryName;
-                model.SEOTitle = model.category.SEOTitle;
-                model.SEOKeywords = model.category.SEOKeywords;
-                model.SEOMetadescription = model.category.SEOMetadescription;
-            }
-            else
+            if (id == null)
             {
                 model.Title = "Tin tức";
                 model.SEOTitle = "";
                 model.SEOKeywords = "";
                 model.SEOMetadescription = "";
+            }
+            else
+            {
+                model.Title = model.category.CategoryName;
+                model.SEOTitle = model.category.SEOTitle;
+                model.SEOKeywords = model.category.SEOKeywords;
+                model.SEOMetadescription = model.category.SEOMetadescription;
             }
             return View(model);
         }
@@ -52,17 +52,18 @@ namespace NoiThat.Controllers
             }
             ViewBag.PageSize = pageSize;
 
-            var lstnews = new List<Blog>();
-
-            if (categoryid > 0)
+            var lstnews = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogNews && b.IsActive == true).OrderByDescending(b => b.LastModify).ToList();
+            if(categoryid == null)
+            {
+                lstnews = lstnews;
+            }
+            else if (categoryid > 0)
             {
                 lstnews = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogNews && b.IsActive == true && b.CategoryID == categoryid).OrderByDescending(b => b.LastModify).ToList();
+                
             }
-            else
-            {
-                lstnews = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogNews && b.IsActive == true).OrderByDescending(b => b.LastModify).ToList();
-            }
-            
+            ViewBag.categoryid = categoryid;
+
 
             lstnews = lstnews.OrderBy(s => s.LastModify).ToList();
 
@@ -90,6 +91,9 @@ namespace NoiThat.Controllers
             NewsViewModel model = new NewsViewModel();
             model.blogdetail = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogNews && b.BlogID == id && b.IsActive == true).FirstOrDefault();
             model.lstBlogsNewest = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogNews && b.IsActive == true && b.BlogID != id).OrderByDescending(c => c.LastModify).Take(5).ToList();
+            model.lstServices = db.Categories.Where(c => c.Parent == 0 && c.IsActive == true && c.TypeCate == WebConstants.CategoryService).ToList();
+            model.LeftPromote = db.Advertises.Where(a => a.IsActive == true && a.Location == WebConstants.PromoteLeft).ToList();
+
             ViewBag.Title = model.blogdetail.SEOTitle;
             int parent = model.blogdetail.CategoryID.Value;
             model.category = db.Categories.Find(parent);
