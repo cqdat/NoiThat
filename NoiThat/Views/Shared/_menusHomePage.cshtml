@@ -28,7 +28,7 @@
                                         <a class="level-top" href="/@ViewBag.URLGioiThieu"> <span>Giới Thiệu</span> </a>
                                     </li>
                                     <li class="level0 nav-6 level-top">
-                                        <a class="level-top" href="#"> <span>Sản Phẩm</span> </a>
+                                        <a class="level-top" href="#"> <span>Shop</span> </a>
                                         <ul class="level0">
                                             @{ foreach (var q in Model.menu_lstProducts)
                                                 {
@@ -73,28 +73,32 @@
                                         </ul>
                                     </li>
 
-                                    <li class="level0 parent drop-menu">
-                                        <a href="#"><span>Dịch Vụ</span> </a>
-                                        <ul class="level1">
-                                            @foreach (var j in Model.menu_lstServices)
-                                            {
-                                                <li class="level1 first"><a href="/dich-vu/@j.SEOUrlRewrite-@j.CategoryID"><span>@j.CategoryName</span></a> </li>
-                                            }
-                                           
-                                        </ul>
-                                        
-                                    </li>
+                                    @*<li class="level0 parent drop-menu">
+            <a href="#"><span>Dịch Vụ</span> </a>
+            <ul class="level1">
+                @foreach (var j in Model.menu_lstServices)
+                {
+                    <li class="level1 first"><a href="/dich-vu/@j.SEOUrlRewrite-@j.CategoryID"><span>@j.CategoryName</span></a> </li>
+                }
+
+            </ul>
+
+        </li>*@
                                     <li class="level0 parent drop-menu">
                                         <a href="#"><span>Tin tức - Tư vấn</span> </a>
                                         <ul class="level1">
                                             @foreach (var l in Model.menu_lstTuVanDichVu)
                                             {
-                                                <li class="level1 first"><a href="blog_posts_table_view.html"><span>@l.CategoryName</span></a></li>
+                                                <li class="level1 first"><a href="/tin-tuc/@l.SEOUrlRewrite-@l.CategoryID"><span>@l.CategoryName</span></a></li>
                                             }
 
                                         </ul>
                                     </li>
-                                    <li class="level0 nav-9 level-top last parent "> <a class="level-top" href="/lien-he"> <span>Liên hệ</span> </a> </li>
+                                    <li class="level0 nav-6 level-top first parent">
+                                        <a class="level-top" href="https://www.nhomxingfabd.com/" target="_blank"> <span>Sản phẩm Nhôm kính</span> </a>
+                                    </li>
+                                    <li class="level0 nav-6 level-top first parent"> <a class="level-top" href="/lien-he"> <span>Liên hệ</span> </a> </li>
+                                    @*<li class="level0 nav-9 level-top last parent "> <a class="level-top" href="http://catalog.noithattanthoi.com" target="_blank"> <span>Catalogues</span> </a> </li>*@
                                 </ul>
                             </li>
                         </ul>
@@ -114,12 +118,12 @@
 
                 </li>
                 <li class="level0 parent drop-menu">
-                    <a href="/@ViewBag.URLGioiThieu"  id="menugt"><span>Giới thiệu</span> </a>
+                    <a href="/@ViewBag.URLGioiThieu" id="menugt"><span>Giới thiệu</span> </a>
 
                 </li>
                 @*Sản phẩm*@
                 <li class="level0 nav-5 level-top first">
-                    <a href="#" class="level-top" id="menusp"> <span>Sản phẩm</span> </a>
+                    <a href="#" class="level-top" id="menusp"> <span>Shop</span> </a>
                     <div class="level0-wrapper dropdown-6col" style="display:none;">
                         <div class="level0-wrapper2">
                             <div class="nav-block nav-block-center grid12-8 itemgrid itemgrid-4col">
@@ -206,20 +210,20 @@
                         </div>
                     </div>
                 </li>
-                <li class="level0 parent drop-menu">
-                    <a href="#"><span>Dịch Vụ</span> </a>
-                    <ul style="display: none;" class="level1">
-                        @foreach (var j in Model.menu_lstServices)
-                        {
-                             <li class="level1 first"><a href="/dich-vu/@j.SEOUrlRewrite-@j.CategoryID"><span>@j.CategoryName</span></a> </li>
-                        }
-                        
-                    </ul>
-                </li>
+                @*<li class="level0 parent drop-menu">
+            <a href="#"><span>Dịch Vụ</span> </a>
+            <ul style="display: none;" class="level1">
+                @foreach (var j in Model.menu_lstServices)
+                {
+                     <li class="level1 first"><a href="/dich-vu/@j.SEOUrlRewrite-@j.CategoryID"><span>@j.CategoryName</span></a> </li>
+                }
+
+            </ul>
+        </li>*@
 
                 @*Dịch vụ - Tư vấn*@
                 <li class="level0 parent drop-menu">
-                    <a href="#" id="menutt"><span>Tin Tức - Tư vấn</span> </a>
+                    <a href="#" id="menutt"><span>Dịch Vụ - Tư vấn</span> </a>
                     <ul style="display: none;" class="level1">
                         @foreach (var f in Model.menu_lstTuVanDichVu)
                         {
@@ -229,35 +233,16 @@
                     </ul>
                 </li>
                 <li class="level0 parent drop-menu">
+                    <a href="https://www.nhomxingfabd.com/" target="_blank"><span>Sản phẩm Nhôm Kính</span> </a>
+
+                </li>
+                <li class="level0 parent drop-menu">
                     <a href="/lien-he" id="menulh"><span>Liên hệ</span> </a>
 
                 </li>
                 @*<li class="nav-custom-link level0 level-top parent">
-                    <a class="level-top" href="#"><span>Custom</span></a>
-                    <div class="level0-wrapper custom-menu" style="left: 0px; display: none;">
-                        <div class="header-nav-dropdown-wrapper clearer">
-                            <div class="grid12-5">
-                                <div class="custom_img"><a href="#"><img src="~/images/custom-img1.jpg" alt="custom img1"></a></div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue.</p>
-                                <button class="learn_more_btn" title="Add to Cart" type="button"><span>Learn More</span></button>
-                            </div>
-                            <div class="grid12-5">
-                                <div class="custom_img"><a href="#"><img src="~/images/custom-img2.jpg" alt="custom img2"></a></div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue.</p>
-                                <button class="learn_more_btn" title="Add to Cart" type="button"><span>Learn More</span></button>
-                            </div>
-                            <div class="grid12-5">
-                                <div class="custom_img"><a href="#"><img src="~/images/custom-img3.jpg" alt="custom img3"></a></div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue.</p>
-                                <button class="learn_more_btn" title="Add to Cart" type="button"><span>Learn More</span></button>
-                            </div>
-                            <div class="grid12-5">
-                                <div class="custom_img"><a href="#"><img src="~/images/custom-img4.jpg" alt="custom img4"></a></div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue.</p>
-                                <button class="learn_more_btn" title="Add to Cart" type="button"><span>Learn More</span></button>
-                            </div>
-                        </div>
-                    </div>
+                    <a class="level-top" href="http://catalog.noithattanthoi.com" style="cursor:pointer" target="_blank"><span>Catalogues</span></a>
+
                 </li>*@
             </ul>
         </div>

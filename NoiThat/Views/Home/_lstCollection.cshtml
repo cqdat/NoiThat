@@ -24,7 +24,7 @@
                             <img src="~/images/slide1.jpg" alt="slide1">
                             <div class="carousel-caption">
                                 <h3><a href="product_detail.html" title=" Sample Product">Bộ Sưu tập Phòng Ngủ</a></h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus diam arcu.</p>
+                                <p>#</p>
                             </div>
                         </div>
                         @foreach (var i in Model.lstCollection1)
@@ -52,7 +52,7 @@
                             </div>
                         }
 
-                       
+
                     </div>
 
                     <!-- Controls -->
@@ -82,7 +82,7 @@
                                     </div>
                                 </div>
                             </div>
-                        }                   
+                        }
 
                     </div>
                 </div>
@@ -90,29 +90,32 @@
         </div>
         <div class="col-sm-4 pro-block1">
             <div class="inner-div1">
-                <h2 class="category-pro-title"><span>Bags Collection</span></h2>
+                <h2 class="category-pro-title"><a href="https://noithattanthoi.com/chi-tiet-tin-tuc/dich-vu-thiet-ke-noi-that-uy-tin-chat-luong-tai-binh-duong-58" style="text-transform:uppercase; color:#cd0047">Dịch vụ thiết kế nội thất uy tín chất lượng tại Bình Dương</a></h2>
                 <div class="category-products">
-                    <div class="products small-list">
+                    <iframe width="100%" height="250" src="https://www.youtube.com/embed/850Qmsh68Pk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 
-                        @foreach (var i in Model.lstCollection3)
-                        {
-                            <div class="item">
-                                <div class="item-area">
-                                    <div class="product-image-area"> <a href="/chi-tiet-bo-suu-tap/@i.SEOUrlRewrite-@i.ProductID" class="product-image"> <img src="@WebConstants.ImgCollectionHost/@i.Images" alt="@i.ProductName"> </a> </div>
-                                    <div class="details-area">
-                                        <h2 class="product-name"><a href="/chi-tiet-bo-suu-tap/@i.SEOUrlRewrite-@i.ProductID">@i.ProductName</a></h2>
-                                        <div class="ratings">
-                                            <div class="rating-box">
-                                                <div class="rating" style="width:@i.Rating"></div>
+                    </iframe>
+                    @*<div class="products small-list">
+
+                            @foreach (var i in Model.lstCollection3)
+                            {
+                                <div class="item">
+                                    <div class="item-area">
+                                        <div class="product-image-area"> <a href="/chi-tiet-bo-suu-tap/@i.SEOUrlRewrite-@i.ProductID" class="product-image"> <img src="@WebConstants.ImgCollectionHost/@i.Images" alt="@i.ProductName"> </a> </div>
+                                        <div class="details-area">
+                                            <h2 class="product-name"><a href="/chi-tiet-bo-suu-tap/@i.SEOUrlRewrite-@i.ProductID">@i.ProductName</a></h2>
+                                            <div class="ratings">
+                                                <div class="rating-box">
+                                                    <div class="rating" style="width:@i.Rating"></div>
+                                                </div>
                                             </div>
+                                            <div class="price-box"> <span class="regular-price"> <span class="price">Liên hệ</span> </span> </div>
                                         </div>
-                                        <div class="price-box"> <span class="regular-price"> <span class="price">Liên hệ</span> </span> </div>
                                     </div>
                                 </div>
-                            </div>
-                        }
+                            }
 
-                    </div>
+                        </div>*@
                 </div>
             </div>
         </div>

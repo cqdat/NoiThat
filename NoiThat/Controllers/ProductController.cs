@@ -17,7 +17,7 @@ namespace NoiThat.Controllers
         public ActionResult Index()
         {
             ListProductViewModel2 model = new ListProductViewModel2();
-            model.Title = "Sản phẩm nội thất tại Bình Dương ";
+            model.Title = "Nội thất giá rẻ Bình Dương, nội thất chung cư bình dương";
             model.categories = db.Categories.Where(q => q.IsActive == true && q.TypeCate == 1 && q.Parent == 0).ToList();
             model.slides = db.Slides.Where(q => q.IsActive == true && q.CategoryID == -1).ToList();
             model.products = db.Products.Where(q => q.IsActive == true && q.IsProduct==true).ToList();
@@ -25,8 +25,8 @@ namespace NoiThat.Controllers
             model.listviewed = GetListProduct();
 
             model.SEOTitle = model.Title;
-            model.SEOKeywords = "Nội thất giá rẻ Bình Dương, Nội thất Chung Cư Bình Dương, nội thất Bình Dương";
-            model.SEOMetadescription = "Công ty Tân Thời chúng tôi, chúng tôi hiện đã và đang xuất ra thị trường các chủng loại sản phẩm nội thất chung cư, nội thất giá rẻ tại Bình Dương đáp ứng được nhu cầu đa dạng của KH";
+            model.SEOKeywords = "Nội thất giá rẻ Bình Dương, Nội thất Chung Cư Bình Dương, nội thất Bình Dương, Thiết kế nội thất binh duong";
+            model.SEOMetadescription = "chuyên cung cấp các sản phẩm nội thất giá rẻ tại Bình Dương, Nội thất chung cư tại Bình Dương, với đội ngũ thiết kế nội thất nhiều năm kinh nghiêm luôn tạo ra những sản phẩm nội thất giá rẻ tại Bình Dương cũng như toàn bộ khu vực.";
 
             return View(model);
         }
@@ -45,7 +45,7 @@ namespace NoiThat.Controllers
             }
             else
             {
-                model.TitleParent = "Tất cả sản phẩm";
+                model.TitleParent = "Nội thất giá rẻ Bình Dương, nội thất chung cư bình dương";
                 model.LinkParent = "/san-pham";
             }
 

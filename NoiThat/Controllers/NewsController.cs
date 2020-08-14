@@ -48,7 +48,7 @@ namespace NoiThat.Controllers
             
             if (pageSize == -1)
             {
-                pageSize = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogNews && b.IsActive == true).ToList().Count;
+                pageSize = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogNews && b.IsActive == true).OrderByDescending(b => b.LastModify).ToList().Count;
             }
             ViewBag.PageSize = pageSize;
 
@@ -65,7 +65,7 @@ namespace NoiThat.Controllers
             ViewBag.categoryid = categoryid;
 
 
-            lstnews = lstnews.OrderBy(s => s.LastModify).ToList();
+            lstnews = lstnews.OrderByDescending(s => s.LastModify).ToList();
 
             ViewBag.STT = pageNumber * pageSize - pageSize + 1;
             int count = lstnews.ToList().Count();

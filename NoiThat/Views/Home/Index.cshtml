@@ -7,7 +7,7 @@
 @section metatags
 {
     <meta name="keywords" content="nội thất giá rẻ bình dương, nội thất chung cư bình dương, nội thất bình dương, thi công nội thất bình dương" />
-    <meta name="description" content="Dịch vụ thi công nội thất Tân thời cung cấp các sản phẩm nội thất giá rẻ chất lượng, sản phẩm nội thất chung cư tại Bình Dương" />
+    <meta name="description" content="Chuyên cung cấp các sản phẩm nội thất giá rẻ tại Bình Dương, Nội thất chung cư tại Bình Dương, với đội ngũ thiết kế nội thất nhiều năm kinh nghiêm luôn tạo ra những sản phẩm nội thất giá rẻ tại Bình Dương cũng như các khu vực lân cận." />
 }
 <!-- Slider -->
 @Html.Partial("_slideHomePage", Model.lstSlideHomePage)
@@ -100,9 +100,10 @@
                     </div>
                     <div class="col mid">
                         <div class="inner-text">
-                            <h3>Giường Ngủ</h3>
+                            <h3>Tủ<br />
+                            Quần Áo</h3>
                         </div>
-                        <a href="/san-pham/giuong-ngu-9"><img src="~/images/Giuong-ngu-Binh-Duong-001.jpg" alt="Giường Ngủ Bình Dương"></a>
+                        <a href="/chi-tiet-san-pham/tu-quan-ao-da-nang-26"><img src="~/images/offer-banner2.jpg" alt="Nội thất Chung cư Bình Dương"></a>
                     </div>
                     <div class="col last">
                         <div class="inner-text">
@@ -155,7 +156,7 @@
                                 <img src="@WebConstants.ImgNewsHost/@i.ImageURL" style="height:240px" alt="@i.BlogName">
                                 <!--<div class="mask"> <a class="info" href="blog-detail.html">Read More</a> </div>-->
                             </div>
-                            <h3><a style="overflow: hidden;text-overflow: ellipsis; display: inherit;" href="/tin-tuc/@i.SEOUrlRewrite-@i.BlogID">@i.BlogName</a> </h3>
+                            <h3><a style="overflow: hidden;text-overflow: ellipsis; display: inherit;" href="/chi-tiet-tin-tuc/@i.SEOUrlRewrite-@i.BlogID">@i.BlogName</a> </h3>
                             <p style="color:#ffffff">
                                 @{
                                     var shortString = "";
@@ -181,7 +182,25 @@
     </div>
 </section>
 <!-- End Featured Slider -->
-
+<div id="myModal" class="modal fade" style="top:120px">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color:#1dd301; color:#ffffff">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Mừng Sự Kiện Khai trương showroom mới</h4>
+            </div>
+            <div class="modal-body">
+                <p>Tưng bừng khai trương showroom nội thất mới cùng nhiều chương trình khuyến mãi hấp dẫn.</p>
+                <p>
+                    <a href="https://noithattanthoi.com" target="_blank">
+                        <img src="~/images/bannerQuangcao.jpg" />
+                    </a>
+                    
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 @section scripts
@@ -191,7 +210,7 @@
 
             $(".level0 a").removeClass("active");
             $(".level0:first-child a").addClass("active");
-
+            //$("#myModal").modal("show");
         });
     </script>
 }

@@ -6,9 +6,17 @@
         <div class="row">
             @foreach (var i in Model)
             {
-                <div class="col-lg-4 col-xs-12 col-md-4 col-sm-4 wow">
-                    <a href="#"><img alt="@i.AdvertiseName" src="@WebConstants.ImgNewsHost/@i.AdvertiseImage"></a>
-                </div>
+            <div class="col-lg-4 col-xs-12 col-md-4 col-sm-4 wow">
+                @if (i.AdvertiseURL == null || i.AdvertiseURL == "")
+                {
+                    <a href="@i.AdvertiseURL"><img alt="@i.AdvertiseName" src="@WebConstants.ImgNewsHost/@i.AdvertiseImage"></a>
+                }
+                else
+                {
+                    <a href="@i.AdvertiseURL"><img alt="@i.AdvertiseName" src="@WebConstants.ImgNewsHost/@i.AdvertiseImage"></a>
+                }
+
+            </div>
             }
 
 
